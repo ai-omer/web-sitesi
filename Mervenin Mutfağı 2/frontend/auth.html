@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mervece Dünyam - Oturum Aç / Kayıt Ol</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --bg: #0F0E1A;
+      --bg2: #16152B;
+      --accent: #E94560;
+      --accent2: #FF6B8A;
+      --accent3: #C62A47;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: #EEF0FF;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+    .glass {
+      background: rgba(22, 21, 43, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(233, 69, 96, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 1;
+      opacity: 0.55;
+      pointer-events: none;
+      animation: pulse 12s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.55; }
+      50% { transform: scale(1.15) translate(30px, -20px); opacity: 0.75; }
+    }
+    .form-tab {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .form-tab.active {
+      border-bottom: 2px solid var(--accent);
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body class="relative flex items-center justify-center min-h-screen px-4 py-12">
+
+  <!-- Arka Plan Küre Efektleri -->
+  <div class="orb w-80 h-80 bg-red-900/40 -top-20 -left-20"></div>
+  <div class="orb w-96 h-96 bg-purple-950/40 -bottom-20 -right-20" style="animation-delay: 3s;"></div>
+
+  <!-- Ana Kart Konteyner -->
+  <div class="glass max-w-md w-full rounded-3xl p-8 md:p-10 z-10 animate-fade-in relative">
+    
+    <!-- Logo & Geri Dön Linki -->
+    <div class="text-center mb-8">
+      <a href="./index.html" class="inline-flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#E94560] to-[#C62A47] flex items-center justify-center font-display font-black text-xl text-white shadow-[0_0_20px_rgba(233,69,96,0.3)]">M</div>
+        <span class="font-display text-2xl font-black bg-gradient-to-r from-[#E94560] to-[#FF6B8A] bg-clip-text text-transparent">Mervece</span>
+      </a>
+      <h2 class="text-xl font-bold tracking-tight text-white mb-2" id="auth-title">Mervece Dünyam'a Hoş Geldin</h2>
+      <p class="text-sm text-gray-400">Tüm mutfak, vlog ve elişi maceralarımı tek bir yerde yönet.</p>
+    </div>
+
+    <!-- Sekmeler (Login / Register) -->
+    <div class="flex border-b border-gray-800 mb-6 text-center text-sm font-semibold text-gray-400">
+      <button id="tab-login" onclick="switchTab('login')" class="flex-1 pb-3 form-tab active">Giriş Yap</button>
+      <button id="tab-register" onclick="switchTab('register')" class="flex-1 pb-3 form-tab">Kayıt Ol</button>
+    </div>
+
+    <!-- Giriş Formu -->
+    <form id="form-login" onsubmit="handleLogin(event)" class="space-y-5">
+      <div>
+        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">E-POSTA ADRESİ</label>
+        <input type="email" id="login-email" required placeholder="ornek@domain.com" class="w-full px-4 py-3 rounded-xl bg-[#121124] border border-gray-800 text-white focus:outline-none focus:border-[#E94560] transition-colors text-sm">
+      </div>
+      <div>
+        <div class="flex justify-between items-center mb-2">
+          <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">ŞİFRE</label>
+        </div>
+        <input type="password" id="login-password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-[#121124] border border-gray-800 text-white focus:outline-none focus:border-[#E94560] transition-colors text-sm">
+      </div>
+      <button type="submit" id="btn-login-submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#E94560] to-[#C62A47] hover:brightness-110 active:scale-[0.99] transition-all font-bold text-sm text-white shadow-[0_4px_20px_rgba(233,69,96,0.3)]">
+        Giriş Yap
+      </button>
+    </form>
+
+    <!-- Kayıt Formu (Gizli) -->
+    <form id="form-register" onsubmit="handleRegister(event)" class="space-y-5 hidden">
+      <div>
+        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">KULLANICI ADI</label>
+        <input type="text" id="reg-username" required placeholder="mervesef" class="w-full px-4 py-3 rounded-xl bg-[#121124] border border-gray-800 text-white focus:outline-none focus:border-[#E94560] transition-colors text-sm">
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">E-POSTA ADRESİ</label>
+        <input type="email" id="reg-email" required placeholder="ornek@domain.com" class="w-full px-4 py-3 rounded-xl bg-[#121124] border border-gray-800 text-white focus:outline-none focus:border-[#E94560] transition-colors text-sm">
+      </div>
+      <div>
+        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">ŞİFRE (MİN. 6 KARAKTER)</label>
+        <input type="password" id="reg-password" required minlength="6" placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-[#121124] border border-gray-800 text-white focus:outline-none focus:border-[#E94560] transition-colors text-sm">
+      </div>
+      <button type="submit" id="btn-reg-submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#E94560] to-[#C62A47] hover:brightness-110 active:scale-[0.99] transition-all font-bold text-sm text-white shadow-[0_4px_20px_rgba(233,69,96,0.3)]">
+        Hesap Oluştur
+      </button>
+    </form>
+
+    <!-- Geri Butonu -->
+    <div class="mt-6 text-center">
+      <a href="./index.html" class="text-xs text-gray-400 hover:text-white transition-colors">← Sayfaya Geri Dön</a>
+    </div>
+
+  </div>
+
+  <!-- Bildirim Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-3.5 rounded-2xl text-sm font-semibold text-white shadow-2xl z-50 pointer-events-none opacity-0 translate-y-2 transition-all duration-300">
+    Toast Message
+  </div>
+
+  <script>
+    // Dinamik API host tespiti (Yerel ağda/Wi-Fi üzerinden mobil testler için)
+    const getApiBaseUrl = () => {
+      const hostname = window.location.hostname;
+      if (!hostname || hostname === 'localhost' || hostname === '127.0.0.1') {
+        return 'http://localhost:8000';
+      }
+      return `http://${hostname}:8000`;
+    };
+
+    const API_BASE = getApiBaseUrl();
+
+    // Sekme Değiştirme
+    function switchTab(mode) {
+      const loginForm = document.getElementById('form-login');
+      const registerForm = document.getElementById('form-register');
+      const tabLogin = document.getElementById('tab-login');
+      const tabRegister = document.getElementById('tab-register');
+      const title = document.getElementById('auth-title');
+
+      if (mode === 'login') {
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+        tabLogin.classList.add('active');
+        tabRegister.classList.remove('active');
+        title.textContent = 'Mervece Dünyam\'a Hoş Geldin';
+      } else {
+        loginForm.classList.add('hidden');
+        registerForm.classList.remove('hidden');
+        tabLogin.classList.remove('active');
+        tabRegister.classList.add('active');
+        title.textContent = 'Aramıza Katıl!';
+      }
+    }
+
+    // Toast Bildirim Göster
+    function showToast(msg, type = 'success') {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      
+      if (type === 'success') {
+        toast.style.background = 'rgba(16, 185, 129, 0.95)';
+        toast.style.border = '1px solid rgba(16, 185, 129, 0.5)';
+      } else {
+        toast.style.background = 'rgba(239, 68, 68, 0.95)';
+        toast.style.border = '1px solid rgba(239, 68, 68, 0.5)';
+      }
+      
+      toast.classList.remove('opacity-0', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 3000);
+    }
+
+    // Giriş Yap İşlemi
+    async function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const btn = document.getElementById('btn-login-submit');
+
+      btn.disabled = true;
+      btn.textContent = 'Giriş Yapılıyor...';
+
+      try {
+        const res = await fetch(`${API_BASE}/api/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Giriş başarısız oldu.');
+
+        // Token ve Kullanıcı Bilgisini Kaydet
+        localStorage.setItem('token', data.access_token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+
+        showToast('Başarıyla giriş yapıldı! Yönlendiriliyorsunuz...', 'success');
+        
+        setTimeout(() => {
+          // Önceki sayfaya veya anasayfaya yönlendir
+          const referrer = document.referrer;
+          if (referrer && (referrer.includes('mutfak') || referrer.includes('chef') || referrer.includes('profile'))) {
+            window.location.href = referrer;
+          } else {
+            window.location.href = './index.html';
+          }
+        }, 1500);
+
+      } catch (err) {
+        showToast(err.message, 'error');
+        btn.disabled = false;
+        btn.textContent = 'Giriş Yap';
+      }
+    }
+
+    // Kayıt Ol İşlemi
+    async function handleRegister(e) {
+      e.preventDefault();
+      const username = document.getElementById('reg-username').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value;
+      const btn = document.getElementById('btn-reg-submit');
+
+      btn.disabled = true;
+      btn.textContent = 'Kaydediliyor...';
+
+      try {
+        const res = await fetch(`${API_BASE}/api/auth/register`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password })
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Kayıt olunamadı.');
+
+        showToast('Kayıt başarılı! Şimdi giriş yapabilirsiniz.', 'success');
+        
+        setTimeout(() => {
+          switchTab('login');
+          document.getElementById('login-email').value = email;
+          btn.disabled = false;
+          btn.textContent = 'Hesap Oluştur';
+        }, 1500);
+
+      } catch (err) {
+        showToast(err.message, 'error');
+        btn.disabled = false;
+        btn.textContent = 'Hesap Oluştur';
+      }
+    }
+  </script>
+</body>
+</html>

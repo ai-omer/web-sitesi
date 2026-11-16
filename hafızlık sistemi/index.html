@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hafızlık Takip Sistemi ✨</title>
+  <meta name="description" content="Kişiselleştirilmiş Kur'an sure ezber ve aralıklı tekrar takip uygulaması" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { nunito: ['Nunito', 'sans-serif'] },
+          colors: {
+            cream: { 50: '#FDFCFA', 100: '#FBFBF9', 200: '#F7F5F0', 300: '#EDE8DF' },
+            sage: { 100: '#D8E8DC', 200: '#B5D4BC', 300: '#84A98C', 400: '#52796F', 500: '#3D6156', 600: '#2D4A42' },
+            lavender: { 100: '#E8EAFF', 200: '#D0D4FF', 300: '#B8C0FF', 400: '#9BA6FF', 500: '#7C87F5' },
+            peach: { 100: '#FFF0EB', 200: '#FFDDD2', 300: '#FFBDAB', 400: '#F4ACB7', 500: '#E88FA4' },
+          },
+          boxShadow: {
+            'soft': '0 2px 15px rgba(0,0,0,0.06)',
+            'card': '0 4px 24px rgba(0,0,0,0.07)',
+            'lifted': '0 8px 32px rgba(0,0,0,0.10)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg-main:#F7F5F0; --bg-card:#ffffff; --bg-header:#FBFBF9;
+      --accent-1:#52796F; --accent-2:#84A98C; --accent-light:#D8E8DC;
+      --accent-gradient:linear-gradient(135deg,#84A98C,#52796F);
+      --accent-shadow:rgba(82,121,111,0.3); --border-color:#EDE8DF;
+      --text-accent:#2D4A42; --scrollbar-thumb:#B5D4BC;
+      --tab-active-bg:linear-gradient(135deg,#84A98C,#52796F); --tab-active-color:white;
+      --tab-inactive-bg:white; --tab-inactive-color:#52796F;
+      --progress-fill:linear-gradient(90deg,#84A98C,#52796F);
+      --today-card-bg:linear-gradient(135deg,#B8C0FF 0%,#D8E8DC 100%);
+      --btn-input-bg:#F7F5F0;
+    }
+    body.theme-lavender {
+      --bg-main:#FAF5FF; --bg-card:#ffffff; --bg-header:#F5EEFF;
+      --accent-1:#7C6FBF; --accent-2:#9D8DF1; --accent-light:#E8EAFF;
+      --accent-gradient:linear-gradient(135deg,#B8C0FF,#9D8DF1);
+      --accent-shadow:rgba(157,141,241,0.35); --border-color:#E2D9F3;
+      --text-accent:#4B3B8C; --scrollbar-thumb:#C4B5FD;
+      --tab-active-bg:linear-gradient(135deg,#B8C0FF,#9D8DF1); --tab-active-color:white;
+      --tab-inactive-bg:white; --tab-inactive-color:#7C6FBF;
+      --progress-fill:linear-gradient(90deg,#B8C0FF,#9D8DF1);
+      --today-card-bg:linear-gradient(135deg,#E8EAFF 0%,#F4ACB7 100%);
+      --btn-input-bg:#F0EBFF;
+    }
+    body.theme-peach {
+      --bg-main:#FFFDF7; --bg-card:#FFFAF0; --bg-header:#FFFBF0;
+      --accent-1:#C87941; --accent-2:#E09F3E; --accent-light:#FFF0D6;
+      --accent-gradient:linear-gradient(135deg,#F4C06F,#E09F3E);
+      --accent-shadow:rgba(224,159,62,0.35); --border-color:#F5E6CC;
+      --text-accent:#7A4A10; --scrollbar-thumb:#F4C06F;
+      --tab-active-bg:linear-gradient(135deg,#F4C06F,#E09F3E); --tab-active-color:white;
+      --tab-inactive-bg:white; --tab-inactive-color:#C87941;
+      --progress-fill:linear-gradient(90deg,#F4C06F,#E09F3E);
+      --today-card-bg:linear-gradient(135deg,#FFE5B4 0%,#FFDDD2 100%);
+      --btn-input-bg:#FFF5E0;
+    }
+    body.theme-ocean {
+      --bg-main:#F0F4F8; --bg-card:#ffffff; --bg-header:#EAF0F7;
+      --accent-1:#4A7AB5; --accent-2:#7395AE; --accent-light:#D6E4F0;
+      --accent-gradient:linear-gradient(135deg,#7395AE,#4A7AB5);
+      --accent-shadow:rgba(74,122,181,0.3); --border-color:#D4E2EE;
+      --text-accent:#2C4E7A; --scrollbar-thumb:#7395AE;
+      --tab-active-bg:linear-gradient(135deg,#7395AE,#4A7AB5); --tab-active-color:white;
+      --tab-inactive-bg:white; --tab-inactive-color:#4A7AB5;
+      --progress-fill:linear-gradient(90deg,#7395AE,#4A7AB5);
+      --today-card-bg:linear-gradient(135deg,#A8D0E6 0%,#D6E4F0 100%);
+      --btn-input-bg:#E5EFF8;
+    }
+    *{box-sizing:border-box;}
+    body{font-family:'Nunito',sans-serif;background:var(--bg-main);color:#2D3748;transition:background 0.3s ease;}
+    ::-webkit-scrollbar{width:6px;}
+    ::-webkit-scrollbar-track{background:var(--bg-main);}
+    ::-webkit-scrollbar-thumb{background:var(--scrollbar-thumb);border-radius:8px;}
+    *,*::before,*::after{transition:background-color 0.3s ease,border-color 0.3s ease,color 0.3s ease,box-shadow 0.3s ease;}
+    .page-btn,.menu-item-card,.surah-card{transition:background-color 0.3s ease,border-color 0.3s ease,box-shadow 0.2s ease,transform 0.2s ease !important;}
+    .tab-active{background:var(--tab-active-bg);color:var(--tab-active-color);box-shadow:0 4px 12px var(--accent-shadow);}
+    .tab-inactive{background:var(--tab-inactive-bg);color:var(--tab-inactive-color);}
+    .page-btn{transition:all 0.2s ease;border-width:2px;min-width:58px;}
+    .page-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+    .page-btn:active{transform:translateY(0);}
+    .page-btn.fresh{background:#D8E8DC;border-color:#84A98C;color:#3D6156;}
+    .page-btn.warn{background:#FEF3C7;border-color:#F59E0B;color:#92400E;}
+    .page-btn.urgent{background:#FEE2E2;border-color:#EF4444;color:#991B1B;}
+    .page-btn.pending{background:#F3F4F6;border-color:#D1D5DB;color:#6B7280;}
+    .page-btn.selected{transform:scale(1.06);box-shadow:0 0 0 3px #B8C0FF;}
+    .multiselect-mode .page-btn{cursor:crosshair;}
+    .modal-backdrop{position:fixed;inset:0;background:rgba(45,52,72,0.4);backdrop-filter:blur(4px);z-index:50;display:flex;align-items:center;justify-content:center;padding:16px;}
+    .modal-card{background:var(--bg-card);border-radius:24px;width:100%;max-width:460px;box-shadow:0 20px 60px rgba(0,0,0,0.15);overflow:hidden;max-height:90vh;overflow-y:auto;}
+    .streak-badge{background:linear-gradient(135deg,#FFDDD2,#F4ACB7);border-radius:99px;padding:4px 14px;font-weight:700;font-size:13px;color:#9B2335;}
+    .accordion-body{max-height:0;overflow:hidden;transition:max-height 0.45s cubic-bezier(.4,0,.2,1),padding 0.3s ease;}
+    .accordion-body.open{max-height:3000px;}
+    .settings-btn{transition:transform 0.25s !important;}
+    .settings-btn:hover{transform:rotate(45deg) !important;}
+    .surah-ms-bar{background:linear-gradient(90deg,#E8EAFF,#D8E8DC);border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px;}
+    .log-chip{display:inline-flex;align-items:center;gap:4px;background:var(--bg-main);border-radius:99px;padding:3px 10px;font-size:11px;font-weight:600;color:var(--accent-1);}
+    textarea{font-family:'Nunito',sans-serif;resize:vertical;}
+    .surah-card{background:var(--bg-card);border-radius:20px;box-shadow:0 2px 15px rgba(0,0,0,0.06);overflow:hidden;}
+    .surah-card:hover{box-shadow:0 4px 24px rgba(0,0,0,0.10);}
+    .surah-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;user-select:none;}
+    .today-card{background:var(--today-card-bg);border-radius:24px;padding:24px;box-shadow:0 8px 32px var(--accent-shadow);}
+    .menu-item-card{background:var(--bg-card);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,0.07);}
+    .menu-item-card:hover{box-shadow:0 4px 18px rgba(0,0,0,0.11);transform:translateY(-1px);}
+    .filter-btn{transition:all 0.2s;}
+    .filter-btn.active{background:var(--accent-1);color:white;box-shadow:0 2px 8px var(--accent-shadow);}
+    .filter-btn.inactive{background:var(--bg-card);color:var(--accent-1);border-color:var(--accent-2);}
+    .health-bar-segment{height:10px;border-radius:99px;min-width:6px;}
+    @keyframes floatIn{from{opacity:0;transform:translateY(16px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+    .float-in{animation:floatIn 0.4s cubic-bezier(.4,0,.2,1) both;}
+    @keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(239,68,68,0.4);}70%{box-shadow:0 0 0 10px rgba(239,68,68,0);}100%{box-shadow:0 0 0 0 rgba(239,68,68,0);}}
+    .urgent-pulse{animation:pulse-ring 2s infinite;}
+    .check-mark-btn{transition:all 0.2s;border-radius:99px;padding:6px 14px;font-size:13px;font-weight:700;}
+    .check-mark-btn:hover{transform:scale(1.05);}
+    input[type="date"],input[type="number"],input[type="text"]{font-family:'Nunito',sans-serif;}
+    .theme-panel{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg-card);border-radius:20px;padding:14px;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:100;display:flex;gap:8px;min-width:230px;flex-wrap:wrap;border:1px solid var(--border-color);}
+    .theme-swatch{border-radius:12px;width:46px;height:46px;cursor:pointer;border:3px solid transparent;transition:all 0.2s !important;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+    .theme-swatch:hover{transform:scale(1.12) !important;box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+    .theme-swatch.active{border-color:#333;box-shadow:0 0 0 2px rgba(0,0,0,0.15);}
+    #toast-container{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none;}
+    .toast{background:#2D3748;color:white;border-radius:14px;padding:10px 20px;font-size:13px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,0.25);animation:toastIn 0.3s ease both;pointer-events:auto;}
+    @keyframes toastIn{from{opacity:0;transform:translateY(10px) scale(0.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+    @keyframes toastOut{from{opacity:1;transform:translateY(0) scale(1);}to{opacity:0;transform:translateY(10px) scale(0.95);}}
+    .toast.out{animation:toastOut 0.3s ease forwards;}
+    header{background:var(--bg-header) !important;border-color:var(--border-color) !important;}
+    .themed-input{background:var(--btn-input-bg) !important;border-color:var(--border-color) !important;}
+    .themed-input:focus{border-color:var(--accent-2) !important;}
+    .surah-action-btn{padding:5px 9px;border-radius:8px;font-size:11px;font-weight:700;border:1.5px solid var(--border-color);background:var(--bg-main);cursor:pointer;color:#6B7280;}
+    .surah-action-btn:hover{box-shadow:0 2px 8px rgba(0,0,0,0.12);color:#2D3748;background:var(--bg-card);}
+    .unmark-btn{background:#FEE2E2;color:#991B1B;border:2px solid #FCA5A5;border-radius:14px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;width:100%;text-align:center;display:block;}
+    .unmark-btn:hover{background:#FECACA;}
+    .student-delete-btn{padding:3px 7px;border-radius:8px;background:#FEE2E2;border:1.5px solid #FCA5A5;cursor:pointer;font-size:11px;color:#991B1B;line-height:1;}
+    .student-delete-btn:hover{background:#FECACA;}
+    .add-student-btn{padding:6px 12px;border-radius:14px;font-size:12px;font-weight:700;background:var(--accent-light);color:var(--accent-1);border:2px dashed var(--accent-2);cursor:pointer;white-space:nowrap;}
+    .add-student-btn:hover{opacity:0.8;}
+    @media(max-width:480px){.modal-card{max-width:100%;border-radius:18px;}.theme-panel{min-width:190px;}}
+  </style>
+</head>
+<body class="min-h-screen">
+
+<div id="toast-container"></div>
+
+<div id="modal" class="modal-backdrop hidden" onclick="handleModalBackdropClick(event)">
+  <div class="modal-card float-in" id="modal-card">
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<header class="sticky top-0 z-40 shadow-soft border-b">
+  <div class="max-w-3xl mx-auto px-4 py-3">
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🌙</span>
+        <div>
+          <h1 class="text-lg font-extrabold leading-tight" style="color:var(--text-accent)">Hafızlık Takibi</h1>
+          <p class="text-xs font-medium" style="color:var(--accent-2)">Aralıklı Tekrar Sistemi</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        <div id="streak-badge" class="streak-badge hidden"></div>
+        <div class="relative" id="theme-switcher-wrap">
+          <button onclick="toggleThemePanel()" title="Tema Değiştir"
+            class="p-2 rounded-xl border text-sm font-bold hover:shadow-soft"
+            style="background:var(--bg-card);border-color:var(--border-color);color:var(--accent-1)">🎨</button>
+          <div class="theme-panel hidden" id="theme-panel">
+            <div class="w-full text-xs font-bold mb-1 px-1" style="color:var(--accent-1)">🎨 Tema Seç</div>
+            <button class="theme-swatch" style="background:linear-gradient(135deg,#D8E8DC,#52796F)" title="Adaçayı ve Nane" onclick="applyTheme('sage')">🌿</button>
+            <button class="theme-swatch" style="background:linear-gradient(135deg,#E8EAFF,#F4ACB7)" title="Lavanta" onclick="applyTheme('lavender')">🌸</button>
+            <button class="theme-swatch" style="background:linear-gradient(135deg,#FFE5B4,#E09F3E)" title="Bal ve Şeftali" onclick="applyTheme('peach')">🍯</button>
+            <button class="theme-swatch" style="background:linear-gradient(135deg,#A8D0E6,#4A7AB5)" title="Okyanus" onclick="applyTheme('ocean')">🌊</button>
+          </div>
+        </div>
+        <button onclick="openSettingsModal()" title="Ayarlar" class="settings-btn p-2 rounded-xl border text-sm"
+          style="background:var(--bg-card);border-color:var(--border-color);color:var(--accent-2)">⚙️</button>
+        <button onclick="exportData()" title="Verileri Yedekle" class="p-2 rounded-xl border text-sm"
+          style="background:var(--bg-card);border-color:var(--border-color);color:var(--accent-2)">💾</button>
+        <label title="Yedek Yükle" class="p-2 rounded-xl border text-sm cursor-pointer"
+          style="background:var(--bg-card);border-color:var(--border-color);color:#E88FA4">
+          📂<input type="file" accept=".json" onchange="importData(event)" class="hidden" />
+        </label>
+      </div>
+    </div>
+    <div class="flex gap-2 mt-3 items-center flex-wrap" id="student-tabs"></div>
+    <div class="mt-3">
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs font-semibold" style="color:var(--accent-1)">Hafıza Sağlığı</span>
+        <span id="health-percent" class="text-xs font-bold" style="color:var(--accent-1)"></span>
+      </div>
+      <div class="w-full h-3 rounded-full overflow-hidden flex gap-0.5" style="background:var(--border-color)">
+        <div id="bar-fresh" class="health-bar-segment bg-sage-300 transition-all duration-700" style="width:0%"></div>
+        <div id="bar-warn" class="health-bar-segment" style="background:#F59E0B;width:0%;transition:all 0.7s"></div>
+        <div id="bar-urgent" class="health-bar-segment" style="background:#EF4444;width:0%;transition:all 0.7s"></div>
+        <div id="bar-pending" class="health-bar-segment bg-gray-300 transition-all duration-700" style="width:0%"></div>
+      </div>
+      <div class="flex gap-3 mt-1 text-xs text-gray-500">
+        <span>🟢 <span id="count-fresh">0</span> Taze</span>
+        <span>🟡 <span id="count-warn">0</span> Uyarı</span>
+        <span>🔴 <span id="count-urgent">0</span> Acil</span>
+        <span>⚪ <span id="count-pending">0</span> Bekliyor</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 py-6 space-y-6">
+  <section id="today-section" class="today-card float-in">
+    <div class="mb-4">
+      <p id="greeting-text" class="text-xl font-extrabold leading-snug" style="color:var(--text-accent)"></p>
+      <p class="text-sm font-medium mt-1" id="today-date-text" style="color:var(--accent-1)"></p>
+    </div>
+    <div id="today-items" class="space-y-2"></div>
+    <div id="multiselect-section" class="mt-4 hidden">
+      <div class="rounded-2xl p-3" style="background:rgba(255,255,255,0.6)">
+        <p class="text-sm font-bold mb-2" style="color:var(--accent-1)">📌 Bugün hangi sayfaları verdin?</p>
+        <div id="multiselect-pages" class="flex flex-wrap gap-2"></div>
+        <button onclick="markSelectedPages()" class="mt-3 w-full py-2.5 rounded-xl text-sm font-bold text-white"
+          style="background:var(--accent-gradient)">✅ Seçili Sayfaları Bugün Verdim</button>
+      </div>
+    </div>
+    <button onclick="toggleMultiselect()" class="mt-3 text-xs font-semibold underline decoration-dotted" style="color:var(--accent-1)">
+      📋 Birden Fazla Sayfa Verdim →
+    </button>
+  </section>
+
+  <section class="space-y-2.5">
+    <div class="flex gap-2 items-center">
+      <input id="search-input" type="text" placeholder="🔍 Sure veya sayfa ara..." oninput="renderSurahList()"
+        class="flex-1 min-w-[160px] themed-input border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none" />
+      <button id="filter-urgent" onclick="toggleFilter('urgent')" class="filter-btn inactive border rounded-xl px-4 py-2.5 text-sm font-bold shrink-0">🔴 Acil</button>
+    </div>
+    <div id="juz-filters-container" class="flex flex-wrap gap-1.5 items-center"></div>
+  </section>
+
+  <section class="space-y-3">
+    <div class="flex items-center justify-between">
+      <h2 class="text-sm font-extrabold uppercase tracking-wide" style="color:var(--accent-1)">Sure Listesi</h2>
+      <button onclick="openAddSurahModal()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-bold"
+        style="background:var(--accent-gradient);color:white;box-shadow:0 2px 8px var(--accent-shadow)">
+        ➕ Yeni Sure / Bölüm
+      </button>
+    </div>
+    <div id="surah-list" class="space-y-3"></div>
+  </section>
+</main>
+
+<script>
+// DATA MODEL & SEED
+const SEED_SURAHS = [
+  { name: 'Fatiha', juz: 1, pages: [1] },
+  { name: 'İbrahim', juz: 13, pages: [254,255,256,257,258,259,260] },
+  { name: 'Kehf', juz: '15-16', pages: [292,293,294,295,296,297,298,299,300,301,302,303] },
+  { name: 'Meryem', juz: 16, pages: [304,305,306,307,308,309,310,311] },
+  { name: 'Taha', juz: 16, pages: [311,312,313,314,315,316,317,318,319,320] },
+  { name: 'Secde', juz: 21, pages: [414,415,416] },
+  { name: 'Yasin', juz: '22-23', pages: [439,440,441,442,443,444] },
+  { name: 'Duhan', juz: 25, pages: [495,496,497] },
+  { name: 'Casiye', juz: 25, pages: [498,499,500,501] },
+  { name: 'Muhammed', juz: 26, pages: [506,507,508,509] },
+  { name: 'Fetih', juz: 26, pages: [510,511,512,513,514] },
+  { name: 'Hucurat', juz: 26, pages: [515,516,517] },
+  { name: 'Kaf', juz: 26, pages: [518,519,520] },
+  { name: 'Rahman', juz: 27, pages: [530,531,532,533] },
+  { name: 'Vakıa', juz: 27, pages: [534,535,536] },
+  { name: 'Cuma', juz: 28, pages: [552,553,554] },
+  { name: '29. Cüz', juz: 29, pages: [561,562,563,564,565,566,567,568,569,570,571,572,573,574,575,576,577,578,579,580,581],
+    subSurahs: {561:'Mülk',562:'Mülk',563:'Mülk',564:'Mülk',565:'Kalem',566:'Kalem',567:'Hakka',568:'Hakka',569:'Mearic',570:'Mearic',571:'Nuh',572:'Nuh',573:'Cin',574:'Cin',575:'Müzzemmil',576:'Müddessir',577:'Müddessir',578:'Kıyame',579:'İnsan',580:'İnsan',581:'Mürselat'} },
+  { name: '30. Cüz (Amme)', juz: 30, pages: [581,582,583,584,585,586,587,588,589,590,591,592,593,594,595,596,597,598,599,600,601,602,603,604],
+    subSurahs: {581:'Nebe',582:'Nebe',583:'Naziat',584:'Abese',585:'Tekvir',586:'İnfitar',587:'Mutaffifin',588:'Mutaffifin',589:'İnşikak',590:'Buruc',591:'Tarık',592:'Ala',593:'Gaşiye',594:'Fecr',595:'Beled',596:'Şems',597:'Leyl',598:'Duha',599:'İnşirah',600:'Tin',601:'Alak',602:'Kadr',603:'Beyyine',604:'Nas-grubu'} }
+];
+
+function generateSeedPages() {
+  const pages = [];
+  SEED_SURAHS.forEach(s => s.pages.forEach(pg => pages.push({
+    id: s.name+'-'+pg, surahName: s.name, juz: s.juz, pageNumber: pg,
+    subSurahName: s.subSurahs ? s.subSurahs[pg] : null,
+    lastReviewedDate: null, reviewLog: [], qualityNotes: null, lessonNote: ''
+  })));
+  return pages;
+}
+
+// SETTINGS
+const SETTINGS_KEY = 'hafizlik_settings_v3';
+function loadSettings() {
+  let raw = localStorage.getItem(SETTINGS_KEY);
+  if (raw) { try { return JSON.parse(raw); } catch(e){} }
+  raw = localStorage.getItem('hafizlik_settings_v2');
+  if (raw) { try { const o=JSON.parse(raw); return {warnDays:o.warnDays||15,urgentDays:o.urgentDays||25,studentNames:o.studentNames||['🌸 1. Öğrenci','🌿 2. Öğrenci'],theme:'sage'}; } catch(e){} }
+  return {warnDays:15, urgentDays:25, studentNames:['🌸 1. Öğrenci','🌿 2. Öğrenci'], theme:'sage'};
+}
+function saveSettings(s) { localStorage.setItem(SETTINGS_KEY, JSON.stringify(s)); }
+let settings = loadSettings();
+
+// THEME
+const THEMES = {sage:'', lavender:'theme-lavender', peach:'theme-peach', ocean:'theme-ocean'};
+function applyTheme(t) {
+  Object.values(THEMES).forEach(c => { if(c) document.body.classList.remove(c); });
+  if (THEMES[t]) document.body.classList.add(THEMES[t]);
+  settings.theme = t; saveSettings(settings);
+  document.querySelectorAll('.theme-swatch').forEach((el,i) => {
+    el.classList.toggle('active', ['sage','lavender','peach','ocean'][i] === t);
+  });
+  closeThemePanel();
+  showToast('🎨 Tema değiştirildi!');
+}
+function toggleThemePanel() { document.getElementById('theme-panel').classList.toggle('hidden'); }
+function closeThemePanel() { document.getElementById('theme-panel').classList.add('hidden'); }
+document.addEventListener('click', e => {
+  const w = document.getElementById('theme-switcher-wrap');
+  if (w && !w.contains(e.target)) closeThemePanel();
+});
+
+// TOAST
+function showToast(msg, dur) {
+  dur = dur || 2500;
+  const c = document.getElementById('toast-container');
+  const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; c.appendChild(t);
+  setTimeout(function() { t.classList.add('out'); setTimeout(function() { t.remove(); }, 300); }, dur);
+}
+
+// STATE
+let currentStudent = 0, activeFilters = new Set(), multiselectActive = false, selectedPageIds = new Set();
+let surahMultiselect = {};
+const STUDENT_META_KEY = 'hafizlik_student_meta_v1';
+
+function loadStudentMeta() {
+  const raw = localStorage.getItem(STUDENT_META_KEY);
+  if (raw) { try { return JSON.parse(raw); } catch(e){} }
+  return settings.studentNames.map(function(n, i) { return {id: i, name: n}; });
+}
+function saveStudentMeta(m) { localStorage.setItem(STUDENT_META_KEY, JSON.stringify(m)); }
+let studentMeta = loadStudentMeta();
+
+function ensureStudentConsistency() {
+  if (studentMeta.length === 0) { studentMeta = [{id: Date.now(), name: '🌸 1. Öğrenci'}]; saveStudentMeta(studentMeta); }
+  if (currentStudent >= studentMeta.length) currentStudent = 0;
+}
+
+function sKey(id) { return 'hafizlik_v3_student_' + id; }
+
+function loadStudentData(id) {
+  let raw = localStorage.getItem(sKey(id));
+  if (raw) {
+    try {
+      const d = JSON.parse(raw);
+      d.pages = d.pages.map(function(p) { return Object.assign({reviewLog:[],lessonNote:'',qualityNotes:null,subSurahName:null}, p); });
+      return d;
+    } catch(e) {}
+  }
+  if (typeof id === 'number' && id < 2) {
+    raw = localStorage.getItem('hafizlik_v2_student_' + id);
+    if (raw) {
+      try {
+        const d = JSON.parse(raw);
+        d.pages = d.pages.map(function(p) { return Object.assign({reviewLog:[],lessonNote:'',qualityNotes:null,subSurahName:null}, p); });
+        localStorage.setItem(sKey(id), JSON.stringify(d));
+        return d;
+      } catch(e) {}
+    }
+  }
+  return {pages: generateSeedPages(), streak: 0, lastStudyDate: null};
+}
+
+function saveStudentDataById(id, d) { localStorage.setItem(sKey(id), JSON.stringify(d)); }
+function getData() { ensureStudentConsistency(); return loadStudentData(studentMeta[currentStudent].id); }
+function setData(d) { ensureStudentConsistency(); saveStudentDataById(studentMeta[currentStudent].id, d); }
+
+// STATUS
+function today() { return new Date().toISOString().split('T')[0]; }
+function daysDiff(ds) { if (!ds) return Infinity; return Math.floor((new Date(today()) - new Date(ds)) / 86400000); }
+function computeStatus(p) {
+  if (!p.lastReviewedDate) return 'pending';
+  const d = daysDiff(p.lastReviewedDate);
+  if (d <= settings.warnDays) return 'fresh';
+  if (d <= settings.urgentDays) return 'warn';
+  return 'urgent';
+}
+function statusLabel(s) { return {pending:'⚪ Bekliyor', fresh:'🟢 Taze', warn:'🟡 Hatırlama Vakti', urgent:'🔴 Acil Tekrar'}[s]; }
+
+// STREAK
+function updateStreak(data) {
+  const t = today();
+  if (data.lastStudyDate === t) return data;
+  const y = new Date(); y.setDate(y.getDate() - 1);
+  const ys = y.toISOString().split('T')[0];
+  data.streak = data.lastStudyDate === ys ? (data.streak || 0) + 1 : 1;
+  data.lastStudyDate = t;
+  return data;
+}
+
+// TODAY MENU
+function buildTodayMenu(pages) {
+  const y = new Date(); y.setDate(y.getDate() - 1); const ys = y.toISOString().split('T')[0];
+  const t2 = new Date(); t2.setDate(t2.getDate() - 2); const t2s = t2.toISOString().split('T')[0];
+  const newPage = pages.find(function(p) { return !p.lastReviewedDate; }) || null;
+  const refreshPage = pages.filter(function(p) { return p.lastReviewedDate === ys || p.lastReviewedDate === t2s; })
+    .sort(function(a,b) { return new Date(b.lastReviewedDate) - new Date(a.lastReviewedDate); })[0] || null;
+  const urgent = pages.filter(function(p) { return computeStatus(p) === 'urgent'; })
+    .sort(function(a,b) { return daysDiff(a.lastReviewedDate||'2000-01-01') - daysDiff(b.lastReviewedDate||'2000-01-01'); });
+  const warn = pages.filter(function(p) { return computeStatus(p) === 'warn'; })
+    .sort(function(a,b) { return daysDiff(b.lastReviewedDate) - daysDiff(a.lastReviewedDate); });
+  return {newPage: newPage, refreshPage: refreshPage, urgentList: urgent.length > 0 ? urgent.slice(0,2) : warn.slice(0,2)};
+}
+
+// HELPERS
+function escId(id) { return (id+'').replace(/'/g, "\\'"); }
+function formatDate(ds) {
+  if (!ds) return '—';
+  return new Date(ds).toLocaleDateString('tr-TR', {day:'numeric',month:'short',year:'numeric'});
+}
+
+// MARK / UNMARK
+function markPageRead(pageId, dateStr, skipConfetti) {
+  const data = getData(); const pg = data.pages.find(function(p) { return p.id === pageId; }); if (!pg) return;
+  const d = dateStr || today(); pg.lastReviewedDate = d;
+  if (!pg.reviewLog) pg.reviewLog = [];
+  if (pg.reviewLog[pg.reviewLog.length - 1] !== d) pg.reviewLog.push(d);
+  updateStreak(data); setData(data);
+  if (!skipConfetti) fireConfetti();
+  render();
+}
+
+function unmarkPageRead(pageId) {
+  const data = getData(); const pg = data.pages.find(function(p) { return p.id === pageId; }); if (!pg) return;
+  if (pg.reviewLog && pg.reviewLog.length > 0 && pg.reviewLog[pg.reviewLog.length - 1] === pg.lastReviewedDate) pg.reviewLog.pop();
+  pg.lastReviewedDate = pg.reviewLog.length > 0 ? pg.reviewLog[pg.reviewLog.length - 1] : null;
+  setData(data); closeModal(); showToast('↩️ Okundu işareti geri alındı'); render();
+}
+
+function setPageQuality(pageId, q) { const data = getData(); const pg = data.pages.find(function(p) { return p.id === pageId; }); if (!pg) return; pg.qualityNotes = q; setData(data); }
+function setLessonNote(pageId, n) { const data = getData(); const pg = data.pages.find(function(p) { return p.id === pageId; }); if (!pg) return; pg.lessonNote = n; setData(data); }
+
+// CONFETTI
+function fireConfetti() { confetti({particleCount:80,spread:70,origin:{y:0.6},colors:['#84A98C','#B8C0FF','#FFDDD2','#F4ACB7','#52796F','#FFD700']}); }
+function fireBigConfetti() {
+  const end = Date.now() + 2000;
+  const f = function() {
+    confetti({particleCount:5,angle:60,spread:55,origin:{x:0}});
+    confetti({particleCount:5,angle:120,spread:55,origin:{x:1}});
+    if (Date.now() < end) requestAnimationFrame(f);
+  }; f();
+}
+
+// SETTINGS MODAL
+function openSettingsModal() {
+  document.getElementById('modal-content').innerHTML =
+    '<div style="background:linear-gradient(135deg,#E8EAFF,#F7F5F0);padding:20px 24px 16px">' +
+    '<div class="flex items-center justify-between"><h2 class="text-lg font-extrabold" style="color:#7C87F5">⚙️ Ayarlar</h2>' +
+    '<button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-xl font-bold">✕</button></div></div>' +
+    '<div class="px-6 py-5 space-y-5"><div><p class="text-xs font-bold text-gray-500 mb-3 uppercase tracking-wide">📅 Tekrar Eşikleri (Gün)</p>' +
+    '<div class="space-y-3"><div class="flex items-center justify-between gap-3">' +
+    '<div><p class="text-sm font-bold" style="color:#C98B2C">🟡 Sarı Uyarı Eşiği</p><p class="text-xs text-gray-400">Bu kadar gün geçince uyarı rengi</p></div>' +
+    '<input id="warn-days" type="number" min="1" max="60" value="' + settings.warnDays + '" class="w-20 bg-gray-100 border border-gray-200 rounded-xl px-3 py-2 text-sm font-bold text-center focus:outline-none" /></div>' +
+    '<div class="flex items-center justify-between gap-3">' +
+    '<div><p class="text-sm font-bold" style="color:#B5433A">🔴 Kırmızı Acil Eşiği</p><p class="text-xs text-gray-400">Bu kadar gün geçince acil rengi</p></div>' +
+    '<input id="urgent-days" type="number" min="1" max="90" value="' + settings.urgentDays + '" class="w-20 bg-gray-100 border border-gray-200 rounded-xl px-3 py-2 text-sm font-bold text-center focus:outline-none" /></div>' +
+    '</div></div>' +
+    '<button onclick="saveSettingsFromModal()" class="w-full py-3 rounded-2xl text-white font-bold text-sm" style="background:var(--accent-gradient);box-shadow:0 4px 14px var(--accent-shadow)">💾 Ayarları Kaydet</button>' +
+    '</div>';
+  document.getElementById('modal').classList.remove('hidden');
+}
+function saveSettingsFromModal() {
+  settings = Object.assign({}, settings, {
+    warnDays: parseInt(document.getElementById('warn-days').value) || 15,
+    urgentDays: parseInt(document.getElementById('urgent-days').value) || 25
+  });
+  saveSettings(settings); closeModal(); render(); showToast('✅ Ayarlar kaydedildi');
+}
+
+// PAGE MODAL
+function openPageModal(pageId) {
+  const data = getData(); const pg = data.pages.find(function(p) { return p.id === pageId; }); if (!pg) return;
+  const status = computeStatus(pg);
+  const colors = {pending:'#6B7280', fresh:'#52796F', warn:'#C98B2C', urgent:'#B5433A'};
+  const color = colors[status]; const label = statusLabel(status);
+  const days = pg.lastReviewedDate ? daysDiff(pg.lastReviewedDate) : null;
+  const lastLine = pg.lastReviewedDate
+    ? '<p class="text-xs font-semibold mt-1" style="color:' + color + '">📅 Son Verilme: ' + formatDate(pg.lastReviewedDate) + ' · <strong>' + daysDiff(pg.lastReviewedDate) + ' gün önce</strong></p>'
+    : '<p class="text-xs font-semibold mt-1 text-gray-400">📅 Henüz verilmedi</p>';
+  const log = (pg.reviewLog || []).slice(-3).reverse();
+  const logHtml = log.length > 0
+    ? '<div><p class="text-xs font-bold text-gray-500 mb-1.5 uppercase tracking-wide">📋 Son 3 Tekrar</p><div class="flex flex-wrap gap-1.5">' +
+      log.map(function(d,i) { return '<span class="log-chip">' + (i===0?'🕐':'🕒') + ' ' + formatDate(d) + ' <span class="text-gray-400">(' + daysDiff(d) + 'g)</span></span>'; }).join('') +
+      '</div></div>' : '';
+  const qBtns = ['weak','medium','strong'].map(function(q) {
+    const lbl = {weak:'😟 Zayıf', medium:'😊 Orta', strong:'💪 Kuvvetli'}[q];
+    const parts = {weak:'#FEE2E2:#B5433A', medium:'#FEF3C7:#C98B2C', strong:'#D8E8DC:#3D6156'}[q].split(':');
+    const act = pg.qualityNotes === q ? 'outline outline-2 outline-offset-1' : '';
+    return '<button onclick="setPageQuality(\'' + escId(pageId) + '\',\'' + q + '\')" class="px-3 py-2 rounded-xl text-sm font-bold ' + act + '" style="background:' + parts[0] + ';color:' + parts[1] + '">' + lbl + '</button>';
+  }).join('');
+  const sub = pg.subSurahName ? '<span class="text-xs font-medium" style="color:' + color + '">📍 ' + pg.subSurahName + '</span>' : '';
+  const unmarkHtml = pg.lastReviewedDate ? '<button onclick="confirmUnmark(\'' + escId(pageId) + '\')" class="unmark-btn">❌ Okundu İşaretini Kaldır (Geri Al)</button>' : '';
+  document.getElementById('modal-content').innerHTML =
+    '<div style="background:linear-gradient(135deg,' + color + '22,' + color + '08);padding:20px 24px 16px">' +
+    '<div class="flex items-start justify-between"><div>' +
+    '<h2 class="text-lg font-extrabold" style="color:' + color + '">' + pg.surahName + '</h2>' +
+    '<p class="text-sm font-semibold text-gray-500">Sayfa ' + pg.pageNumber + ' · Cüz ' + pg.juz + '</p>' + sub + lastLine + '</div>' +
+    '<button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-xl font-bold leading-none ml-2 mt-1">✕</button></div>' +
+    '<div class="mt-2 inline-flex items-center px-3 py-1 rounded-full text-xs font-bold" style="background:' + color + '22;color:' + color + '">' + label + (days !== null ? ' · ' + days + ' gün önce' : '') + '</div></div>' +
+    '<div class="px-6 py-5 space-y-4">' +
+    '<button onclick="markPageRead(\'' + escId(pageId) + '\',null);closeModal()" class="w-full py-3 rounded-2xl text-white font-bold text-sm" style="background:var(--accent-gradient);box-shadow:0 4px 14px var(--accent-shadow)">✅ Bugün Okundu İşaretle</button>' +
+    '<div class="flex gap-2"><input type="date" id="custom-date-input" value="' + today() + '" class="flex-1 themed-input border rounded-xl px-3 py-2.5 text-sm font-medium focus:outline-none" />' +
+    '<button onclick="markPageRead(\'' + escId(pageId) + '\',document.getElementById(\'custom-date-input\').value);closeModal()" class="px-4 py-2.5 rounded-xl text-sm font-bold text-white" style="background:#B8C0FF;color:#3D3D8E">📅 Kaydet</button></div>' +
+    unmarkHtml + logHtml +
+    '<div><p class="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">🎯 Ezber Kalitesi</p><div class="flex gap-2 flex-wrap">' + qBtns + '</div></div>' +
+    '<div><p class="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wide">📝 Hızlı Ders Notu</p>' +
+    '<textarea id="lesson-note-input" rows="2" maxlength="300" placeholder="Örn: 2. ayette takıldı" class="w-full themed-input border rounded-xl px-3 py-2.5 text-sm font-medium focus:outline-none">' + (pg.lessonNote||'') + '</textarea>' +
+    '<button onclick="saveLessonNote(\'' + escId(pageId) + '\')" class="mt-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white" style="background:#B8C0FF;color:#3D3D8E">💾 Notu Kaydet</button></div></div>';
+  document.getElementById('modal').classList.remove('hidden');
+}
+
+function confirmUnmark(pageId) {
+  const btn = document.querySelector('.unmark-btn'); if (!btn) return;
+  btn.innerHTML = '<span style="font-size:12px;color:#991B1B">Geri almak istediğinize emin misiniz?</span>' +
+    '<div style="display:flex;gap:8px;margin-top:6px;justify-content:center">' +
+    '<button onclick="unmarkPageRead(\'' + escId(pageId) + '\')" style="background:#EF4444;color:white;border:none;border-radius:10px;padding:5px 14px;font-weight:700;font-size:12px;cursor:pointer">✅ Evet, Geri Al</button>' +
+    '<button onclick="openPageModal(\'' + escId(pageId) + '\')" style="background:#E5E7EB;color:#374151;border:none;border-radius:10px;padding:5px 14px;font-weight:700;font-size:12px;cursor:pointer">İptal</button></div>';
+}
+
+function saveLessonNote(pageId) {
+  const val = document.getElementById('lesson-note-input') ? document.getElementById('lesson-note-input').value : '';
+  setLessonNote(pageId, val);
+  const btn = document.querySelector('[onclick*="saveLessonNote"]');
+  if (btn) { btn.textContent = '✅ Kaydedildi!'; setTimeout(function() { btn.textContent = '💾 Notu Kaydet'; }, 1500); }
+}
+function closeModal() { document.getElementById('modal').classList.add('hidden'); }
+function handleModalBackdropClick(e) { if (e.target.id === 'modal') closeModal(); }
+
+// ADD/EDIT SURAH MODAL
+function openAddSurahModal(editSurahName) {
+  const isEdit = !!editSurahName;
+  let existingJuz = '';
+  if (isEdit) { const d = getData(); const p = d.pages.find(function(x) { return x.surahName === editSurahName; }); if (p) existingJuz = p.juz; }
+  let html = '<div style="background:var(--accent-gradient);padding:20px 24px 16px">' +
+    '<div class="flex items-center justify-between"><h2 class="text-lg font-extrabold text-white">' + (isEdit ? '✏️ Sure Düzenle' : '➕ Yeni Sure / Bölüm Ekle') + '</h2>' +
+    '<button onclick="closeModal()" class="text-white/70 hover:text-white text-xl font-bold">✕</button></div></div>' +
+    '<div class="px-6 py-5 space-y-4">' +
+    '<div><label class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1 block">📖 Sure / Bölüm Adı</label>' +
+    '<input id="add-surah-name" type="text" value="' + (isEdit ? editSurahName : '') + '" placeholder="Örn: Bakara, Enfal..." class="w-full themed-input border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none" /></div>' +
+    '<div><label class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1 block">📚 Cüz No</label>' +
+    '<input id="add-surah-juz" type="text" value="' + existingJuz + '" placeholder="Örn: 2, 15-16, 30" class="w-full themed-input border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none" /></div>';
+  if (!isEdit) {
+    html += '<div class="rounded-2xl p-4 space-y-3" style="background:var(--btn-input-bg)">' +
+      '<p class="text-xs font-bold text-gray-500 uppercase tracking-wide">📄 Sayfa Aralığı</p>' +
+      '<div class="flex gap-3"><div class="flex-1"><label class="text-xs text-gray-400 mb-1 block">Başlangıç</label>' +
+      '<input id="add-page-start" type="number" min="1" max="604" placeholder="22" class="w-full themed-input border rounded-xl px-3 py-2 text-sm font-bold text-center focus:outline-none" /></div>' +
+      '<div class="flex items-center mt-5 text-gray-400 font-bold">→</div>' +
+      '<div class="flex-1"><label class="text-xs text-gray-400 mb-1 block">Bitiş</label>' +
+      '<input id="add-page-end" type="number" min="1" max="604" placeholder="25" class="w-full themed-input border rounded-xl px-3 py-2 text-sm font-bold text-center focus:outline-none" /></div></div>' +
+      '<p class="text-xs text-gray-400">Aradaki tüm sayfalar otomatik oluşturulur.</p></div>';
+  }
+  const saveFn = isEdit ? "saveEditSurah('" + escId(editSurahName) + "')" : "saveAddSurah()";
+  html += '<button onclick="' + saveFn + '" class="w-full py-3 rounded-2xl text-white font-bold text-sm" style="background:var(--accent-gradient);box-shadow:0 4px 14px var(--accent-shadow)">' + (isEdit ? '✅ Değişiklikleri Kaydet' : '✅ Sure Ekle') + '</button></div>';
+  document.getElementById('modal-content').innerHTML = html;
+  document.getElementById('modal').classList.remove('hidden');
+  setTimeout(function() { const el = document.getElementById('add-surah-name'); if (el) el.focus(); }, 80);
+}
+
+function saveAddSurah() {
+  const name = document.getElementById('add-surah-name').value.trim();
+  const juz = document.getElementById('add-surah-juz').value.trim();
+  const start = parseInt(document.getElementById('add-page-start').value);
+  const end = parseInt(document.getElementById('add-page-end').value);
+  if (!name) { showToast('❌ Sure adı boş olamaz'); return; }
+  if (!juz) { showToast('❌ Cüz numarası giriniz'); return; }
+  if (isNaN(start) || isNaN(end) || start > end || start < 1 || end > 604) { showToast('❌ Geçerli sayfa aralığı girin (1-604)'); return; }
+  const data = getData(); const juzVal = isNaN(Number(juz)) ? juz : Number(juz); let added = 0;
+  for (let pg = start; pg <= end; pg++) {
+    const id = name + '-' + pg;
+    if (data.pages.find(function(p) { return p.id === id; })) continue;
+    data.pages.push({id:id, surahName:name, juz:juzVal, pageNumber:pg, subSurahName:null, lastReviewedDate:null, reviewLog:[], qualityNotes:null, lessonNote:''});
+    added++;
+  }
+  setData(data); closeModal(); showToast('✅ "' + name + '" eklendi (' + added + ' sayfa)'); render();
+}
+
+function saveEditSurah(oldName) {
+  const newName = document.getElementById('add-surah-name').value.trim();
+  const newJuz = document.getElementById('add-surah-juz').value.trim();
+  if (!newName) { showToast('❌ Sure adı boş olamaz'); return; }
+  if (!newJuz) { showToast('❌ Cüz numarası giriniz'); return; }
+  const data = getData(); const juzVal = isNaN(Number(newJuz)) ? newJuz : Number(newJuz);
+  data.pages.forEach(function(p) { if (p.surahName === oldName) { p.surahName = newName; p.juz = juzVal; p.id = newName + '-' + p.pageNumber; } });
+  setData(data); closeModal(); showToast('✅ "' + oldName + '" → "' + newName + '" güncellendi'); render();
+}
+
+function addPageToSurah(surahName) {
+  const data = getData();
+  const pages = data.pages.filter(function(p) { return p.surahName === surahName; }).map(function(p) { return p.pageNumber; });
+  const maxPage = pages.length > 0 ? Math.max.apply(null, pages) : 0; const nextPage = maxPage + 1;
+  if (nextPage > 604) { showToast('❌ Maksimum sayfa numarası 604'); return; }
+  const found = data.pages.find(function(p) { return p.surahName === surahName; });
+  const juzVal = found ? found.juz : 1; const id = surahName + '-' + nextPage;
+  if (data.pages.find(function(p) { return p.id === id; })) { showToast('❌ Sayfa ' + nextPage + ' zaten mevcut'); return; }
+  data.pages.push({id:id, surahName:surahName, juz:juzVal, pageNumber:nextPage, subSurahName:null, lastReviewedDate:null, reviewLog:[], qualityNotes:null, lessonNote:''});
+  setData(data); showToast('✅ Sayfa ' + nextPage + ' "' + surahName + '" suresine eklendi'); render();
+}
+
+function deleteSurah(surahName) {
+  document.getElementById('modal-content').innerHTML =
+    '<div style="background:linear-gradient(135deg,#FEE2E2,#FFF0EB);padding:20px 24px 16px">' +
+    '<div class="flex items-center justify-between"><h2 class="text-lg font-extrabold" style="color:#B5433A">🗑️ Sure Sil</h2>' +
+    '<button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-xl font-bold">✕</button></div></div>' +
+    '<div class="px-6 py-5 space-y-4 text-center"><p class="text-4xl">⚠️</p>' +
+    '<p class="font-bold text-gray-700">"' + surahName + '" suresini ve tüm sayfalarını silmek istediğinize emin misiniz?</p>' +
+    '<p class="text-sm text-gray-400">Bu işlem geri alınamaz.</p>' +
+    '<div class="flex gap-3"><button onclick="closeModal()" class="flex-1 py-2.5 rounded-2xl font-bold text-sm bg-gray-100 text-gray-600">İptal</button>' +
+    '<button onclick="confirmDeleteSurah(\'' + escId(surahName) + '\')" class="flex-1 py-2.5 rounded-2xl font-bold text-sm text-white" style="background:#EF4444">🗑️ Sil</button></div></div>';
+  document.getElementById('modal').classList.remove('hidden');
+}
+function confirmDeleteSurah(surahName) {
+  const data = getData(); data.pages = data.pages.filter(function(p) { return p.surahName !== surahName; });
+  setData(data); closeModal(); showToast('🗑️ "' + surahName + '" silindi'); render();
+}
+
+// STUDENT MANAGEMENT
+function openAddStudentModal() {
+  document.getElementById('modal-content').innerHTML =
+    '<div style="background:var(--accent-gradient);padding:20px 24px 16px">' +
+    '<div class="flex items-center justify-between"><h2 class="text-lg font-extrabold text-white">➕ Yeni Öğrenci Ekle</h2>' +
+    '<button onclick="closeModal()" class="text-white/70 hover:text-white text-xl font-bold">✕</button></div></div>' +
+    '<div class="px-6 py-5 space-y-4"><div><label class="text-xs font-bold text-gray-500 uppercase tracking-wide mb-1 block">👤 Öğrenci Adı</label>' +
+    '<input id="new-student-name" type="text" placeholder="Örn: Zeynep, Ayşe..." class="w-full themed-input border rounded-xl px-4 py-3 text-sm font-bold focus:outline-none" onkeydown="if(event.key===\'Enter\')saveAddStudent()" /></div>' +
+    '<button onclick="saveAddStudent()" class="w-full py-3 rounded-2xl text-white font-bold text-sm" style="background:var(--accent-gradient);box-shadow:0 4px 14px var(--accent-shadow)">✅ Öğrenci Ekle</button></div>';
+  document.getElementById('modal').classList.remove('hidden');
+  setTimeout(function() { const el = document.getElementById('new-student-name'); if (el) el.focus(); }, 80);
+}
+function saveAddStudent() {
+  const name = document.getElementById('new-student-name').value.trim();
+  if (!name) { showToast('❌ Öğrenci adı boş olamaz'); return; }
+  studentMeta.push({id: Date.now(), name: name}); saveStudentMeta(studentMeta);
+  closeModal(); showToast('✅ "' + name + '" eklendi'); currentStudent = studentMeta.length - 1; render();
+}
+function openRenameStudentModal(idx) {
+  const s = studentMeta[idx]; if (!s) return;
+  document.getElementById('modal-content').innerHTML =
+    '<div style="background:linear-gradient(135deg,#FFDDD2,#FFF0EB);padding:20px 24px 16px">' +
+    '<div class="flex items-center justify-between"><h2 class="text-lg font-extrabold" style="color:#E88FA4">✏️ İsim Düzenle</h2>' +
+    '<button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-xl font-bold">✕</button></div></div>' +
+    '<div class="px-6 py-5 space-y-4"><p class="text-sm text-gray-500">Öğrenci adını değiştir:</p>' +
+    '<input id="rename-input" type="text" value="' + s.name + '" class="w-full bg-gray-100 border border-gray-200 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none" onkeydown="if(event.key===\'Enter\')saveRenameStudent(' + idx + ')" />' +
+    '<button onclick="saveRenameStudent(' + idx + ')" class="w-full py-3 rounded-2xl text-white font-bold text-sm" style="background:linear-gradient(135deg,#F4ACB7,#E88FA4)">✅ Kaydet</button></div>';
+  document.getElementById('modal').classList.remove('hidden');
+  setTimeout(function() { const el = document.getElementById('rename-input'); if (el) { el.focus(); el.select(); } }, 80);
+}
+function saveRenameStudent(idx) {
+  const val = document.getElementById('rename-input') ? document.getElementById('rename-input').value.trim() : '';
+  if (val) { studentMeta[idx].name = val; saveStudentMeta(studentMeta); }
+  closeModal(); render(); showToast('✅ İsim güncellendi');
+}
+function openDeleteStudentModal(idx) {
+  if (studentMeta.length <= 1) { showToast('❌ En az 1 öğrenci olmalı'); return; }
+  const s = studentMeta[idx];
+  document.getElementById('modal-content').innerHTML =
+    '<div style="background:linear-gradient(135deg,#FEE2E2,#FFF0EB);padding:20px 24px 16px">' +
+    '<div class="flex items-center justify-between"><h2 class="text-lg font-extrabold" style="color:#B5433A">🗑️ Öğrenci Sil</h2>' +
+    '<button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-xl font-bold">✕</button></div></div>' +
+    '<div class="px-6 py-5 space-y-4 text-center"><p class="text-4xl">⚠️</p>' +
+    '<p class="font-bold text-gray-700">"' + s.name + '" öğrencisini ve tüm verilerini silmek istiyor musunuz?</p>' +
+    '<p class="text-sm text-gray-400">Bu işlem geri alınamaz.</p>' +
+    '<div class="flex gap-3"><button onclick="closeModal()" class="flex-1 py-2.5 rounded-2xl font-bold text-sm bg-gray-100 text-gray-600">İptal</button>' +
+    '<button onclick="confirmDeleteStudent(' + idx + ')" class="flex-1 py-2.5 rounded-2xl font-bold text-sm text-white" style="background:#EF4444">🗑️ Sil</button></div></div>';
+  document.getElementById('modal').classList.remove('hidden');
+}
+function confirmDeleteStudent(idx) {
+  const s = studentMeta[idx]; localStorage.removeItem(sKey(s.id));
+  studentMeta.splice(idx, 1); saveStudentMeta(studentMeta);
+  if (currentStudent >= studentMeta.length) currentStudent = studentMeta.length - 1;
+  closeModal(); showToast('🗑️ "' + s.name + '" silindi'); render();
+}
+
+// MULTISELECT
+function toggleMultiselect() { multiselectActive = !multiselectActive; selectedPageIds.clear(); renderMultiselect(); document.getElementById('multiselect-section').classList.toggle('hidden', !multiselectActive); }
+function renderMultiselect() {
+  const data = getData(); const c = document.getElementById('multiselect-pages'); c.innerHTML = '';
+  data.pages.forEach(function(pg) {
+    const btn = document.createElement('button');
+    btn.className = 'page-btn px-3 py-1.5 rounded-xl text-xs font-bold ' + computeStatus(pg) + (selectedPageIds.has(pg.id) ? ' selected' : '');
+    btn.textContent = 'sf ' + pg.pageNumber;
+    btn.onclick = function() { selectedPageIds.has(pg.id) ? selectedPageIds.delete(pg.id) : selectedPageIds.add(pg.id); renderMultiselect(); };
+    c.appendChild(btn);
+  });
+}
+function markSelectedPages() {
+  if (selectedPageIds.size === 0) { showToast('❌ Lütfen en az bir sayfa seçin'); return; }
+  const data = getData(); const t = today();
+  selectedPageIds.forEach(function(id) {
+    const pg = data.pages.find(function(p) { return p.id === id; });
+    if (pg) { pg.lastReviewedDate = t; if (!pg.reviewLog) pg.reviewLog = []; if (pg.reviewLog[pg.reviewLog.length-1] !== t) pg.reviewLog.push(t); }
+  });
+  updateStreak(data); setData(data); selectedPageIds.clear(); multiselectActive = false;
+  document.getElementById('multiselect-section').classList.add('hidden'); fireBigConfetti(); render();
+}
+
+// SURAH MULTISELECT
+function toggleSurahMultiselect(sn) {
+  if (!surahMultiselect[sn]) surahMultiselect[sn] = {active:false, selected:new Set()};
+  const ms = surahMultiselect[sn]; ms.active = !ms.active; if (!ms.active) ms.selected.clear(); renderSurahList();
+}
+function toggleSurahPage(sn, pid) {
+  if (!surahMultiselect[sn]) surahMultiselect[sn] = {active:true, selected:new Set()};
+  const sel = surahMultiselect[sn].selected; sel.has(pid) ? sel.delete(pid) : sel.add(pid); renderSurahList();
+}
+function markSurahSelected(sn) {
+  const ms = surahMultiselect[sn]; if (!ms || ms.selected.size === 0) { showToast('❌ Lütfen en az bir sayfa seçin'); return; }
+  const data = getData(); const t = today();
+  ms.selected.forEach(function(id) {
+    const pg = data.pages.find(function(p) { return p.id === id; });
+    if (pg) { pg.lastReviewedDate = t; if (!pg.reviewLog) pg.reviewLog = []; if (pg.reviewLog[pg.reviewLog.length-1] !== t) pg.reviewLog.push(t); }
+  });
+  updateStreak(data); setData(data); ms.active = false; ms.selected.clear(); fireBigConfetti(); render();
+}
+
+// FILTERS
+function clearJuzFilters() {
+  Array.from(activeFilters).forEach(function(f) {
+    if (f.indexOf('juz_') === 0) activeFilters.delete(f);
+  });
+  const data = getData();
+  renderFilters(data);
+  renderSurahList();
+}
+
+function toggleFilter(f) {
+  if (activeFilters.has(f)) {
+    activeFilters.delete(f);
+  } else {
+    activeFilters.add(f);
+  }
+  const data = getData();
+  renderFilters(data);
+  renderSurahList();
+}
+
+function renderFilters(data) {
+  const container = document.getElementById('juz-filters-container');
+  if (!container) return;
+
+  const ub = document.getElementById('filter-urgent');
+  if (ub) {
+    const isUrgentActive = activeFilters.has('urgent');
+    ub.className = ub.className.replace(/\b(active|inactive)\b/g, '').trim() + (isUrgentActive ? ' active' : ' inactive');
+  }
+
+  const juzSet = new Set();
+  (data.pages || []).forEach(function(p) {
+    if (p.juz !== undefined && p.juz !== null && String(p.juz).trim() !== '') {
+      juzSet.add(String(p.juz).trim());
+    }
+  });
+
+  const sortedJuz = Array.from(juzSet).sort(function(a, b) {
+    const numA = parseInt((String(a).match(/\d+/) || ['0'])[0], 10);
+    const numB = parseInt((String(b).match(/\d+/) || ['0'])[0], 10);
+    return numA - numB;
+  });
+
+  Array.from(activeFilters).forEach(function(f) {
+    if (f.indexOf('juz_') === 0) {
+      const j = f.replace('juz_', '');
+      if (sortedJuz.indexOf(j) === -1) activeFilters.delete(f);
+    }
+  });
+
+  const activeJuzCount = Array.from(activeFilters).filter(function(f) { return f.indexOf('juz_') === 0; }).length;
+
+  container.innerHTML = '';
+
+  const allBtn = document.createElement('button');
+  allBtn.className = 'filter-btn ' + (activeJuzCount === 0 ? 'active' : 'inactive') + ' border rounded-xl px-3 py-1.5 text-xs md:text-sm font-bold shrink-0';
+  allBtn.textContent = '✨ Tümü';
+  allBtn.onclick = clearJuzFilters;
+  container.appendChild(allBtn);
+
+  sortedJuz.forEach(function(juz) {
+    const key = 'juz_' + juz;
+    const isActive = activeFilters.has(key);
+    const btn = document.createElement('button');
+    btn.setAttribute('data-filter', key);
+    btn.className = 'filter-btn ' + (isActive ? 'active' : 'inactive') + ' border rounded-xl px-3 py-1.5 text-xs md:text-sm font-bold shrink-0';
+    const icon = (juz === '29' || juz === 29) ? '📗 ' : '📖 ';
+    const label = String(juz).toLowerCase().indexOf('cüz') >= 0 ? juz : (juz + '. Cüz');
+    btn.textContent = icon + label;
+    btn.onclick = function() { toggleFilter(key); };
+    container.appendChild(btn);
+  });
+}
+
+function getFilteredPages(pages) {
+  let r = [].concat(pages);
+  const q = document.getElementById('search-input') ? document.getElementById('search-input').value.trim().toLowerCase() : '';
+  if (q) {
+    r = r.filter(function(p) {
+      return (p.surahName && p.surahName.toLowerCase().indexOf(q) >= 0) ||
+             String(p.pageNumber).indexOf(q) >= 0 ||
+             (p.subSurahName && p.subSurahName.toLowerCase().indexOf(q) >= 0);
+    });
+  }
+  if (activeFilters.has('urgent')) {
+    r = r.filter(function(p) { return computeStatus(p) === 'urgent'; });
+  }
+  const selectedJuzFilters = Array.from(activeFilters).filter(function(f) { return f.indexOf('juz_') === 0; });
+  if (selectedJuzFilters.length > 0) {
+    r = r.filter(function(p) {
+      const pj = String(p.juz !== undefined && p.juz !== null ? p.juz : '').trim();
+      return selectedJuzFilters.some(function(filterKey) {
+        const targetJuz = filterKey.replace('juz_', '').trim();
+        if (pj === targetJuz) return true;
+        const parts = pj.split('-').map(function(s) { return s.trim(); });
+        return parts.indexOf(targetJuz) >= 0;
+      });
+    });
+  }
+  return r;
+}
+
+// RENDER TABS
+function renderTabs() {
+  ensureStudentConsistency();
+  const c = document.getElementById('student-tabs'); c.innerHTML = '';
+  studentMeta.forEach(function(student, i) {
+    const wrap = document.createElement('div'); wrap.className = 'flex items-center gap-1';
+    const btn = document.createElement('button'); btn.id = 'tab-' + i;
+    btn.className = (i === currentStudent) ? 'tab-active py-2 px-3 rounded-2xl text-sm font-bold truncate max-w-[130px]' : 'tab-inactive py-2 px-3 rounded-2xl text-sm font-bold border truncate max-w-[130px]';
+    if (i !== currentStudent) btn.style.borderColor = 'var(--accent-2)';
+    btn.textContent = student.name; btn.onclick = function() { switchStudent(i); };
+    const eb = document.createElement('button'); eb.title = 'İsmi düzenle'; eb.className = 'shrink-0 p-1.5 rounded-xl border text-xs hover:shadow-soft';
+    eb.style.cssText = 'background:var(--bg-card);border-color:var(--border-color);color:#9CA3AF'; eb.textContent = '✏️';
+    eb.onclick = function(e) { e.stopPropagation(); openRenameStudentModal(i); };
+    const db = document.createElement('button'); db.title = 'Öğrenciyi sil'; db.className = 'student-delete-btn shrink-0';
+    db.textContent = '🗑️'; db.onclick = function(e) { e.stopPropagation(); openDeleteStudentModal(i); };
+    wrap.appendChild(btn); wrap.appendChild(eb); wrap.appendChild(db); c.appendChild(wrap);
+  });
+  const ab = document.createElement('button'); ab.className = 'add-student-btn'; ab.textContent = '➕ Yeni Öğrenci'; ab.onclick = openAddStudentModal; c.appendChild(ab);
+}
+
+// RENDER HEADER
+function renderHeader(data) {
+  const badge = document.getElementById('streak-badge');
+  if ((data.streak || 0) > 0) { badge.textContent = '🔥 ' + data.streak + ' Günlük Seri'; badge.classList.remove('hidden'); }
+  else badge.classList.add('hidden');
+  const counts = {fresh:0, warn:0, urgent:0, pending:0};
+  data.pages.forEach(function(p) { counts[computeStatus(p)]++; });
+  const total = data.pages.length || 1;
+  document.getElementById('count-fresh').textContent = counts.fresh;
+  document.getElementById('count-warn').textContent = counts.warn;
+  document.getElementById('count-urgent').textContent = counts.urgent;
+  document.getElementById('count-pending').textContent = counts.pending;
+  document.getElementById('health-percent').textContent = (counts.fresh / total * 100).toFixed(1) + '% Taze';
+  document.getElementById('bar-fresh').style.width = (counts.fresh / total * 100) + '%';
+  document.getElementById('bar-warn').style.width = (counts.warn / total * 100) + '%';
+  document.getElementById('bar-urgent').style.width = (counts.urgent / total * 100) + '%';
+  document.getElementById('bar-pending').style.width = (counts.pending / total * 100) + '%';
+}
+
+// RENDER TODAY
+function renderTodayMenu(data) {
+  const greetings = ['Selam! Bugün hafızanı tazelemek için harika bir gün ✨','Merhaba! Her tekrar bir kazanım 🌱','Hoş geldin! Bugün de güçleniyorsun 💫','Seni bekliyorduk! Hazır mısın? 🌸'];
+  document.getElementById('greeting-text').textContent = greetings[new Date().getDate() % greetings.length];
+  document.getElementById('today-date-text').textContent = new Date().toLocaleDateString('tr-TR', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const menu = buildTodayMenu(data.pages); const c = document.getElementById('today-items'); c.innerHTML = '';
+  const sc = {pending:'#6B7280', fresh:'#52796F', warn:'#C98B2C', urgent:'#B5433A'};
+  function menuCard(icon, label, page, extra) {
+    extra = extra || '';
+    if (!page) return '<div class="menu-item-card opacity-60"><span class="text-2xl">' + icon + '</span><div class="flex-1"><p class="text-xs font-bold text-gray-400 uppercase tracking-wide">' + label + '</p><p class="text-sm text-gray-400 font-medium">—</p></div></div>';
+    const s = computeStatus(page); const co = sc[s];
+    const days = page.lastReviewedDate ? daysDiff(page.lastReviewedDate) + ' gün önce' : 'Hiç okunmadı';
+    const sub = page.subSurahName ? ' · ' + page.subSurahName : '';
+    return '<div class="menu-item-card ' + extra + '"><span class="text-2xl">' + icon + '</span>' +
+      '<div class="flex-1 min-w-0"><p class="text-xs font-bold uppercase tracking-wide" style="color:' + co + '">' + label + '</p>' +
+      '<p class="text-sm font-bold text-gray-700 truncate">' + page.surahName + sub + ' — sf ' + page.pageNumber + '</p>' +
+      '<p class="text-xs text-gray-400 font-medium">' + days + '</p></div>' +
+      '<button onclick="markPageRead(\'' + escId(page.id) + '\');closeModal()" class="check-mark-btn shrink-0 text-sm" style="background:var(--accent-light);color:var(--accent-1);border:1px solid var(--accent-2)">✅</button></div>';
+  }
+  let html = menuCard('📖', 'Yeni Ezber (Ham)', menu.newPage);
+  html += menuCard('🍳', 'Dünün Tekrarı (Pişirme)', menu.refreshPage);
+  menu.urgentList.forEach(function(p, i) { html += menuCard('🔥', 'Acil Tekrar ' + (menu.urgentList.length > 1 ? i + 1 : ''), p, menu.urgentList.length > 1 && p ? 'urgent-pulse' : ''); });
+  if (!menu.newPage && !menu.refreshPage && menu.urgentList.length === 0)
+    html = '<div class="text-center py-6"><p class="text-4xl mb-2">🎉</p><p class="font-bold" style="color:var(--text-accent)">Harika! Bugün tekrar gereken sayfa yok!</p><p class="text-sm mt-1" style="color:var(--accent-2)">Hafızan çok sağlıklı görünüyor 💚</p></div>';
+  c.innerHTML = html;
+}
+
+// RENDER SURAH LIST
+function renderSurahList() {
+  const data = getData(); const fp = getFilteredPages(data.pages); const fids = {};
+  fp.forEach(function(p) { fids[p.id] = true; });
+  const map = []; const mapIdx = {};
+  data.pages.forEach(function(pg) {
+    if (!fids[pg.id]) return;
+    if (mapIdx[pg.surahName] === undefined) { mapIdx[pg.surahName] = map.length; map.push({name:pg.surahName, juz:pg.juz, pages:[]}); }
+    map[mapIdx[pg.surahName]].pages.push(pg);
+  });
+  const c = document.getElementById('surah-list'); c.innerHTML = '';
+  if (map.length === 0) { c.innerHTML = '<div class="text-center py-12 text-gray-400 font-medium"><p class="text-4xl mb-2">🔍</p><p>Sonuç bulunamadı</p></div>'; return; }
+  map.forEach(function(surah) {
+    const sn = surah.name;
+    const counts = {fresh:0, warn:0, urgent:0, pending:0};
+    surah.pages.forEach(function(p) { counts[computeStatus(p)]++; });
+    const pills = [];
+    if (counts.urgent > 0) pills.push('<span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background:#FEE2E2;color:#991B1B">🔴 ' + counts.urgent + '</span>');
+    if (counts.warn > 0) pills.push('<span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background:#FEF3C7;color:#92400E">🟡 ' + counts.warn + '</span>');
+    if (counts.fresh > 0) pills.push('<span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background:#D8E8DC;color:#3D6156">🟢 ' + counts.fresh + '</span>');
+    if (counts.pending > 0) pills.push('<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">⚪ ' + counts.pending + '</span>');
+    const card = document.createElement('div'); card.className = 'surah-card';
+    const safe = sn.replace(/[\s().]/g, '_'); const bodyId = 'sb-' + safe;
+    const ms = surahMultiselect[sn] || {active:false, selected:new Set()}; const msa = ms.active;
+    const pageBtns = surah.pages.map(function(pg) {
+      const s = computeStatus(pg);
+      const q = pg.qualityNotes ? {weak:'😟',medium:'😊',strong:'💪'}[pg.qualityNotes] : '';
+      const hn = pg.lessonNote ? '📝' : ''; const isSel = msa && ms.selected.has(pg.id);
+      const cf = msa ? "toggleSurahPage('" + escId(sn) + "','" + escId(pg.id) + "')" : "openPageModal('" + escId(pg.id) + "')";
+      return '<button class="page-btn ' + s + (isSel ? ' selected' : '') + ' rounded-xl text-xs font-bold flex flex-col items-center py-2 px-2.5 gap-0.5" onclick="' + cf + '" title="' + (pg.subSurahName||'') + '"><span>sf ' + pg.pageNumber + '</span><span class="text-[10px]">' + (q||hn||'·') + '</span></button>';
+    }).join('');
+    const msBar = msa ? '<div class="surah-ms-bar"><span class="text-xs font-bold" style="color:var(--accent-1)">✔️ ' + ms.selected.size + ' sayfa seçildi</span>' +
+      '<button onclick="markSurahSelected(\'' + escId(sn) + '\')" class="ml-auto px-3 py-1.5 rounded-xl text-xs font-bold text-white" style="background:var(--accent-gradient)">✅ Bugün Verildi</button>' +
+      '<button onclick="toggleSurahMultiselect(\'' + escId(sn) + '\')" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-gray-500 border border-gray-200">İptal</button></div>' : '';
+    card.innerHTML =
+      '<div class="surah-header" onclick="toggleSurah(\'' + bodyId + '\',\'' + safe + '\')">' +
+      '<div class="flex-1 min-w-0"><div class="flex items-center gap-2 flex-wrap"><span class="font-extrabold text-gray-800">' + sn + '</span><span class="text-xs text-gray-400 font-medium">Cüz ' + surah.juz + ' · ' + surah.pages.length + ' sf</span></div>' +
+      '<div class="flex gap-1.5 flex-wrap mt-1">' + pills.join('') + '</div></div>' +
+      '<div class="flex items-center gap-1 ml-2 shrink-0" onclick="event.stopPropagation()">' +
+      '<button class="surah-action-btn" onclick="openAddSurahModal(\'' + escId(sn) + '\')" title="Düzenle">✏️</button>' +
+      '<button class="surah-action-btn" onclick="addPageToSurah(\'' + escId(sn) + '\')" title="Sayfa Ekle">+📄</button>' +
+      '<button class="surah-action-btn" onclick="deleteSurah(\'' + escId(sn) + '\')" title="Sil" style="color:#991B1B;border-color:#FCA5A5;background:#FEF2F2">🗑️</button></div>' +
+      '<span class="arrow-' + safe + ' text-gray-400 text-lg ml-2 transition-transform duration-300">›</span></div>' +
+      '<div id="' + bodyId + '" class="accordion-body"><div class="px-5 pb-5">' +
+      '<div class="flex justify-end mb-2"><button onclick="event.stopPropagation();toggleSurahMultiselect(\'' + escId(sn) + '\')" class="text-xs font-bold px-3 py-1.5 rounded-xl border"' +
+      ' style="' + (msa ? 'background:var(--accent-light);color:var(--accent-1);border-color:var(--accent-2)' : 'background:#F9FAFB;color:#9CA3AF;border-color:#E5E7EB') + '">' + (msa ? '☑️ Seçim Modu Açık' : '☐ Çoklu Seç') + '</button></div>' +
+      '<div class="flex flex-wrap gap-2' + (msa ? ' multiselect-mode' : '') + '">' + pageBtns + '</div>' + msBar + '</div></div>';
+    c.appendChild(card);
+  });
+}
+
+function toggleSurah(bodyId, safe) {
+  const body = document.getElementById(bodyId); const arrow = document.querySelector('.arrow-' + safe);
+  const isOpen = body.classList.contains('open'); body.classList.toggle('open', !isOpen);
+  if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(90deg)';
+}
+
+// STUDENT SWITCH
+function switchStudent(idx) {
+  currentStudent = idx; selectedPageIds.clear(); surahMultiselect = {}; multiselectActive = false;
+  activeFilters.clear();
+  document.getElementById('multiselect-section').classList.add('hidden'); render();
+}
+
+// BACKUP / RESTORE
+function exportData() {
+  const all = {studentMeta: studentMeta, students: {}, settings: settings};
+  studentMeta.forEach(function(s) { all.students[s.id] = loadStudentData(s.id); });
+  const blob = new Blob([JSON.stringify(all, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url;
+  a.download = 'hafizlik_yedek_' + new Date().toISOString().slice(0, 10) + '.json';
+  a.click(); URL.revokeObjectURL(url); showToast('💾 Yedek indirildi');
+}
+function importData(event) {
+  const file = event.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (data.studentMeta && data.students) {
+        studentMeta = data.studentMeta; saveStudentMeta(studentMeta);
+        Object.keys(data.students).forEach(function(id) { saveStudentDataById(id, data.students[id]); });
+        if (data.settings) { settings = Object.assign({}, settings, data.settings); saveSettings(settings); }
+      } else {
+        if (data.student_0) saveStudentDataById(0, data.student_0);
+        if (data.student_1) saveStudentDataById(1, data.student_1);
+      }
+      currentStudent = 0; showToast('✅ Yedek başarıyla yüklendi!'); render();
+    } catch(err) { showToast('❌ Dosya hatası: ' + err.message); }
+  };
+  reader.readAsText(file); event.target.value = '';
+}
+
+// MAIN RENDER
+function render() {
+  ensureStudentConsistency(); const data = getData();
+  renderTabs(); renderHeader(data); renderTodayMenu(data); renderFilters(data); renderSurahList();
+  if (multiselectActive) renderMultiselect();
+}
+
+// INIT
+applyTheme(settings.theme || 'sage');
+render();
+</script>
+</body>
+</html>

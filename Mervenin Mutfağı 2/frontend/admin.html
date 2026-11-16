@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mervece Portal - Yönetici Paneli</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --bg: #0F0E1A;
+      --bg2: #16152B;
+      --accent: #E94560;
+      --mutfak: #F15A24;
+      --vlog: #7C3AED;
+      --elisi: #10B981;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: #EEF0FF;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+    .glass {
+      background: rgba(22, 21, 43, 0.6);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    /* Tab Buton Aktif Stili */
+    .tab-btn.active {
+      background: rgba(233, 69, 96, 0.15);
+      border-color: rgba(233, 69, 96, 0.3);
+      color: var(--accent);
+      box-shadow: 0 0 15px rgba(233, 69, 96, 0.1);
+    }
+    /* Scrollbar tasarımı */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 14, 26, 0.5);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(233, 69, 96, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-[#0F0E1A] min-h-screen pb-16">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 left-0 right-0 z-50 bg-[#0F0E1A]/95 border-b border-gray-900 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="./index.html" class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#E94560] to-[#C62A47] flex items-center justify-center font-display font-black text-lg text-white shadow-[0_0_20px_rgba(233,69,96,0.3)]">M</div>
+          <span class="font-display text-xl font-bold bg-gradient-to-r from-[#E94560] to-[#FF6B8A] bg-clip-text text-transparent">Mervece</span>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-red-500/10 text-red-400 border border-red-500/25 uppercase tracking-widest font-mono">Panel</span>
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="./index.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">🏠 Dünyam</a>
+          <a href="./profile.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">👤 Profilim</a>
+          <button onclick="handleLogout()" class="text-sm font-semibold text-red-400 hover:text-red-300 transition-colors">🚪 Çıkış</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- YÖNETİCİ BAŞLIK -->
+  <header class="py-12 bg-gradient-to-b from-[#1E1224] to-[#0F0E1A] border-b border-gray-900/60">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold mb-3">
+          <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+          YÖNETİCİ GİRİŞİ YAPILDI
+        </div>
+        <h1 class="text-3xl font-black text-white tracking-tight">Mervece Portal Yönetim Paneli</h1>
+        <p class="text-sm text-gray-400 mt-1">Hoş geldiniz, <span id="admin-username" class="text-white font-bold">Admin</span>. Tüm sistem kontrolleri tek merkezde.</p>
+      </div>
+      
+      <!-- Sekme Seçici Butonlar -->
+      <div class="flex bg-[#16152B]/80 p-1.5 rounded-2xl border border-white/5 self-start">
+        <button onclick="switchTab('summary')" id="tab-btn-summary" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-gray-400 border border-transparent transition-all flex items-center gap-1.5 active">
+          📊 Özet Panel
+        </button>
+        <button onclick="switchTab('users')" id="tab-btn-users" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-gray-400 border border-transparent transition-all flex items-center gap-1.5">
+          👥 Kullanıcılar
+        </button>
+        <button onclick="switchTab('posts')" id="tab-btn-posts" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-gray-400 border border-transparent transition-all flex items-center gap-1.5">
+          💬 Moderasyon
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- LÜTFEN BEKLEYİN SİMGE -->
+  <div id="loading" class="text-center py-20 hidden">
+    <div class="inline-block w-9 h-9 border-4 border-t-[#E94560] border-gray-800 rounded-full animate-spin"></div>
+    <p class="text-xs text-gray-500 mt-3 font-semibold tracking-wider">VERİLER ALINIYOR...</p>
+  </div>
+
+  <!-- PANEL İÇERİK ALANI -->
+  <main class="max-w-6xl mx-auto px-4 py-10">
+
+    <!-- ════════════════════ 1. SEKME: ÖZET PANEL ════════════════════ -->
+    <section id="section-summary" class="space-y-10">
+      
+      <!-- Analitik İstatistik Kartları -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="glass p-6 rounded-2xl relative overflow-hidden group hover:border-[#E94560]/30 transition-all duration-300">
+          <div class="absolute -right-4 -bottom-4 text-7xl opacity-5 group-hover:scale-110 transition-transform duration-300">👥</div>
+          <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Toplam Üye</p>
+          <p class="text-4xl font-extrabold text-white font-display" id="summary-total-users">0</p>
+          <div class="h-1 w-12 bg-[#E94560] rounded mt-3"></div>
+        </div>
+
+        <div class="glass p-6 rounded-2xl relative overflow-hidden group hover:border-[#E94560]/30 transition-all duration-300">
+          <div class="absolute -right-4 -bottom-4 text-7xl opacity-5 group-hover:scale-110 transition-transform duration-300">💬</div>
+          <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Toplam Paylaşım</p>
+          <p class="text-4xl font-extrabold text-white font-display" id="summary-total-posts">0</p>
+          <div class="h-1 w-12 bg-purple-500 rounded mt-3"></div>
+        </div>
+
+        <div class="glass p-6 rounded-2xl relative overflow-hidden group hover:border-[#E94560]/30 transition-all duration-300">
+          <div class="absolute -right-4 -bottom-4 text-7xl opacity-5 group-hover:scale-110 transition-transform duration-300">❤️</div>
+          <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Beğenilen Tarifler</p>
+          <p class="text-4xl font-extrabold text-white font-display" id="summary-total-favorites">0</p>
+          <div class="h-1 w-12 bg-red-500 rounded mt-3"></div>
+        </div>
+
+        <div class="glass p-6 rounded-2xl relative overflow-hidden group hover:border-[#E94560]/30 transition-all duration-300">
+          <div class="absolute -right-4 -bottom-4 text-7xl opacity-5 group-hover:scale-110 transition-transform duration-300">🍳</div>
+          <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Üretilen Tarifler</p>
+          <p class="text-4xl font-extrabold text-white font-display" id="summary-total-recipes">0</p>
+          <div class="h-1 w-12 bg-orange-500 rounded mt-3"></div>
+        </div>
+
+      </div>
+
+      <!-- Detaylı Grafikler / Bölüm Dağılımları -->
+      <div class="glass p-8 rounded-2xl space-y-6">
+        <h3 class="font-display text-xl font-bold text-white flex items-center gap-2">
+          <span>📊</span> Sekmelere Göre Yorum / Gönderi Dağılımı
+        </h3>
+        
+        <div class="space-y-5">
+          <!-- Mutfak -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-sm">
+              <span class="font-semibold text-gray-300 flex items-center gap-1.5">🍳 Mutfak Topluluğu</span>
+              <span class="font-bold text-[#F15A24]" id="summary-count-mutfak">0</span>
+            </div>
+            <div class="h-3.5 w-full bg-[#16152B] rounded-full overflow-hidden border border-white/5">
+              <div id="bar-mutfak" class="h-full bg-gradient-to-r from-[#F15A24] to-[#C9421A] rounded-full transition-all duration-1000" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Vlog -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-sm">
+              <span class="font-semibold text-gray-300 flex items-center gap-1.5">🎥 Vlog Topluluğu</span>
+              <span class="font-bold text-[#A855F7]" id="summary-count-vlog">0</span>
+            </div>
+            <div class="h-3.5 w-full bg-[#16152B] rounded-full overflow-hidden border border-white/5">
+              <div id="bar-vlog" class="h-full bg-gradient-to-r from-[#7C3AED] to-[#A855F7] rounded-full transition-all duration-1000" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Elişi -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-sm">
+              <span class="font-semibold text-gray-300 flex items-center gap-1.5">🧶 Elişi Topluluğu</span>
+              <span class="font-bold text-[#10B981]" id="summary-count-elisi">0</span>
+            </div>
+            <div class="h-3.5 w-full bg-[#16152B] rounded-full overflow-hidden border border-white/5">
+              <div id="bar-elisi" class="h-full bg-gradient-to-r from-[#10B981] to-[#047857] rounded-full transition-all duration-1000" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════ 2. SEKME: KULLANICI YÖNETİMİ ════════════════════ -->
+    <section id="section-users" class="space-y-6 hidden">
+      
+      <!-- Kullanıcılar Tablosu -->
+      <div id="users-table-wrap" class="glass rounded-2xl overflow-hidden hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm text-gray-300">
+            <thead class="bg-[#121124]/90 text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-white/[0.04]">
+              <tr>
+                <th class="px-6 py-4">Kullanıcı Kodu</th>
+                <th class="px-6 py-4">Kullanıcı Adı</th>
+                <th class="px-6 py-4">E-Posta Adresi</th>
+                <th class="px-6 py-4">Rol</th>
+                <th class="px-6 py-4">Kayıt Tarihi</th>
+                <th class="px-6 py-4 text-right">İşlemler</th>
+              </tr>
+            </thead>
+            <tbody id="users-tbody" class="divide-y divide-white/[0.03]">
+              <!-- Kullanıcı satırları dinamik eklenecek -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Boş Durum -->
+      <div id="users-empty" class="hidden text-center py-20 border-2 border-dashed border-gray-800 rounded-3xl text-gray-500">
+        <span class="text-3xl block mb-3">👥</span>
+        <p class="font-semibold text-sm">Sistemde kayıtlı kullanıcı bulunamadı.</p>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════ 3. SEKME: İÇERİK & YORUM MODERASYONU ════════════════════ -->
+    <section id="section-posts" class="space-y-8 hidden">
+      
+      <!-- Moderasyon Alt Filtreleri -->
+      <div class="flex items-center gap-2 border-b border-white/[0.04] pb-4 flex-wrap">
+        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mr-3">Bölüm Filtresi:</span>
+        <button onclick="setFilter('all')" id="filter-btn-all" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-white/10 text-white border border-white/20 transition-all">Tümü</button>
+        <button onclick="setFilter('mutfak')" id="filter-btn-mutfak" class="px-4 py-1.5 rounded-lg text-xs font-bold border border-transparent text-gray-400 hover:text-white transition-all">🍳 Mutfak</button>
+        <button onclick="setFilter('vlog')" id="filter-btn-vlog" class="px-4 py-1.5 rounded-lg text-xs font-bold border border-transparent text-gray-400 hover:text-white transition-all">🎥 Vlog</button>
+        <button onclick="setFilter('elisi')" id="filter-btn-elisi" class="px-4 py-1.5 rounded-lg text-xs font-bold border border-transparent text-gray-400 hover:text-white transition-all">🧶 Elişi</button>
+      </div>
+
+      <!-- Gönderi Akış Alanı -->
+      <div id="posts-feed" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Gönderi kartları buraya dinamik eklenecek -->
+      </div>
+
+      <!-- Boş Durum -->
+      <div id="posts-empty" class="hidden text-center py-20 border-2 border-dashed border-gray-800 rounded-3xl text-gray-500">
+        <span class="text-3xl block mb-3">💬</span>
+        <p class="font-semibold text-sm">Filtre kriterlerine uygun hiçbir yorum/gönderi bulunamadı.</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- BİLDİRİM TOAST -->
+  <div id="toast" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 px-6 py-3.5 rounded-2xl text-xs font-bold text-white shadow-2xl z-50 pointer-events-none opacity-0 translate-y-2 transition-all duration-300">
+    Toast Message
+  </div>
+
+  <script src="./admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,3822 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="google-site-verification" content="o9r-ZR6mkhGqUmLSsfbfbB6_MQuWaokHIbAG9XBXuYA" />
+  <title>Dkt. Gizem Özer | Antalya Dil ve Konuşma Terapisi Kliniği</title>
+  <meta name="description"
+    content="Antalya'da kekemelik, artikülasyon, gecikmiş dil ve ses terapisi alanında uzman klinik değerlendirme ve kişiye özel terapi seansları. Hemen randevu alın.">
+  <meta name="keywords"
+    content="antalya konuşma terapisti, antalya dil terapisi, kekemelik tedavisi antalya, artikülasyon antalya, gizem özer, antalya çocuk konuşma terapisi">
+  <meta name="geo.region" content="TR-07">
+  <meta name="geo.placename" content="Antalya">
+  <meta name="geo.position" content="36.858354;30.738594">
+  <meta name="ICBM" content="36.858354, 30.738594">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Antalya Dil ve Konuşma Terapisi - Gizem Özer",
+    "image": "https://dktgizemozer.com/logo.png",
+    "@id": "https://dktgizemozer.com",
+    "url": "https://dktgizemozer.com",
+    "telephone": "+905462302416",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Şirinyalı Mahallesi İsmet Gökşen Caddesi 92/3 Bilir Apartmanı",
+      "addressLocality": "Muratpaşa",
+      "addressRegion": "Antalya",
+      "postalCode": "07160",
+      "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 36.85835367223051,
+      "longitude": 30.73859447609956
+    },
+    "hasMap": "https://maps.app.goo.gl/KVw1WU5qL6iPdWb59",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "20:00"
+      }
+    ],
+    "medicalSpecialty": "SpeechTherapy"
+  }
+  </script>
+  <meta property="og:title" content="Dkt. Gizem Özer | Dil ve Konuşma Terapisti" />
+  <meta property="og:description"
+    content="Bilimsel ve bireye özel dil, konuşma terapisi. Çocuktan yetişkine kapsamlı değerlendirme ve terapi planlaması." />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+    rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rose: {
+              25: '#fff8fa',
+              50: '#FFF0F4',
+              100: '#FDE8EE',
+              200: '#fbc9d6',
+              300: '#f79ab2',
+              400: '#f0638a',
+              500: '#E86A82',
+              600: '#d44f6a',
+              700: '#b33558',
+              800: '#952e4a',
+              900: '#7c2940',
+            },
+            cream: {
+              50: '#FDFBFB',
+              100: '#FAF7F8',
+              200: '#FDF2F4',
+              300: '#f5edef',
+            },
+            anthracite: {
+              700: '#2D3142',
+              600: '#3a3f56',
+              500: '#4F5568',
+              400: '#6b7089',
+              800: '#1F222E',
+              900: '#13151D',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FDFBFB;
+      color: #2D3142;
+    }
+
+    .nav-scrolled {
+      box-shadow: 0 2px 24px rgba(232, 106, 130, 0.10);
+      background: rgba(253, 251, 251, 0.97);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #FFF0F4 0%, #FDF2F4 40%, #fff8fa 100%);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .therapy-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .therapy-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(232, 106, 130, 0.18);
+    }
+
+    .step-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .step-dot.active {
+      background: #E86A82;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(232, 106, 130, 0.40);
+    }
+
+    .step-dot.done {
+      background: #E86A82;
+      color: #fff;
+    }
+
+    .step-dot.inactive {
+      background: #f5edef;
+      color: #b0b0b0;
+    }
+
+    .step-connector {
+      flex: 1;
+      height: 2px;
+      background: #f5edef;
+      transition: background 0.3s ease;
+    }
+
+    .step-connector.done {
+      background: #E86A82;
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(45, 49, 66, 0.55);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .hamburger-line {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #2D3142;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open .hamburger-line:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.open .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open .hamburger-line:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .quote-block {
+      border-left: 4px solid #E86A82;
+      background: linear-gradient(90deg, #FFF0F4 0%, transparent 100%);
+    }
+
+    .blog-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(232, 106, 130, 0.14);
+    }
+
+    .option-btn input[type="radio"] {
+      display: none;
+    }
+
+    .option-btn label {
+      cursor: pointer;
+      display: block;
+      border: 2px solid #f5edef;
+      border-radius: 12px;
+      padding: 12px 16px;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+      color: #4F5568;
+      font-weight: 500;
+    }
+
+    .option-btn input[type="radio"]:checked+label {
+      border-color: #E86A82;
+      background: #FFF0F4;
+      color: #E86A82;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active,
+    .quiz-step.active {
+      display: block;
+      animation: fadeInUp 0.4s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .th-card {
+      transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+      cursor: pointer;
+    }
+
+    .th-card:hover {
+      transform: translateY(-6px) rotate(-0.7deg) scale(1.02);
+      box-shadow: 0 18px 40px rgba(232, 106, 130, 0.20);
+      border-color: #E86A82 !important;
+    }
+
+    /* ---- Therapy view transitions ---- */
+    @keyframes therapyFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes therapyFadeOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      to {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+    }
+
+    .th-view-enter {
+      animation: therapyFadeIn 0.38s ease forwards;
+    }
+
+    .th-view-exit {
+      animation: therapyFadeOut 0.28s ease forwards;
+    }
+
+    /* ---- Detail section headings ---- */
+    .th-detail-h {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #2D3142;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .th-detail-h::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: #E86A82;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #FAF7F8;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #f0638a;
+      border-radius: 3px;
+    }
+
+    /* ---- Hand-drawn underline ---- */
+    .doodle-underline {
+      position: relative;
+      display: inline-block;
+    }
+
+    .doodle-underline svg {
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    /* ---- Organic blob shapes ---- */
+    .blob-decor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ---- Dot grid overlay ---- */
+    .dot-grid-bg {
+      background-image: radial-gradient(circle, rgba(232, 106, 130, 0.13) 1.2px, transparent 1.2px);
+      background-size: 18px 18px;
+    }
+
+    /* ---- Offset photo card ---- */
+    .photo-offset-block {
+      position: absolute;
+      inset: 0;
+      transform: translate(14px, 14px);
+      background: linear-gradient(135deg, #fbc9d6 0%, #FFF0F4 100%);
+      border-radius: 24px;
+      z-index: 0;
+    }
+
+    /* ---- Hover spring/bounce on buttons ---- */
+    .btn-spring {
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease;
+    }
+
+    .btn-spring:hover {
+      transform: translateY(-3px) scale(1.04);
+    }
+
+    .btn-spring:active {
+      transform: translateY(1px) scale(0.98);
+    }
+
+    /* ---- Therapy card tilt hover ---- */
+    .th-card {
+      transform-origin: center center;
+    }
+
+    .th-card:hover {
+      transform: translateY(-5px) rotate(-0.6deg);
+    }
+
+    /* ---- Section sparkle doodle ---- */
+    .sparkle-doodle {
+      display: inline-block;
+      animation: sparklePop 2.4s ease-in-out infinite;
+    }
+
+    @keyframes sparklePop {
+
+      0%,
+      100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.85;
+      }
+
+      50% {
+        transform: scale(1.22) rotate(12deg);
+        opacity: 1;
+      }
+    }
+
+    /* ---- Float blobs ---- */
+    @keyframes blobFloat {
+
+      0%,
+      100% {
+        transform: translateY(0px) scale(1);
+      }
+
+      50% {
+        transform: translateY(-18px) scale(1.04);
+      }
+    }
+
+    .blob-float {
+      animation: blobFloat 7s ease-in-out infinite;
+    }
+
+    .blob-float-slow {
+      animation: blobFloat 11s ease-in-out infinite;
+    }
+
+    /* ==================== SECTION BACKGROUNDS ==================== */
+    #hero {
+      background: linear-gradient(160deg, #FFF5F7 0%, #FFF9FB 60%, #ffffff 100%);
+    }
+
+    #uzmanlar {
+      background: linear-gradient(160deg, #FFFDF5 0%, #FFFEF9 100%);
+    }
+
+    #tedaviler {
+      background: linear-gradient(160deg, #F2F9F6 0%, #EDF7F3 100%);
+    }
+
+    #makaleler {
+      background: linear-gradient(160deg, #F7F5FF 0%, #F2F0FE 100%);
+    }
+
+    #sss {
+      background: linear-gradient(160deg, #F3F8FC 0%, #EBF4FB 100%);
+    }
+
+    #iletisim {
+      background: linear-gradient(160deg, #F3F8FC 0%, #EBF4FB 100%);
+    }
+
+    .stats-strip {
+      background: #FFFDF5;
+    }
+
+    /* ==================== WAVE DIVIDERS ==================== */
+    .wave-divider {
+      display: block;
+      width: 100%;
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* ==================== CHILD DOODLES ==================== */
+    .child-doodle {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      user-select: none;
+    }
+
+    @keyframes sway {
+
+      0%,
+      100% {
+        transform: rotate(-4deg) translateY(0px);
+      }
+
+      50% {
+        transform: rotate(4deg) translateY(-10px);
+      }
+    }
+
+    @keyframes swayR {
+
+      0%,
+      100% {
+        transform: rotate(3deg) translateY(-4px);
+      }
+
+      50% {
+        transform: rotate(-3deg) translateY(6px);
+      }
+    }
+
+    @keyframes floatUp {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(-2deg);
+      }
+
+      50% {
+        transform: translateY(-14px) rotate(2deg);
+      }
+    }
+
+    @keyframes spin-slow {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .doodle-sway {
+      animation: sway 5s ease-in-out infinite;
+    }
+
+    .doodle-sway-r {
+      animation: swayR 6s ease-in-out infinite;
+    }
+
+    .doodle-float-up {
+      animation: floatUp 4.5s ease-in-out infinite;
+    }
+
+    .doodle-spin-slow {
+      animation: spin-slow 8s linear infinite;
+      transform-origin: 50% 50%;
+    }
+  </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4">
+
+        <a href="#hero" class="flex flex-col leading-tight group">
+          <span
+            class="text-lg font-bold text-anthracite-700 tracking-tight group-hover:text-rose-500 transition-colors">Dkt.
+            Gizem Özer</span>
+          <span class="text-xs font-medium text-rose-500 tracking-wider uppercase">Dil ve Konuşma Terapisi
+            Kliniği</span>
+        </a>
+
+        <ul class="hidden lg:flex items-center gap-7">
+          <li><a href="#hero"
+              class="nav-link text-sm font-medium text-anthracite-500 hover:text-rose-500 transition-colors">Ana
+              Sayfa</a></li>
+          <li><a href="#uzmanlar"
+              class="nav-link text-sm font-medium text-anthracite-500 hover:text-rose-500 transition-colors">Uzmanımız</a>
+          </li>
+          <li><a href="#tedaviler"
+              class="nav-link text-sm font-medium text-anthracite-500 hover:text-rose-500 transition-colors">Tedavi
+              &amp; Terapiler</a></li>
+          <li><a href="#makaleler"
+              class="nav-link text-sm font-medium text-anthracite-500 hover:text-rose-500 transition-colors">Makaleler</a>
+          </li>
+          <li><a href="#sss"
+              class="nav-link text-sm font-medium text-anthracite-500 hover:text-rose-500 transition-colors">SSS</a>
+          </li>
+          <li><a href="#iletisim"
+              class="nav-link text-sm font-medium text-anthracite-500 hover:text-rose-500 transition-colors">İletişim</a>
+          </li>
+        </ul>
+
+        <div class="flex items-center gap-3">
+          <a href="javascript:void(0)" onclick="openRandevuModal()"
+            class="hidden sm:inline-flex items-center gap-2 bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all shadow-md hover:shadow-lg">
+            <i class="fa-regular fa-calendar-check text-xs"></i>
+            <span>Randevu Al</span>
+          </a>
+          <button id="hamburger-btn" class="hamburger lg:hidden flex flex-col gap-1.5 p-2 rounded-lg"
+            aria-label="Menüyü Aç">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden hidden bg-cream-50 border-t border-rose-100 shadow-lg">
+      <ul class="flex flex-col px-6 py-4 gap-3">
+        <li><a href="#hero"
+            class="mobile-link block py-2 text-sm font-medium text-anthracite-700 border-b border-rose-50">Ana Sayfa</a>
+        </li>
+        <li><a href="#uzmanlar"
+            class="mobile-link block py-2 text-sm font-medium text-anthracite-700 border-b border-rose-50">Uzmanımız</a>
+        </li>
+        <li><a href="#tedaviler"
+            class="mobile-link block py-2 text-sm font-medium text-anthracite-700 border-b border-rose-50">Tedavi &amp;
+            Terapiler</a></li>
+        <li><a href="#makaleler"
+            class="mobile-link block py-2 text-sm font-medium text-anthracite-700 border-b border-rose-50">Makaleler</a>
+        </li>
+        <li><a href="#sss"
+            class="mobile-link block py-2 text-sm font-medium text-anthracite-700 border-b border-rose-50">SSS</a></li>
+        <li><a href="#iletisim"
+            class="mobile-link block py-2 text-sm font-medium text-anthracite-700 border-b border-rose-50">İletişim</a>
+        </li>
+        <li class="pt-2">
+          <a href="javascript:void(0)"
+            onclick="openRandevuModal(); hamburgerBtn.classList.remove('open'); mobileMenu.classList.add('hidden');"
+            class="mobile-link block w-full text-center bg-rose-500 text-white text-sm font-semibold py-3 rounded-full">
+            Randevu Al
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero" class="hero-gradient min-h-screen flex items-center pt-20 relative overflow-hidden">
+    <!-- existing radial glows -->
+    <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-30"
+      style="background: radial-gradient(circle, #f79ab2 0%, transparent 70%);"></div>
+    <div class="absolute bottom-0 -left-24 w-72 h-72 rounded-full opacity-20"
+      style="background: radial-gradient(circle, #E86A82 0%, transparent 70%);"></div>
+
+    <!-- Floating coral balloon + string + stars — left edge -->
+    <svg class="child-doodle doodle-float-up" style="top:12%;left:-5px;width:72px;opacity:0.90;" viewBox="0 0 72 160"
+      fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- balloon body -->
+      <ellipse cx="36" cy="40" rx="30" ry="38" fill="#E86A82" stroke="#E03A3A" stroke-width="2.5" />
+      <ellipse cx="24" cy="26" rx="7" ry="10" fill="white" opacity="0.35" transform="rotate(-20 24 26)" />
+      <circle cx="36" cy="78" r="4.5" fill="#E03A3A" />
+      <!-- curly string -->
+      <path d="M36 82 C30 95 42 105 36 118 C30 131 42 141 36 155" stroke="#E03A3A" stroke-width="2"
+        stroke-linecap="round" fill="none" />
+      <!-- stars -->
+      <path d="M10 10 L15 15 M15 10 L10 15" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M55 70 L60 75 M60 70 L55 75" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" />
+    </svg>
+
+    <!-- Paper airplane + dotted trail — right edge -->
+    <svg class="child-doodle doodle-sway" style="top:30%;right:2%;width:100px;opacity:0.85;" viewBox="0 0 100 80"
+      fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- trail -->
+      <path d="M90 70 C70 60 30 70 10 30" stroke="#0EA5E9" stroke-width="2" stroke-dasharray="4 4"
+        stroke-linecap="round" fill="none" />
+      <!-- plane body (bottom) -->
+      <path d="M5 30 L40 10 L30 45 Z" fill="#0EA5E9" />
+      <!-- plane body (top) -->
+      <path d="M30 45 L40 10 L50 40 Z" fill="#38BDF8" />
+    </svg>
+
+    <!-- Mini clouds — upper right hero area -->
+    <svg class="child-doodle doodle-sway" style="top:8%;right:5%;width:120px;opacity:0.65;" viewBox="0 0 120 50"
+      fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- cloud 1 (large) -->
+      <ellipse cx="55" cy="32" rx="38" ry="18" fill="white" />
+      <ellipse cx="38" cy="30" rx="22" ry="16" fill="white" />
+      <ellipse cx="72" cy="30" rx="22" ry="16" fill="white" />
+      <ellipse cx="55" cy="26" rx="24" ry="18" fill="white" />
+      <!-- cloud 2 (small, upper right) -->
+      <ellipse cx="102" cy="20" rx="18" ry="10" fill="white" opacity="0.80" />
+      <ellipse cx="90" cy="18" rx="12" ry="9" fill="white" opacity="0.80" />
+      <ellipse cx="112" cy="18" rx="10" ry="8" fill="white" opacity="0.80" />
+    </svg>
+
+    <!-- Mini cloud lower left -->
+    <svg class="child-doodle doodle-sway-r" style="top:55%;left:2%;width:80px;opacity:0.55;" viewBox="0 0 80 36"
+      fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="38" cy="24" rx="28" ry="13" fill="white" />
+      <ellipse cx="24" cy="22" rx="17" ry="12" fill="white" />
+      <ellipse cx="52" cy="22" rx="17" ry="12" fill="white" />
+      <ellipse cx="38" cy="18" rx="18" ry="13" fill="white" />
+    </svg>
+
+
+    <!-- Organic blob 1 — top-left, slow float -->
+    <svg class="blob-decor blob-float-slow opacity-40" style="top:-60px;left:-80px;width:340px;" viewBox="0 0 340 320"
+      fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path
+        d="M290 60C330 110 355 185 320 240C285 295 200 310 135 290C70 270 20 210 15 150C10 90 55 35 115 18C175 1 250 10 290 60Z"
+        fill="#fbc9d6" opacity="0.45" />
+    </svg>
+
+    <!-- Organic blob 2 — mid-right, float -->
+    <svg class="blob-decor blob-float opacity-30" style="top:30%;right:-60px;width:260px;" viewBox="0 0 260 240"
+      fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path
+        d="M220 30C255 70 270 130 250 175C230 220 170 245 115 235C60 225 15 185 10 135C5 85 40 30 95 12C150 -6 185 -10 220 30Z"
+        fill="#FFF0F4" opacity="0.7" />
+    </svg>
+
+    <!-- Doodle: tiny cross / star scattered decorations -->
+    <svg class="blob-decor opacity-50" style="top:18%;left:10%;width:28px;" viewBox="0 0 28 28" fill="none"
+      aria-hidden="true">
+      <path d="M14 2 L14 26 M2 14 L26 14" stroke="#E86A82" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M5 5 L23 23 M23 5 L5 23" stroke="#E86A82" stroke-width="1.5" stroke-linecap="round" opacity="0.5" />
+    </svg>
+    <svg class="blob-decor opacity-40" style="bottom:22%;right:12%;width:22px;" viewBox="0 0 28 28" fill="none"
+      aria-hidden="true">
+      <path d="M14 2 L14 26 M2 14 L26 14" stroke="#f79ab2" stroke-width="2" stroke-linecap="round" />
+      <path d="M5 5 L23 23 M23 5 L5 23" stroke="#f79ab2" stroke-width="1.2" stroke-linecap="round" opacity="0.5" />
+    </svg>
+    <!-- Doodle: small dot cluster -->
+    <svg class="blob-decor opacity-35" style="bottom:28%;left:5%;width:60px;" viewBox="0 0 60 40" fill="none"
+      aria-hidden="true">
+      <circle cx="5" cy="5" r="3" fill="#E86A82" />
+      <circle cx="20" cy="5" r="3" fill="#E86A82" />
+      <circle cx="35" cy="5" r="3" fill="#E86A82" />
+      <circle cx="5" cy="20" r="3" fill="#E86A82" />
+      <circle cx="20" cy="20" r="3" fill="#E86A82" />
+      <circle cx="35" cy="20" r="3" fill="#E86A82" />
+      <circle cx="5" cy="35" r="3" fill="#E86A82" />
+      <circle cx="20" cy="35" r="3" fill="#E86A82" />
+      <circle cx="35" cy="35" r="3" fill="#E86A82" />
+    </svg>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-16 items-center w-full">
+      <div class="reveal">
+        <div
+          class="inline-flex items-center gap-2 bg-rose-50 text-rose-600 text-xs font-bold px-4 py-2 rounded-full mb-6 border border-rose-100">
+          <i class="fa-solid fa-certificate"></i>
+          <span>Klinik Dil ve Konuşma Terapisti</span>
+        </div>
+        <h1 class="font-display text-4xl sm:text-5xl xl:text-6xl font-bold text-anthracite-700 leading-tight mb-6">
+          Düşüncelerinizi<br />
+          <span class="doodle-underline text-rose-500 italic">Özgürce
+            <!-- hand-drawn wavy underline SVG -->
+            <svg viewBox="0 0 180 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+              style="height:14px;">
+              <path d="M2 8 C18 2, 34 14, 50 8 C66 2, 82 14, 98 8 C114 2, 130 14, 146 8 C162 2, 174 12, 178 8"
+                stroke="#E86A82" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"
+                opacity="0.85" />
+            </svg>
+          </span><br />
+          İfade Edin
+        </h1>
+        <p class="text-anthracite-500 text-lg leading-relaxed mb-8 max-w-xl">
+          Bilimsel ve bireye özel dil ve konuşma terapisi ile artikülasyon bozukluklarından afaziye, kekemelikten ses
+          bozukluklarına uzanan geniş bir yelpazede uzman destek.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-10">
+          <a href="javascript:void(0)" onclick="openRandevuModal()"
+            class="btn-spring inline-flex items-center gap-2 bg-rose-500 hover:bg-rose-600 text-white font-semibold px-7 py-3.5 rounded-full shadow-lg">
+            <i class="fa-regular fa-calendar-check"></i> Randevu Al
+          </a>
+          <a href="#tedaviler"
+            class="btn-spring inline-flex items-center gap-2 bg-white hover:bg-rose-50 text-anthracite-700 font-semibold px-7 py-3.5 rounded-full border border-rose-100 hover:border-rose-300">
+            <i class="fa-solid fa-list-check text-rose-500"></i> Terapi Alanları
+          </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="flex items-center gap-3 bg-white rounded-2xl px-4 py-3.5 shadow-sm border border-rose-50">
+            <div class="w-12 h-12 flex-shrink-0 rounded-xl bg-rose-50 flex items-center justify-center">
+              <i class="fa-solid fa-flask-vial text-rose-500 text-xl"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-anthracite-700">Klinik &amp;</p>
+              <p class="text-xs text-anthracite-500">Bilimsel Yaklaşım</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-white rounded-2xl px-4 py-3.5 shadow-sm border border-rose-50">
+            <div class="w-12 h-12 flex-shrink-0 rounded-xl bg-rose-50 flex items-center justify-center">
+              <i class="fa-solid fa-user-gear text-rose-500 text-xl"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-anthracite-700">Kişiye Özel</p>
+              <p class="text-xs text-anthracite-500">Terapi Planı</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-white rounded-2xl px-4 py-3.5 shadow-sm border border-rose-50">
+            <div class="w-12 h-12 flex-shrink-0 rounded-xl bg-rose-50 flex items-center justify-center">
+              <i class="fa-solid fa-people-group text-rose-500 text-xl"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-anthracite-700">Çocuk ve</p>
+              <p class="text-xs text-anthracite-500">Yetişkin Seansları</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal hidden lg:flex items-center justify-center relative">
+        <div class="relative w-full max-w-sm">
+          <!-- offset pastel background block -->
+          <div class="photo-offset-block"></div>
+          <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-rose-200 to-rose-100 opacity-40 blur-xl">
+          </div>
+          <div class="relative bg-white rounded-3xl shadow-2xl overflow-visible border border-rose-50"
+            style="z-index:1;">
+            <div class="h-80 w-full relative overflow-hidden rounded-t-3xl">
+              <img src="gizem-ozer.jpg" alt="Dkt. Gizem Özer" class="w-full h-full object-cover object-top" />
+            </div>
+            <div class="p-5 bg-white rounded-b-3xl">
+              <p class="font-bold text-anthracite-700 text-lg">Dkt. Gizem Özer</p>
+              <p class="text-rose-500 text-sm font-semibold mt-0.5">Klinik Dil ve Konuşma Terapisti</p>
+              <div class="flex items-center gap-4 mt-3 text-xs text-anthracite-400 font-medium">
+                <span><i class="fa-solid fa-graduation-cap text-rose-300 mr-1"></i> 8+ Yıl Deneyim</span>
+                <span><i class="fa-solid fa-certificate text-rose-300 mr-1"></i> 5 Sertifika</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute -bottom-4 -left-6 bg-white rounded-2xl shadow-lg border border-rose-50 px-4 py-3 flex items-center gap-3 z-20">
+            <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center">
+              <i class="fa-solid fa-star text-rose-400 text-base"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-anthracite-700">4.9 / 5.0</p>
+              <p class="text-xs text-anthracite-400">Danışan Memnuniyeti</p>
+            </div>
+          </div>
+          <div class="absolute -top-3 -right-3 z-30 bg-rose-500 rounded-2xl shadow-lg px-4 py-3 text-white">
+            <p class="text-xs font-bold">200+ Başarılı</p>
+            <p class="text-xs opacity-90">Terapi Süreci</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 60L1440 60L1440 20C1200 60 960 0 720 20C480 40 240 0 0 20L0 60Z" fill="#FDFBFB" />
+      </svg>
+    </div>
+  </section>
+  <!-- wave: hero → stats -->
+  <div class="wave-divider" aria-hidden="true" style="margin-top:-2px;">
+    <svg viewBox="0 0 1440 54" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style="height:54px;">
+      <path d="M0 0 C240 54 480 0 720 27 C960 54 1200 0 1440 27 L1440 54 L0 54Z" fill="#FFFDF5" />
+    </svg>
+  </div>
+
+  <!-- ==================== STATS ==================== -->
+  <section class="stats-strip py-10 border-y border-rose-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal">
+      <div>
+        <p class="text-4xl font-bold text-rose-500 font-display">5+</p>
+        <p class="text-sm text-anthracite-500 mt-1 font-medium">Deneyim</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-rose-500 font-display">200+</p>
+        <p class="text-sm text-anthracite-500 mt-1 font-medium">Terapi Süreci</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-rose-500 font-display">7</p>
+        <p class="text-sm text-anthracite-500 mt-1 font-medium">Uzmanlık Alanı</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-rose-500 font-display">9</p>
+        <p class="text-sm text-anthracite-500 mt-1 font-medium">Klinik Sertifika</p>
+      </div>
+    </div>
+  </section>
+  <!-- wave: stats → uzmanlar -->
+  <div class="wave-divider" aria-hidden="true" style="margin-top:-2px;">
+    <svg viewBox="0 0 1440 54" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style="height:54px;">
+      <path d="M0 27 C360 54 720 0 1080 27 C1260 41 1380 18 1440 27 L1440 54 L0 54Z" fill="#FFFDF5" />
+    </svg>
+  </div>
+
+  <!-- ==================== UZMANLAR ==================== -->
+  <section id="uzmanlar" class="bg-stone-50 border-y border-stone-100 shadow-sm py-24 relative overflow-hidden">
+    <!-- Wooden train — left side -->
+    <svg class="child-doodle doodle-sway-r" style="top:100px;left:-5px;width:90px;opacity:0.85;" viewBox="0 0 90 70"
+      fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="10" y="20" width="70" height="30" rx="4" fill="#F59E0B" stroke="#D97706" stroke-width="2" />
+      <rect x="20" y="5" width="20" height="15" rx="2" fill="#E86A82" stroke="#E03A3A" stroke-width="2" />
+      <circle cx="25" cy="55" r="8" fill="#1F2937" />
+      <circle cx="65" cy="55" r="8" fill="#1F2937" />
+      <circle cx="25" cy="55" r="3" fill="white" />
+      <circle cx="65" cy="55" r="3" fill="white" />
+    </svg>
+
+    <!-- Puzzle pieces — right side -->
+    <svg class="child-doodle doodle-float-up" style="top:150px;right:-10px;width:80px;opacity:0.85;" viewBox="0 0 80 80"
+      fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- blue piece -->
+      <path d="M20 20 H40 A8 8 0 0 1 40 36 H20 A8 8 0 0 1 20 20" fill="#0EA5E9" />
+      <!-- yellow piece -->
+      <path d="M35 30 H55 A8 8 0 0 1 55 46 H35 A8 8 0 0 1 35 30" fill="#F59E0B" />
+    </svg>
+    <!-- Blob background for uzmanlar -->
+    <svg class="blob-decor blob-float-slow opacity-20 pointer-events-none" style="top:-80px;right:-100px;width:380px;"
+      viewBox="0 0 380 350" fill="none" aria-hidden="true">
+      <path
+        d="M320 50C370 100 395 185 355 250C315 315 230 340 155 315C80 290 20 225 15 155C10 85 65 25 140 8C215 -9 270 0 320 50Z"
+        fill="#FFF0F4" />
+    </svg>
+    <svg class="blob-decor blob-float opacity-15 pointer-events-none" style="bottom:-60px;left:-80px;width:280px;"
+      viewBox="0 0 280 260" fill="none" aria-hidden="true">
+      <path
+        d="M235 35C270 75 285 145 260 195C235 245 175 265 115 250C55 235 10 185 8 130C6 75 48 25 108 10C168 -5 200 -5 235 35Z"
+        fill="#fbc9d6" />
+    </svg>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center mb-16 reveal">
+        <span
+          class="inline-block bg-rose-50 text-rose-500 text-xs font-bold px-4 py-2 rounded-full mb-4 border border-rose-100 uppercase tracking-wider">Ekibimiz</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-anthracite-700 mb-4">
+          <span class="sparkle-doodle mr-2" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+              style="display:inline-block;vertical-align:middle;">
+              <path d="M11 1 L12.5 8.5 L20 11 L12.5 13.5 L11 21 L9.5 13.5 L2 11 L9.5 8.5 Z" fill="#E86A82"
+                opacity="0.85" />
+            </svg>
+          </span>Uzmanınızla Tanışın
+        </h2>
+        <p class="text-anthracite-500 max-w-xl mx-auto">Klinik eğitimle desteklenmiş kapsamlı deneyim ve insan odaklı
+          terapi anlayışı.</p>
+      </div>
+      <div class="max-w-6xl mx-auto reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+          <!-- Sol Görsel Sütunu -->
+          <div class="lg:col-span-5 items-start self-start w-full">
+            <div
+              class="w-full max-w-[360px] aspect-[4/5] mx-auto relative overflow-hidden rounded-3xl shadow-xl border border-rose-50">
+              <img src="gizem-ozer.jpg" alt="Dkt. Gizem Özer"
+                class="w-full h-full object-cover object-top transition-none"
+                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2U4NmE4MiI+PHBhdGggZD0iTTEyIDJDMi41IDIgMiAxMi41IDIgMTJzNC41IDEwIDEwIDEwIDEwLTQuNSAxMC0xMFMyMS41IDIgMTIgMnptMCAxOGMtNC40IDAtOC0zLjYtOC04czMuNi04IDgtOCA4IDMuNiA4IDgtMy42IDgtOCA4em0wLTEzYy0xLjcgMC0zIDEuMy0zIDNzMS4zIDMgMyAzIDMtMS4zIDMtMy0xLjMtMy0zLTN6bTAgNWMtMi4zIDAtNyAxLjItNyAzLjVWMThoMTR2LTEuNWMwLTIuMy00LjctMy41LTctMy41eiIvPjwvc3ZnPg=='" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-anthracite-900/90 via-anthracite-900/20 to-transparent flex flex-col justify-end p-8 mt-auto">
+                <p class="font-bold text-white text-2xl text-center">Dkt. Gizem Özer</p>
+                <p class="text-rose-300 text-sm font-semibold text-center mt-1">Klinik Dil ve Konuşma Terapisti</p>
+                <div class="flex gap-3 mt-5 justify-center">
+                  <a href="https://wa.me/905462302416" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white hover:bg-rose-500 hover:border-rose-500 transition-all">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                  </a>
+                  <a href="https://www.instagram.com/dilkonusmaterapisi_antalya/" target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white hover:bg-rose-500 hover:border-rose-500 transition-all">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sağ Metin & Sertifika Sütunu -->
+          <div
+            class="lg:col-span-7 bg-white rounded-3xl shadow-xl border border-rose-50 p-8 lg:p-10 flex flex-col justify-center">
+            <h3 class="font-display text-3xl font-bold text-anthracite-700 mb-4">Hakkımda</h3>
+            <div class="text-anthracite-500 text-sm leading-relaxed mb-8">
+              <p class="mb-4">
+                Merhaba, ben Dil ve Konuşma Terapisti Gizem Özer.
+              </p>
+              <p class="mb-4">
+                Anadolu Üniversitesi Dil ve Konuşma Terapisi Bölümü’nden mezun oldum. Lisans eğitimim süresince DİLKOM
+                (Dil ve Konuşma Bozuklukları Eğitim, Araştırma ve Uygulama Merkezi), Osmangazi Üniversitesi Tıp
+                Fakültesi ve farklı yurt içi ve yurt dışı kurumlarda gözlem ve uygulamalı çalışmalar gerçekleştirdim.
+              </p>
+
+              <div id="about-more-text" class="hidden opacity-0 transition-opacity duration-300 ease-in-out">
+                <p class="mb-4">
+                  Yaklaşık 5 yıldır çocuk, ergen ve yetişkinlerle dil, konuşma, iletişim ve yutma alanlarında
+                  çalışıyorum. Mesleki deneyimim boyunca Otizm Spektrum Bozukluğu, kekemelik, çocukluk çağı konuşma
+                  apraksisi, konuşma sesi ve sesletim bozuklukları, afazi, ses bozuklukları ve yutma bozuklukları
+                  alanlarında değerlendirme ve terapi süreçleri yürüttüm.
+                </p>
+                <p class="mb-4">
+                  DIR®/Floortime terapistiyim. Özellikle çocuklarla gerçekleştirdiğim çalışmalarda ilişki ve etkileşimi
+                  merkeze alan; çocuğun bireysel özelliklerini, gelişimsel düzeyini ve ihtiyaçlarını gözeten bir
+                  yaklaşım benimsiyorum. Terapi süreçlerini oyun, sosyal etkileşim, iletişim ve dil gelişimini
+                  destekleyecek şekilde, çocuğun güçlü yönlerinden yararlanarak yapılandırıyorum.
+                </p>
+                <p class="mb-4">
+                  Mesleki değerlendirme alanında Otizm Spektrum Bozukluğu Kapsamlı Değerlendirme Seti (IVO-ODS), Gilliam
+                  Otistik Bozukluk Değerlendirme Ölçeği (GOBDÖ-2), Türkçe Erken Dil Gelişim Testi (TEDİL) ve Türkçe Okul
+                  Çağı Dil Gelişimi Testi uygulamalarına yönelik eğitim ve sertifikalara sahibim.
+                </p>
+                <p class="mb-4">
+                  Terapi yaklaşımımda her danışanın bireysel özelliklerini, ihtiyaçlarını ve günlük yaşamındaki iletişim
+                  hedeflerini dikkate alıyorum. Süreçleri bilimsel temellere dayalı, bireyselleştirilmiş ve aile iş
+                  birliğini merkeze alan bir anlayışla yürütüyorum.
+                </p>
+                <p class="mb-4">
+                  Benim için terapi, yalnızca belirli bir becerinin kazandırılmasından ibaret değildir. Terapi sürecini;
+                  bireyin kendini ifade edebilmesini, etkili iletişim kurabilmesini, sosyal yaşama katılımını ve günlük
+                  yaşamda daha işlevsel bir iletişim sürdürebilmesini destekleyen bütüncül bir süreç olarak
+                  değerlendiriyorum.
+                </p>
+              </div>
+
+              <button id="about-read-more-btn" onclick="toggleAboutText()"
+                class="inline-flex items-center gap-1.5 text-rose-500 font-semibold text-xs uppercase tracking-wider hover:text-rose-600 transition-colors mt-2">
+                <span>Devamını Oku</span>
+                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300"
+                  id="about-read-more-icon"></i>
+              </button>
+            </div>
+
+            <div class="mb-8">
+              <p class="text-xs font-bold text-anthracite-400 uppercase tracking-wider mb-4">Klinik Eğitimler &amp;
+                Sertifikalar</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div
+                  class="flex items-start gap-2 bg-rose-50 text-rose-600 text-xs font-medium p-2.5 rounded-xl border border-rose-100">
+                  <i class="fa-solid fa-check text-rose-500 mt-0.5"></i> <span>DIR®/Floortime 201 Eğitimi</span>
+                </div>
+                <div
+                  class="flex items-start gap-2 bg-rose-50 text-rose-600 text-xs font-medium p-2.5 rounded-xl border border-rose-100">
+                  <i class="fa-solid fa-check text-rose-500 mt-0.5"></i> <span>Türkçe Erken Dil Gelişim Testi
+                    (TEDİL)</span>
+                </div>
+                <div
+                  class="flex items-start gap-2 bg-rose-50 text-rose-600 text-xs font-medium p-2.5 rounded-xl border border-rose-100">
+                  <i class="fa-solid fa-check text-rose-500 mt-0.5"></i> <span>Türkçe Okul Çağı Dil Gelişimi
+                    Testi</span>
+                </div>
+                <div
+                  class="flex items-start gap-2 bg-rose-50 text-rose-600 text-xs font-medium p-2.5 rounded-xl border border-rose-100">
+                  <i class="fa-solid fa-check text-rose-500 mt-0.5"></i> <span>Gilliam Otistik Bozukluk (GOBDÖ-2)</span>
+                </div>
+                <div
+                  class="flex items-start gap-2 bg-rose-50 text-rose-600 text-xs font-medium p-2.5 rounded-xl border border-rose-100">
+                  <i class="fa-solid fa-check text-rose-500 mt-0.5"></i> <span>OSB Kapsamlı Değerlendirme
+                    (IVO-ODS)</span>
+                </div>
+                <div
+                  class="flex items-start gap-2 bg-rose-50 text-rose-600 text-xs font-medium p-2.5 rounded-xl border border-rose-100">
+                  <i class="fa-solid fa-check text-rose-500 mt-0.5"></i> <span>Erken Çocuklukta Müdahale
+                    (ETEÇOM2)</span>
+                </div>
+                <div
+                  class="flex items-start gap-2 bg-rose-50 text-rose-600 text-xs font-medium p-2.5 rounded-xl border border-rose-100">
+                  <i class="fa-solid fa-check text-rose-500 mt-0.5"></i> <span>Tanıdan Terapiye Selektif Mutizm
+                    Eğitimi</span>
+                </div>
+                <div
+                  class="flex items-start gap-2 bg-rose-50 text-rose-600 text-xs font-medium p-2.5 rounded-xl border border-rose-100">
+                  <i class="fa-solid fa-check text-rose-500 mt-0.5"></i> <span>Kekemelik Bilişsel Davranışçı
+                    Yaklaşım</span>
+                </div>
+                <div
+                  class="flex items-start gap-2 bg-rose-50 text-rose-600 text-xs font-medium p-2.5 rounded-xl border border-rose-100">
+                  <i class="fa-solid fa-check text-rose-500 mt-0.5"></i> <span>Primer Progresif Afazi Eğitimi</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <p class="text-xs font-bold text-anthracite-400 uppercase tracking-wider mb-4">Eğitim</p>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-8 h-8 rounded-full bg-rose-50 flex items-center justify-center flex-shrink-0 text-rose-500">
+                    <i class="fa-solid fa-graduation-cap text-sm"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-anthracite-700">Lisans — Dil ve Konuşma Terapisi</p>
+                    <p class="text-xs text-anthracite-400 mt-0.5">Anadolu Üniversitesi · 2022</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="quote-block rounded-r-xl pl-5 pr-4 py-4 mt-auto">
+              <p class="text-anthracite-600 text-sm italic leading-relaxed">"Her birey, iletişim becerileri ne düzeyde
+                olursa olsun, anlaşılmayı ve ifade özgürlüğünü hak ediyor. Bilim ve empati bir arada olduğunda gerçek
+                dönüşüm başlar."</p>
+              <p class="text-rose-500 text-xs font-bold mt-2">— Dkt. Gizem Özer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- wave: uzmanlar → değerlendirme -->
+  <div class="wave-divider" aria-hidden="true" style="margin-top:-2px;">
+    <svg viewBox="0 0 1440 54" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style="height:54px;">
+      <path d="M0 27 C180 0 360 54 540 27 C720 0 900 54 1080 27 C1260 0 1380 40 1440 27 L1440 54 L0 54Z" fill="#FFF" />
+    </svg>
+  </div>
+
+  <!-- ==================== ÖN DEERLENDİRME GİRİİ ==================== -->
+  <section id="on-degerlendirme" class="py-20 bg-white relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal relative z-10">
+      <span
+        class="inline-block bg-rose-50 text-rose-500 text-xs font-bold px-4 py-2 rounded-full mb-4 border border-rose-100 uppercase tracking-wider">Hızlı
+        Analiz</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-anthracite-700 mb-3">Kimler İçin Buradayız?</h2>
+      <p class="text-anthracite-500 max-w-xl mx-auto mb-10">Çocuğunuz veya kendiniz için birkaç kısa soruyla doğru
+        terapi alanını birlikte belirleyelim.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 text-left">
+        <!-- Card 1 -->
+        <div class="bg-amber-50 rounded-2xl p-6 border border-amber-100 flex flex-col items-center text-center gap-3">
+          <div
+            class="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center text-amber-500 text-2xl shadow-sm">
+            <i class="fa-solid fa-child"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-anthracite-700">Çocuklar (2-12 Yaş)</h4>
+            <p class="text-sm text-anthracite-500 mt-2">Gecikmiş konuşma, artikülasyon ve akıcılık takibi.</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-rose-50 rounded-2xl p-6 border border-rose-100 flex flex-col items-center text-center gap-3">
+          <div
+            class="w-14 h-14 bg-rose-100 rounded-full flex items-center justify-center text-rose-500 text-2xl shadow-sm">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-anthracite-700">Ergen & Yetişkinler</h4>
+            <p class="text-sm text-anthracite-500 mt-2">Kekemelik, afazi ve ses bozukluklarına yönelik destek.</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div
+          class="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 flex flex-col items-center text-center gap-3">
+          <div
+            class="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-500 text-2xl shadow-sm">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-anthracite-700">Ebeveyn Danışmanlığı</h4>
+            <p class="text-sm text-anthracite-500 mt-2">Sürecin sağlıklı yürütülmesi için aile eğitimleri.</p>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="openQuizModal()"
+        class="btn-spring inline-flex items-center gap-2 bg-rose-500 hover:bg-rose-600 text-white font-bold px-8 py-4 rounded-full shadow-lg text-base sm:text-lg transition-transform hover:scale-105">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> 1 Dakikada Ön Değerlendirmeyi Başlat
+      </button>
+    </div>
+  </section>
+
+  <!-- wave: değerlendirme → tedaviler -->
+  <div class="wave-divider" aria-hidden="true" style="margin-top:-2px;">
+    <svg viewBox="0 0 1440 54" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style="height:54px;">
+      <path d="M0 27 C180 0 360 54 540 27 C720 0 900 54 1080 27 C1260 0 1380 40 1440 27 L1440 54 L0 54Z"
+        fill="#F2F9F6" />
+    </svg>
+  </div>
+
+  <!-- ==================== TEDAVİLER ==================== -->
+  <section id="tedaviler" class="py-24 relative overflow-hidden">
+
+    <!-- Floating toy blocks doodle — left side -->
+    <svg class="child-doodle doodle-float-up" style="top:60px;left:-8px;width:100px;opacity:0.88;" viewBox="0 0 100 130"
+      fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Block C (bottom) -->
+      <rect x="10" y="85" width="44" height="44" rx="7" fill="#FF8C69" stroke="#E06040" stroke-width="2.5" />
+      <text x="32" y="115" font-size="22" font-weight="bold" text-anchor="middle" fill="white"
+        font-family="Arial">C</text>
+      <!-- Block B (middle) -->
+      <rect x="28" y="46" width="44" height="44" rx="7" fill="#69C0FF" stroke="#3A9ED4" stroke-width="2.5" />
+      <text x="50" y="76" font-size="22" font-weight="bold" text-anchor="middle" fill="white"
+        font-family="Arial">B</text>
+      <!-- Block A (top) -->
+      <rect x="46" y="7" width="44" height="44" rx="7" fill="#B5E48C" stroke="#6DB33F" stroke-width="2.5" />
+      <text x="68" y="37" font-size="22" font-weight="bold" text-anchor="middle" fill="white"
+        font-family="Arial">A</text>
+    </svg>
+
+    <!-- Floating pinwheel / windmill doodle — right side -->
+    <svg class="child-doodle" style="top:140px;right:0px;width:80px;opacity:0.80;" viewBox="0 0 80 130" fill="none"
+      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- stick -->
+      <rect x="36" y="55" width="6" height="74" rx="3" fill="#A0795A" />
+      <!-- spinning blades -->
+      <g class="doodle-spin-slow" style="transform-box:fill-box;transform-origin:50% 43%;">
+        <path d="M39 43 C39 43 18 20 12 5 C24 12 42 32 39 43Z" fill="#E86A82" />
+        <path d="M39 43 C39 43 62 20 68 5 C56 12 38 32 39 43Z" fill="#FFD166" />
+        <path d="M39 43 C39 43 18 66 12 81 C24 74 42 54 39 43Z" fill="#69C0FF" />
+        <path d="M39 43 C39 43 62 66 68 81 C56 74 38 54 39 43Z" fill="#B5E48C" />
+        <circle cx="39" cy="43" r="6" fill="#fff" stroke="#ccc" stroke-width="1.5" />
+      </g>
+    </svg>
+
+    <!-- Blob backgrounds -->
+    <svg class="blob-decor blob-float opacity-12 pointer-events-none" style="top:-40px;left:-120px;width:320px;"
+      viewBox="0 0 320 300" fill="none" aria-hidden="true">
+      <path
+        d="M270 45C310 90 330 170 295 225C260 280 185 300 115 278C45 256 5 195 8 130C11 65 62 15 132 4C202 -7 230 0 270 45Z"
+        fill="#FFF0F4" />
+    </svg>
+    <svg class="blob-decor blob-float-slow opacity-10 pointer-events-none"
+      style="bottom:-80px;right:-100px;width:360px;" viewBox="0 0 360 330" fill="none" aria-hidden="true">
+      <path
+        d="M305 55C348 100 368 185 330 245C292 305 205 325 135 298C65 271 15 205 18 138C21 71 74 18 148 5C222 -8 262 10 305 55Z"
+        fill="#fde8ee" />
+    </svg>
+    <!-- Dot cluster top-right doodle -->
+    <svg class="blob-decor opacity-30 pointer-events-none" style="top:40px;right:40px;width:64px;" viewBox="0 0 64 64"
+      fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="3.5" fill="#E86A82" />
+      <circle cx="28" cy="8" r="3.5" fill="#E86A82" />
+      <circle cx="48" cy="8" r="3.5" fill="#E86A82" />
+      <circle cx="8" cy="28" r="3.5" fill="#E86A82" />
+      <circle cx="28" cy="28" r="3.5" fill="#E86A82" />
+      <circle cx="48" cy="28" r="3.5" fill="#E86A82" />
+      <circle cx="8" cy="48" r="3.5" fill="#E86A82" />
+      <circle cx="28" cy="48" r="3.5" fill="#E86A82" />
+      <circle cx="48" cy="48" r="3.5" fill="#E86A82" />
+    </svg>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <!-- Section Header -->
+      <div class="text-center mb-14 reveal" id="tedaviler-header">
+        <span
+          class="inline-block bg-rose-50 text-rose-500 text-xs font-bold px-4 py-2 rounded-full mb-4 border border-rose-100 uppercase tracking-wider">Uzmanlık
+          Alanları</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-anthracite-700 mb-4">
+          <span class="sparkle-doodle mr-2" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none"
+              style="display:inline-block;vertical-align:middle;">
+              <path d="M11 1 L12.5 8.5 L20 11 L12.5 13.5 L11 21 L9.5 13.5 L2 11 L9.5 8.5 Z" fill="#E86A82"
+                opacity="0.8" />
+            </svg>
+          </span>Kapsamlı Terapi &amp; Çalışma Alanları
+        </h2>
+        <p class="text-anthracite-500 max-w-xl mx-auto">Bilimsel protokoller ve kişiye özel terapi planlarıyla
+          konuşmanın her boyutunda yanınızdayız. Alanınıza tıklayarak detaylı bilgiye ulaşın.</p>
+      </div>
+
+      <!-- ===== GRID VIEW ===== -->
+      <div id="th-grid-view" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Cards injected by JS -->
+      </div>
+
+      <!-- ===== DETAIL VIEW ===== -->
+      <div id="th-detail-view" class="hidden">
+        <!-- Back button -->
+        <button onclick="thShowGrid()" id="th-back-btn"
+          class="inline-flex items-center gap-2 text-rose-500 hover:text-rose-600 font-semibold text-sm mb-8 group transition-colors">
+          <span
+            class="w-8 h-8 rounded-full bg-rose-50 group-hover:bg-rose-500 flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-arrow-left text-xs text-rose-500 group-hover:text-white transition-colors"></i>
+          </span>
+          Tüm Çalışma Alanlarına Dön
+        </button>
+
+        <!-- Detail content injected by JS -->
+        <div id="th-detail-content"></div>
+      </div>
+
+    </div>
+  </section>
+  <!-- wave: tedaviler → makaleler -->
+  <div class="wave-divider" aria-hidden="true" style="margin-top:-2px;">
+    <svg viewBox="0 0 1440 54" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style="height:54px;">
+      <path d="M0 0 C360 54 720 0 1080 40 C1260 54 1380 10 1440 27 L1440 54 L0 54Z" fill="#F7F5FF" />
+    </svg>
+  </div>
+
+  <!-- ==================== MAKALELER ==================== -->
+  <section id="makaleler" class="py-24 relative overflow-hidden">
+    <!-- Floating book + letters doodle — right side -->
+    <svg class="child-doodle doodle-sway" style="top:50px;right:-5px;width:100px;opacity:0.86;" viewBox="0 0 100 140"
+      fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- book body -->
+      <rect x="8" y="30" width="72" height="92" rx="8" fill="#C9B8F5" stroke="#9B7FE8" stroke-width="2.5" />
+      <!-- spine -->
+      <rect x="8" y="30" width="14" height="92" rx="8" fill="#9B7FE8" />
+      <!-- pages curl -->
+      <path d="M80 122 Q90 110 80 98" stroke="#EDE8FF" stroke-width="3" stroke-linecap="round" fill="none" />
+      <path d="M80 98  Q90 86  80 74" stroke="#EDE8FF" stroke-width="3" stroke-linecap="round" fill="none" />
+      <!-- lines on page -->
+      <line x1="28" y1="58" x2="70" y2="58" stroke="#EDE8FF" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="28" y1="72" x2="65" y2="72" stroke="#EDE8FF" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="28" y1="86" x2="70" y2="86" stroke="#EDE8FF" stroke-width="2.5" stroke-linecap="round" />
+      <!-- floating letters & notes -->
+      <text x="62" y="22" font-size="18" font-weight="bold" fill="#F59E0B" font-family="Arial"
+        transform="rotate(-15 62 22)">R</text>
+      <text x="82" y="48" font-size="15" font-weight="bold" fill="#E86A82" font-family="Arial"
+        transform="rotate(10 82 48)">S</text>
+      <text x="72" y="8" font-size="13" font-weight="bold" fill="#0EA5E9" font-family="Arial"
+        transform="rotate(-8 72 8)">K</text>
+      <path d="M30 10 L30 20 M30 10 L35 8" stroke="#10B981" stroke-width="2" fill="none" />
+    </svg>
+
+    <!-- Floating left balloon doodle —  left side -->
+    <svg class="child-doodle doodle-float-up" style="top:30px;left:-5px;width:62px;opacity:0.80;" viewBox="0 0 62 130"
+      fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="31" cy="36" rx="26" ry="34" fill="#C9B8F5" stroke="#9B7FE8" stroke-width="2.5" />
+      <path d="M31 70 Q28 85 31 100 Q34 85 31 70" stroke="#9B7FE8" stroke-width="2" stroke-linecap="round"
+        fill="none" />
+      <path d="M31 100 Q24 110 31 125 Q38 110 31 100" stroke="#9B7FE8" stroke-width="1.8" stroke-linecap="round"
+        fill="none" />
+      <ellipse cx="22" cy="24" rx="5" ry="8" fill="white" opacity="0.4" transform="rotate(-25 22 24)" />
+    </svg>
+    <!-- Blob backgrounds -->
+    <svg class="blob-decor blob-float opacity-18 pointer-events-none" style="top:-70px;left:-90px;width:300px;"
+      viewBox="0 0 300 280" fill="none" aria-hidden="true">
+      <path
+        d="M255 40C295 85 310 160 275 215C240 270 165 290 100 268C35 246 5 185 8 120C11 55 65 10 135 4C205 -2 215 -5 255 40Z"
+        fill="#FFF0F4" />
+    </svg>
+    <svg class="blob-decor blob-float-slow opacity-14 pointer-events-none" style="bottom:-60px;right:-80px;width:280px;"
+      viewBox="0 0 280 260" fill="none" aria-hidden="true">
+      <path
+        d="M238 38C272 80 288 152 262 203C236 254 172 272 110 256C48 240 8 186 10 130C12 74 56 22 118 8C180 -6 204 -4 238 38Z"
+        fill="#fbc9d6" />
+    </svg>
+    <!-- Dot accent bottom-left -->
+    <svg class="blob-decor opacity-25 pointer-events-none" style="bottom:50px;left:40px;width:50px;" viewBox="0 0 50 50"
+      fill="none" aria-hidden="true">
+      <circle cx="7" cy="7" r="3" fill="#E86A82" />
+      <circle cx="25" cy="7" r="3" fill="#E86A82" />
+      <circle cx="43" cy="7" r="3" fill="#E86A82" />
+      <circle cx="7" cy="25" r="3" fill="#E86A82" />
+      <circle cx="25" cy="25" r="3" fill="#E86A82" />
+      <circle cx="43" cy="25" r="3" fill="#E86A82" />
+      <circle cx="7" cy="43" r="3" fill="#E86A82" />
+      <circle cx="25" cy="43" r="3" fill="#E86A82" />
+      <circle cx="43" cy="43" r="3" fill="#E86A82" />
+    </svg>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center mb-16 reveal">
+        <span
+          class="inline-block bg-rose-50 text-rose-500 text-xs font-bold px-4 py-2 rounded-full mb-4 border border-rose-100 uppercase tracking-wider">Bilgi
+          Rehberi</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-anthracite-700 mb-4">
+          <span class="sparkle-doodle mr-2" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none"
+              style="display:inline-block;vertical-align:middle;">
+              <path d="M11 1 L12.5 8.5 L20 11 L12.5 13.5 L11 21 L9.5 13.5 L2 11 L9.5 8.5 Z" fill="#E86A82"
+                opacity="0.8" />
+            </svg>
+          </span>Makaleler &amp; Ebeveyn Rehberi
+        </h2>
+        <p class="text-anthracite-500 max-w-xl mx-auto">Dil ve konuşma gelişimi, terapi süreçleri ve doğru bilinen
+          yanlışlar hakkında uzman perspektifiyle hazırlanmış yazılar.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <article
+          class="blog-card reveal bg-white rounded-3xl border border-rose-50 shadow-md overflow-hidden flex flex-col">
+          <div class="h-44 bg-gradient-to-br from-rose-50 to-cream-200 relative flex items-center justify-center">
+            <i class="fa-solid fa-baby text-rose-200 text-6xl"></i>
+            <div class="absolute top-4 left-4"><span
+                class="bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full">Gelişim</span></div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-3 text-xs text-anthracite-400 mb-3">
+              <span><i class="fa-regular fa-clock mr-1"></i>4 dk okuma</span>
+              <span class="w-1 h-1 rounded-full bg-rose-200"></span>
+              <span>Ebeveyn Rehberi</span>
+            </div>
+            <h3 class="font-bold text-anthracite-700 text-base leading-snug mb-3 flex-1">Çocuğum 2 Yaşında Ama
+              Konuşmuyor: Ne Zaman Uzmana Başvurulmalı?</h3>
+            <p class="text-anthracite-500 text-sm leading-relaxed mb-5">Dil gelişimindeki kritik dönemler ve erken
+              müdahalenin önemi hakkında bilmeniz gereken her şey.</p>
+            <a href="#"
+              class="inline-flex items-center gap-2 bg-rose-50 hover:bg-rose-500 text-rose-500 hover:text-white text-sm font-semibold px-5 py-2.5 rounded-full border border-rose-100 hover:border-rose-500 transition-all self-start">
+              Yazıyı Oku <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </article>
+
+        <article
+          class="blog-card reveal bg-white rounded-3xl border border-rose-50 shadow-md overflow-hidden flex flex-col">
+          <div class="h-44 bg-gradient-to-br from-rose-100 to-rose-50 relative flex items-center justify-center">
+            <i class="fa-solid fa-comment-dots text-rose-200 text-6xl"></i>
+            <div class="absolute top-4 left-4"><span
+                class="bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full">Kekemelik</span></div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-3 text-xs text-anthracite-400 mb-3">
+              <span><i class="fa-regular fa-clock mr-1"></i>6 dk okuma</span>
+              <span class="w-1 h-1 rounded-full bg-rose-200"></span>
+              <span>Bilim &amp; Araştırma</span>
+            </div>
+            <h3 class="font-bold text-anthracite-700 text-base leading-snug mb-3 flex-1">Kekemelik Kalıcı mıdır? Doğru
+              Bilinen Yanlışlar</h3>
+            <p class="text-anthracite-500 text-sm leading-relaxed mb-5">Kekemelik hakkındaki yaygın mitleri bilimsel
+              verilerle çürütüyor, tedavide gerçek beklentileri aktarıyoruz.</p>
+            <a href="#"
+              class="inline-flex items-center gap-2 bg-rose-50 hover:bg-rose-500 text-rose-500 hover:text-white text-sm font-semibold px-5 py-2.5 rounded-full border border-rose-100 hover:border-rose-500 transition-all self-start">
+              Yazıyı Oku <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </article>
+
+        <article
+          class="blog-card reveal bg-white rounded-3xl border border-rose-50 shadow-md overflow-hidden flex flex-col">
+          <div class="h-44 bg-gradient-to-br from-cream-200 to-rose-50 relative flex items-center justify-center">
+            <i class="fa-solid fa-book-open text-rose-200 text-6xl"></i>
+            <div class="absolute top-4 left-4"><span
+                class="bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full">Akademik</span></div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-3 text-xs text-anthracite-400 mb-3">
+              <span><i class="fa-regular fa-clock mr-1"></i>5 dk okuma</span>
+              <span class="w-1 h-1 rounded-full bg-rose-200"></span>
+              <span>Gelişim &amp; Eğitim</span>
+            </div>
+            <h3 class="font-bold text-anthracite-700 text-base leading-snug mb-3 flex-1">Okul Çağında Artikülasyon
+              Bozuklukları ve Akademik Başarıya Etkisi</h3>
+            <p class="text-anthracite-500 text-sm leading-relaxed mb-5">Konuşma güçlüklerinin okuma, yazma ve sosyal
+              gelişim üzerindeki belgelenmiş etkileri ve erken müdahale stratejileri.</p>
+            <a href="#"
+              class="inline-flex items-center gap-2 bg-rose-50 hover:bg-rose-500 text-rose-500 hover:text-white text-sm font-semibold px-5 py-2.5 rounded-full border border-rose-100 hover:border-rose-500 transition-all self-start">
+              Yazıyı Oku <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+  <!-- wave: makaleler → sss -->
+  <div class="wave-divider" aria-hidden="true" style="margin-top:-2px;">
+    <svg viewBox="0 0 1440 54" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style="height:54px;">
+      <path d="M0 27 C240 0 480 54 720 27 C960 0 1200 54 1440 27 L1440 54 L0 54Z" fill="#F3F8FC" />
+    </svg>
+  </div>
+
+  <!-- ==================== SSS ==================== -->
+  <section id="sss" class="py-24 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <span
+          class="inline-block bg-rose-50 text-rose-500 text-xs font-bold px-4 py-2 rounded-full mb-4 border border-rose-100 uppercase tracking-wider">Merak
+          Edilenler</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-anthracite-700 mb-4">Sıkça Sorulan Sorular</h2>
+        <p class="text-anthracite-500 max-w-xl mx-auto">Dil ve konuşma terapisi hakkında en çok merak edilen soruların
+          yanıtları.</p>
+      </div>
+      <div class="space-y-4 reveal" id="faq-list">
+
+        <div
+          class="faq-item bg-white border border-rose-50 rounded-2xl shadow-sm overflow-hidden transition-all duration-300">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group"
+            aria-expanded="false">
+            <span
+              class="font-semibold text-anthracite-700 text-sm sm:text-base pr-4 group-hover:text-rose-500 transition-colors">Çocuğum
+              2-3 yaşında ama henüz konuşmuyor, beklemeli miyiz?</span>
+            <span
+              class="faq-icon w-9 h-9 flex-shrink-0 rounded-full bg-rose-50 flex items-center justify-center transition-all duration-300">
+              <i class="fa-solid fa-plus text-rose-500 text-sm transition-transform duration-300"></i>
+            </span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5">
+            <p class="text-anthracite-500 text-sm leading-relaxed">Hayır, 'zamanla açılır' veya 'erkek çocuk geç
+              konuşur' inanışı erken müdahale dönemini kaçırmanıza sebep olabilir. 2 yaşında 50 kelime ve ikili cümleler
+              yoksa bir Dil ve Konuşma Terapistine danışılması kritik önem taşır.</p>
+          </div>
+        </div>
+
+        <div
+          class="faq-item bg-white border border-rose-50 rounded-2xl shadow-sm overflow-hidden transition-all duration-300">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group"
+            aria-expanded="false">
+            <span
+              class="font-semibold text-anthracite-700 text-sm sm:text-base pr-4 group-hover:text-rose-500 transition-colors">Bir
+              terapi seansı ne kadar sürer ve haftada kaç gün gelinmeli?</span>
+            <span
+              class="faq-icon w-9 h-9 flex-shrink-0 rounded-full bg-rose-50 flex items-center justify-center transition-all duration-300">
+              <i class="fa-solid fa-plus text-rose-500 text-sm transition-transform duration-300"></i>
+            </span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5">
+            <p class="text-anthracite-500 text-sm leading-relaxed">Klinik seanslarımız genellikle 40-45 dakika
+              sürmektedir. Değerlendirme sonucunda danışanın ihtiyacına göre haftada 1 veya 2 seans planlanır.</p>
+          </div>
+        </div>
+
+        <div
+          class="faq-item bg-white border border-rose-50 rounded-2xl shadow-sm overflow-hidden transition-all duration-300">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group"
+            aria-expanded="false">
+            <span
+              class="font-semibold text-anthracite-700 text-sm sm:text-base pr-4 group-hover:text-rose-500 transition-colors">Terapi
+              sürecine anne ve baba da katılıyor mu?</span>
+            <span
+              class="faq-icon w-9 h-9 flex-shrink-0 rounded-full bg-rose-50 flex items-center justify-center transition-all duration-300">
+              <i class="fa-solid fa-plus text-rose-500 text-sm transition-transform duration-300"></i>
+            </span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5">
+            <p class="text-anthracite-500 text-sm leading-relaxed">Kesinlikle. Terapinin kalıcılığı için aile en büyük
+              ortaktır. Seans içi gözlem, her seans sonu ebeveyn bilgilendirmesi ve evde uygulanacak oyun temelli
+              stratejiler sürece dahil edilir.</p>
+          </div>
+        </div>
+
+        <div
+          class="faq-item bg-white border border-rose-50 rounded-2xl shadow-sm overflow-hidden transition-all duration-300">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group"
+            aria-expanded="false">
+            <span
+              class="font-semibold text-anthracite-700 text-sm sm:text-base pr-4 group-hover:text-rose-500 transition-colors">Artikülasyon
+              (örneğin 'R', 'K', 'S' harflerini söyleyememe) kaç seansta düzelir?</span>
+            <span
+              class="faq-icon w-9 h-9 flex-shrink-0 rounded-full bg-rose-50 flex items-center justify-center transition-all duration-300">
+              <i class="fa-solid fa-plus text-rose-500 text-sm transition-transform duration-300"></i>
+            </span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5">
+            <p class="text-anthracite-500 text-sm leading-relaxed">Ses edinim süreci çocuğun yaşına, motor
+              koordinasyonuna ve evde yapılan egzersizlerin sıklığına bağlıdır. Genellikle tek bir hedef ses birkaç
+              seans ile birkaç ay arasında kalıcı şekilde üretilebilir.</p>
+          </div>
+        </div>
+
+        <div
+          class="faq-item bg-white border border-rose-50 rounded-2xl shadow-sm overflow-hidden transition-all duration-300">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group"
+            aria-expanded="false">
+            <span
+              class="font-semibold text-anthracite-700 text-sm sm:text-base pr-4 group-hover:text-rose-500 transition-colors">Kekemelik
+              korkudan mı olur, tamamen geçer mi?</span>
+            <span
+              class="faq-icon w-9 h-9 flex-shrink-0 rounded-full bg-rose-50 flex items-center justify-center transition-all duration-300">
+              <i class="fa-solid fa-plus text-rose-500 text-sm transition-transform duration-300"></i>
+            </span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5">
+            <p class="text-anthracite-500 text-sm leading-relaxed">Kekemelik korku ya da travma kaynaklı değildir;
+              nörolojik ve genetik temellere dayanan bir akıcılık bozukluğudur. Erken dönemde doğru terapi yöntemleriyle
+              akıcılık büyük ölçüde kontrol altına alınır.</p>
+          </div>
+        </div>
+
+        <div
+          class="faq-item bg-white border border-rose-50 rounded-2xl shadow-sm overflow-hidden transition-all duration-300">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group"
+            aria-expanded="false">
+            <span
+              class="font-semibold text-anthracite-700 text-sm sm:text-base pr-4 group-hover:text-rose-500 transition-colors">Ekran
+              kullanımı konuşma gecikmesine yol açar mı?</span>
+            <span
+              class="faq-icon w-9 h-9 flex-shrink-0 rounded-full bg-rose-50 flex items-center justify-center transition-all duration-300">
+              <i class="fa-solid fa-plus text-rose-500 text-sm transition-transform duration-300"></i>
+            </span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5">
+            <p class="text-anthracite-500 text-sm leading-relaxed">Aşırı ve tek taraflı ekran maruziyeti, çift yönlü
+              iletişimi ve sosyal etkileşimi kısıtladığı için özellikle 0-3 yaş döneminde dil gelişimini ciddi ölçüde
+              yavaşlatabilir.</p>
+          </div>
+        </div>
+
+        <div
+          class="faq-item bg-white border border-rose-50 rounded-2xl shadow-sm overflow-hidden transition-all duration-300">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group"
+            aria-expanded="false">
+            <span
+              class="font-semibold text-anthracite-700 text-sm sm:text-base pr-4 group-hover:text-rose-500 transition-colors">İlk
+              seansta ne yapılıyor, hemen egzersizlere mi başlanıyor?</span>
+            <span
+              class="faq-icon w-9 h-9 flex-shrink-0 rounded-full bg-rose-50 flex items-center justify-center transition-all duration-300">
+              <i class="fa-solid fa-plus text-rose-500 text-sm transition-transform duration-300"></i>
+            </span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5">
+            <p class="text-anthracite-500 text-sm leading-relaxed">İlk randevumuz kapsamlı bir klinik değerlendirme
+              seansıdır. Standart dil/konuşma testleri, oral-motor muayene ve ebeveyn öyküsü alınarak kişiye özel bir
+              terapi haritası çıkarılır.</p>
+          </div>
+        </div>
+
+        <div
+          class="faq-item bg-white border border-rose-50 rounded-2xl shadow-sm overflow-hidden transition-all duration-300">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group"
+            aria-expanded="false">
+            <span
+              class="font-semibold text-anthracite-700 text-sm sm:text-base pr-4 group-hover:text-rose-500 transition-colors">Şehir
+              dışında veya uzaktaysak Online Terapi imkânı var mı?</span>
+            <span
+              class="faq-icon w-9 h-9 flex-shrink-0 rounded-full bg-rose-50 flex items-center justify-center transition-all duration-300">
+              <i class="fa-solid fa-plus text-rose-500 text-sm transition-transform duration-300"></i>
+            </span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-5">
+            <p class="text-anthracite-500 text-sm leading-relaxed">Evet; özellikle ergen ve yetişkin akıcılık
+              bozuklukları, ses terapisi ve ebeveyn temelli erken dil destek süreçleri online olarak son derece başarılı
+              şekilde yürütülebilmektedir.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- wave: sss → iletisim -->
+  <div class="wave-divider" aria-hidden="true" style="margin-top:-2px;">
+    <svg viewBox="0 0 1440 44" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style="height:44px;">
+      <path d="M0 0 C480 44 960 0 1440 22 L1440 44 L0 44Z" fill="#F3F8FC" />
+    </svg>
+  </div>
+  <!-- ==================== RANDEVU MODAL ==================== -->
+  <div class="modal-overlay" id="randevu-modal" role="dialog" aria-modal="true" aria-labelledby="rm-title">
+    <div class="bg-white rounded-3xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden relative"
+      style="max-height:92vh;overflow-y:auto">
+
+      <!-- Modal Header -->
+      <div
+        class="bg-gradient-to-r from-rose-500 to-rose-400 px-6 py-5 flex items-center justify-between sticky top-0 z-10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+            <i class="fa-regular fa-calendar-check text-white text-base"></i>
+          </div>
+          <div>
+            <p id="rm-title" class="text-white font-bold text-base">Randevu Al</p>
+            <p class="text-rose-100 text-xs" id="rm-step-label">Adım 1 / 3 — Gün &amp; Saat Seçimi</p>
+          </div>
+        </div>
+        <button onclick="closeRandevuModal()" class="p-3 -m-3 group" aria-label="Kapat">
+          <div
+            class="w-8 h-8 rounded-full bg-white/20 group-hover:bg-white/40 flex items-center justify-center text-white transition-all">
+            <i class="fa-solid fa-xmark text-sm"></i>
+          </div>
+        </button>
+      </div>
+
+      <!-- Step Progress -->
+      <div class="flex px-6 pt-4 pb-2 gap-2">
+        <div class="h-1 flex-1 rounded-full bg-rose-500 transition-all" id="rp-1"></div>
+        <div class="h-1 flex-1 rounded-full bg-rose-100 transition-all" id="rp-2"></div>
+        <div class="h-1 flex-1 rounded-full bg-rose-100 transition-all" id="rp-3"></div>
+      </div>
+
+      <!-- ===== STEP 1: TARİH + SAAT ===== -->
+      <div id="rm-step-1" class="px-6 py-4">
+        <p class="text-xs font-bold text-anthracite-400 uppercase tracking-wider mb-3">Tarih Seçiniz</p>
+
+        <!-- Month/Year navigation -->
+        <div class="flex items-center justify-between mb-3">
+          <button type="button" onclick="rmCalPrev()"
+            class="w-8 h-8 rounded-full bg-rose-50 hover:bg-rose-500 hover:text-white text-rose-500 flex items-center justify-center transition-all">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+          </button>
+          <p id="rm-cal-label" class="text-sm font-bold text-anthracite-700"></p>
+          <button type="button" onclick="rmCalNext()"
+            class="w-8 h-8 rounded-full bg-rose-50 hover:bg-rose-500 hover:text-white text-rose-500 flex items-center justify-center transition-all">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Day-of-week headers -->
+        <div class="grid grid-cols-7 gap-1 mb-1">
+          <div class="text-center text-xs font-bold text-anthracite-400 py-1">Pt</div>
+          <div class="text-center text-xs font-bold text-anthracite-400 py-1">Sa</div>
+          <div class="text-center text-xs font-bold text-anthracite-400 py-1">Ça</div>
+          <div class="text-center text-xs font-bold text-anthracite-400 py-1">Pe</div>
+          <div class="text-center text-xs font-bold text-anthracite-400 py-1">Cu</div>
+          <div class="text-center text-xs font-bold text-rose-300 py-1">Ct</div>
+          <div class="text-center text-xs font-bold text-rose-300 py-1">Pz</div>
+        </div>
+        <!-- Calendar grid -->
+        <div id="rm-cal-grid" class="grid grid-cols-7 gap-1 mb-5">
+          <!-- filled by JS -->
+        </div>
+
+        <p class="text-xs font-bold text-anthracite-400 uppercase tracking-wider mb-3">Saat Seçiniz</p>
+        <div class="grid grid-cols-4 gap-2 mb-2">
+          <button type="button"
+            class="time-btn py-2.5 rounded-xl border-2 border-rose-100 text-anthracite-600 text-xs font-semibold hover:border-rose-400 hover:bg-rose-50 transition-all"
+            data-time="09:00">09:00</button>
+          <button type="button"
+            class="time-btn py-2.5 rounded-xl border-2 border-rose-100 text-anthracite-600 text-xs font-semibold hover:border-rose-400 hover:bg-rose-50 transition-all"
+            data-time="10:00">10:00</button>
+          <button type="button"
+            class="time-btn py-2.5 rounded-xl border-2 border-rose-100 text-anthracite-600 text-xs font-semibold hover:border-rose-400 hover:bg-rose-50 transition-all"
+            data-time="11:00">11:00</button>
+          <button type="button"
+            class="time-btn py-2.5 rounded-xl border-2 border-rose-100 text-anthracite-600 text-xs font-semibold hover:border-rose-400 hover:bg-rose-50 transition-all"
+            data-time="12:00">12:00</button>
+          <button type="button"
+            class="time-btn py-2.5 rounded-xl border-2 border-rose-100 text-anthracite-600 text-xs font-semibold hover:border-rose-400 hover:bg-rose-50 transition-all"
+            data-time="13:00">13:00</button>
+          <button type="button"
+            class="time-btn py-2.5 rounded-xl border-2 border-rose-100 text-anthracite-600 text-xs font-semibold hover:border-rose-400 hover:bg-rose-50 transition-all"
+            data-time="14:00">14:00</button>
+          <button type="button"
+            class="time-btn py-2.5 rounded-xl border-2 border-rose-100 text-anthracite-600 text-xs font-semibold hover:border-rose-400 hover:bg-rose-50 transition-all"
+            data-time="15:00">15:00</button>
+          <button type="button"
+            class="time-btn py-2.5 rounded-xl border-2 border-rose-100 text-anthracite-600 text-xs font-semibold hover:border-rose-400 hover:bg-rose-50 transition-all"
+            data-time="16:00">16:00</button>
+          <button type="button"
+            class="time-btn py-2.5 rounded-xl border-2 border-rose-100 text-anthracite-600 text-xs font-semibold hover:border-rose-400 hover:bg-rose-50 transition-all"
+            data-time="17:00">17:00</button>
+          <button type="button"
+            class="time-btn py-2.5 rounded-xl border-2 border-rose-100 text-anthracite-600 text-xs font-semibold hover:border-rose-400 hover:bg-rose-50 transition-all"
+            data-time="18:00">18:00</button>
+          <button type="button"
+            class="time-btn py-2.5 rounded-xl col-span-2 border-2 border-rose-100 text-anthracite-600 text-xs font-semibold hover:border-rose-400 hover:bg-rose-50 transition-all"
+            data-time="19:00">19:00</button>
+        </div>
+        <p class="text-red-400 text-xs mt-2 hidden" id="rm-err-1">Lütfen tarih ve saat seçiniz.</p>
+        <button type="button" onclick="rmNext(1)"
+          class="w-full mt-5 bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3 rounded-full transition-all text-sm flex items-center justify-center gap-2">
+          İleri <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+
+      <!-- ===== STEP 2: KİİSEL BİLGİLER ===== -->
+      <div id="rm-step-2" class="px-6 py-4 hidden">
+        <div class="space-y-4">
+          <div>
+            <label for="rm-name" class="text-xs font-bold text-anthracite-500 uppercase tracking-wider mb-2 block">Ad
+              Soyad <span class="text-rose-400">*</span></label>
+            <input id="rm-name" type="text" placeholder="Danışan veya veli adı soyadı"
+              class="w-full border border-rose-100 rounded-xl px-4 py-3 text-sm text-anthracite-600 focus:outline-none focus:ring-2 focus:ring-rose-300 bg-white" />
+            <p class="text-red-400 text-xs mt-1 hidden" id="rm-err-name">Bu alan zorunludur.</p>
+          </div>
+          <div>
+            <label for="rm-phone"
+              class="text-xs font-bold text-anthracite-500 uppercase tracking-wider mb-2 block">Telefon <span
+                class="text-rose-400">*</span></label>
+            <input id="rm-phone" type="tel" placeholder="05xx xxx xx xx"
+              class="w-full border border-rose-100 rounded-xl px-4 py-3 text-sm text-anthracite-600 focus:outline-none focus:ring-2 focus:ring-rose-300 bg-white" />
+            <p class="text-red-400 text-xs mt-1 hidden" id="rm-err-phone">Geçerli telefon giriniz.</p>
+          </div>
+          <div>
+            <label for="rm-area"
+              class="text-xs font-bold text-anthracite-500 uppercase tracking-wider mb-2 block">Şikayet Alanı</label>
+            <select id="rm-area"
+              class="w-full border border-rose-100 rounded-xl px-4 py-3 text-sm text-anthracite-600 focus:outline-none focus:ring-2 focus:ring-rose-300 bg-white">
+              <option value="">Seçiniz...</option>
+              <option>Gecikmiş Konuşma</option>
+              <option>Artikülasyon &amp; Fonolojik Bozukluk</option>
+              <option>Kekemelik &amp; Akıcılık Terapisi</option>
+              <option>Ses Bozuklukları Terapisi</option>
+              <option>Afazi (Yetişkin Dil Bozuklukları)</option>
+              <option>Motor Konuşma Bozuklukları (Apraksi / Dizartri)</option>
+              <option>Otizm Spektrumunda Dil ve Konuşma Terapisi</option>
+              <option>Yutma Bozuklukları</option>
+              <option>Okuma Yazmaya Hazırlık ve Fonolojik Farkındalık</option>
+              <option>Diğer</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="rm-note" class="text-xs font-bold text-anthracite-500 uppercase tracking-wider mb-2 block">Kısa
+              Notunuz</label>
+            <textarea id="rm-note" rows="2" placeholder="Şikayetinizi kısaca özetleyebilirsiniz…"
+              class="w-full border border-rose-100 rounded-xl px-4 py-3 text-sm text-anthracite-600 focus:outline-none focus:ring-2 focus:ring-rose-300 bg-white resize-none"></textarea>
+          </div>
+        </div>
+        <div class="flex gap-3 mt-5">
+          <button type="button" onclick="rmBack(2)"
+            class="flex-1 border-2 border-rose-200 text-anthracite-500 hover:border-rose-400 hover:text-rose-500 font-semibold py-3 rounded-full transition-all text-sm">
+            <i class="fa-solid fa-arrow-left text-xs mr-1"></i> Geri
+          </button>
+          <button type="button" onclick="rmNext(2)"
+            class="flex-1 bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3 rounded-full transition-all text-sm">
+            İleri <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== STEP 3: ÖZET & ONAY ===== -->
+      <div id="rm-step-3" class="px-6 py-4 hidden">
+        <div class="bg-rose-50 border border-rose-100 rounded-2xl p-5 space-y-3 mb-5">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-rose-500 flex items-center justify-center flex-shrink-0"><i
+                class="fa-solid fa-calendar-day text-white text-sm"></i></div>
+            <div>
+              <p class="text-xs text-anthracite-400">Tarih &amp; Saat</p>
+              <p class="text-sm font-bold text-anthracite-700" id="rm-sum-dt">—</p>
+              <p class="text-xs text-rose-400 font-semibold" id="rm-sum-dt-full"></p>
+            </div>
+          </div>
+          <div class="border-t border-rose-100"></div>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-rose-500 flex items-center justify-center flex-shrink-0"><i
+                class="fa-solid fa-user text-white text-sm"></i></div>
+            <div>
+              <p class="text-xs text-anthracite-400">Ad Soyad</p>
+              <p class="text-sm font-bold text-anthracite-700" id="rm-sum-name">—</p>
+            </div>
+          </div>
+          <div class="border-t border-rose-100"></div>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-rose-500 flex items-center justify-center flex-shrink-0"><i
+                class="fa-solid fa-phone text-white text-sm"></i></div>
+            <div>
+              <p class="text-xs text-anthracite-400">Telefon</p>
+              <p class="text-sm font-bold text-anthracite-700" id="rm-sum-phone">—</p>
+            </div>
+          </div>
+          <div class="border-t border-rose-100"></div>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-rose-500 flex items-center justify-center flex-shrink-0"><i
+                class="fa-solid fa-notes-medical text-white text-sm"></i></div>
+            <div>
+              <p class="text-xs text-anthracite-400">Şikayet Alanı</p>
+              <p class="text-sm font-bold text-anthracite-700" id="rm-sum-area">—</p>
+            </div>
+          </div>
+        </div>
+        <label class="flex items-start gap-3 cursor-pointer mb-4">
+          <input type="checkbox" id="rm-kvkk" class="mt-0.5 w-4 h-4 accent-rose-500" />
+          <span class="text-xs text-anthracite-500 leading-relaxed">Kişisel verilerimin kliniğimiz tarafından
+            işlenmesine, <span class="text-rose-500 font-semibold">KVKK Aydınlatma Metni</span> kapsamında onay
+            veriyorum. <span class="text-rose-400">*</span></span>
+        </label>
+        <p class="text-red-400 text-xs mb-3 hidden" id="rm-err-kvkk">KVKK onayı zorunludur.</p>
+        <div class="flex gap-3">
+          <button type="button" onclick="rmBack(3)"
+            class="flex-1 border-2 border-rose-200 text-anthracite-500 hover:border-rose-400 hover:text-rose-500 font-semibold py-3 rounded-full transition-all text-sm">
+            <i class="fa-solid fa-arrow-left text-xs mr-1"></i> Geri
+          </button>
+          <button type="button" onclick="rmSubmit()"
+            class="flex-1 bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3 rounded-full transition-all text-sm">
+            <i class="fa-solid fa-paper-plane text-xs mr-1"></i> Gönder
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== SUCCESS MODAL ==================== -->
+  <div class="modal-overlay" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="bg-white rounded-3xl shadow-2xl p-10 max-w-md w-full mx-4 text-center relative">
+      <button onclick="closeSuccessModal()"
+        class="absolute top-4 right-4 w-8 h-8 rounded-full bg-rose-50 flex items-center justify-center text-anthracite-400 hover:text-rose-500 hover:bg-rose-100 transition-all"
+        aria-label="Kapat">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+      <div class="w-20 h-20 rounded-full bg-rose-50 flex items-center justify-center mx-auto mb-6">
+        <i class="fa-solid fa-circle-check text-rose-500 text-4xl"></i>
+      </div>
+      <h3 id="modal-title" class="font-display text-2xl font-bold text-anthracite-700 mb-3">Talebiniz Alındı!</h3>
+      <p class="text-anthracite-500 leading-relaxed mb-6">Uzmanımız <strong class="text-anthracite-700">Dkt. Gizem
+          Özer</strong> en kısa sürede sizinle iletişime geçecektir. Randevunuz onaylandığında ayrıca bildirim
+        alacaksınız.</p>
+      <div class="bg-rose-50 rounded-2xl p-4 mb-6 border border-rose-100">
+        <p class="text-sm text-anthracite-500">Acil sorularınız için:</p>
+        <a href="tel:+905462302416" class="text-rose-500 font-bold text-lg block mt-1">+90 546 230 24 16</a>
+      </div>
+      <button onclick="closeSuccessModal()"
+        class="w-full bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3 rounded-full transition-all shadow-md">
+        Tamam, Ana Sayfaya Dön
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== İLETİİM ==================== -->
+  <section id="iletisim" class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <span
+          class="inline-block bg-rose-50 text-rose-500 text-xs font-bold px-4 py-2 rounded-full mb-4 border border-rose-100 uppercase tracking-wider">Ulaşın</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-anthracite-700 mb-4">İletişim</h2>
+        <p class="text-anthracite-500 max-w-xl mx-auto">Sorularınız için bizi arayabilir, WhatsApp üzerinden mesaj
+          gönderebilir ya da formumuzu doldurabilirsiniz.</p>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-1 space-y-5 reveal">
+
+          <div
+            class="bg-white rounded-2xl p-5 flex items-start gap-4 shadow-sm border border-rose-50 hover:shadow-md transition-shadow">
+            <div class="w-14 h-14 rounded-2xl bg-rose-50 flex-shrink-0 flex items-center justify-center">
+              <i class="fa-solid fa-location-dot text-rose-500 text-2xl"></i>
+            </div>
+            <div>
+              <p class="font-bold text-anthracite-700 text-sm mb-1">Klinik Adresi</p>
+              <p class="text-anthracite-500 text-sm leading-relaxed mb-2">Şirinyalı Mahallesi İsmet Gökşen Caddesi
+                92/3<br />Bilir Apartmanı Muratpaşa/Antalya</p>
+              <a href="https://maps.app.goo.gl/KVw1WU5qL6iPdWb59"
+                target="_blank" rel="noopener noreferrer"
+                class="text-rose-500 hover:text-rose-600 text-sm font-semibold inline-flex items-center gap-1 transition-colors">
+                <i class="fa-solid fa-location-arrow"></i> Yol Tarifi Al
+              </a>
+            </div>
+          </div>
+
+          <a href="tel:+905462302416"
+            class="bg-white rounded-2xl p-5 flex items-start gap-4 shadow-sm border border-rose-50 hover:shadow-md hover:border-rose-200 transition-all block group">
+            <div
+              class="w-14 h-14 rounded-2xl bg-rose-50 flex-shrink-0 flex items-center justify-center group-hover:bg-rose-500 transition-colors">
+              <i class="fa-solid fa-phone text-rose-500 text-2xl group-hover:text-white transition-colors"></i>
+            </div>
+            <div>
+              <p class="font-bold text-anthracite-700 text-sm mb-1">Doğrudan Arama</p>
+              <p class="text-rose-500 font-semibold">+90 546 230 24 16</p>
+              <p class="text-anthracite-400 text-xs">Tıklayarak ara</p>
+            </div>
+          </a>
+
+          <a href="https://wa.me/905462302416?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank"
+            rel="noopener noreferrer"
+            class="bg-white rounded-2xl p-5 flex items-start gap-4 shadow-sm border border-rose-50 hover:shadow-md hover:border-green-200 transition-all block group">
+            <div
+              class="w-14 h-14 rounded-2xl bg-green-50 flex-shrink-0 flex items-center justify-center group-hover:bg-green-500 transition-colors">
+              <i class="fa-brands fa-whatsapp text-green-500 text-2xl group-hover:text-white transition-colors"></i>
+            </div>
+            <div>
+              <p class="font-bold text-anthracite-700 text-sm mb-1">WhatsApp Mesaj</p>
+              <p class="text-green-600 font-semibold text-sm">Mesaj Gönder</p>
+              <p class="text-anthracite-400 text-xs">Hızlı yanıt garantisi</p>
+            </div>
+          </a>
+
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-rose-50">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-14 h-14 rounded-2xl bg-rose-50 flex items-center justify-center flex-shrink-0">
+                <i class="fa-regular fa-clock text-rose-500 text-2xl"></i>
+              </div>
+              <p class="font-bold text-anthracite-700 text-sm">Çalışma Saatleri</p>
+            </div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between"><span class="text-anthracite-500">Salı – Pazar</span><span
+                  class="font-semibold text-anthracite-700">09:00 – 20:00</span></div>
+              <div class="flex justify-between"><span class="text-anthracite-500">Pazartesi</span><span
+                  class="font-semibold text-rose-400">Kapalı</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 reveal">
+          <div
+            class="bg-white rounded-3xl shadow-md border border-rose-50 overflow-hidden h-full min-h-[400px] relative group">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.336913476602!2d30.73859447609956!3d36.85835367223051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c39b8d7ac8194f%3A0x4e7cbd8bc5689ef7!2sAntalya%20Dil%20ve%20Konu%C5%9Fma%20Terapisi%20-%20Gizem%20%C3%96zer!5e0!3m2!1str!2str!4v1792361041222!5m2!1str!2str"
+              width="100%" height="100%" class="absolute inset-0 w-full h-full"
+              style="border:0; min-height: 400px; border-radius: 12px;" allowfullscreen="" loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+            <a href="https://maps.app.goo.gl/KVw1WU5qL6iPdWb59" target="_blank" rel="noopener noreferrer"
+              class="absolute top-4 right-4 z-10 bg-white/95 hover:bg-white text-anthracite-700 hover:text-rose-600 px-4 py-2.5 rounded-xl text-xs font-semibold shadow-md backdrop-blur border border-rose-100 flex items-center gap-2 transition-all hover:scale-105"
+              aria-label="Google Haritalar'da Aç">
+              <i class="fa-solid fa-arrow-up-right-from-square text-rose-500"></i> Haritalar'da Aç
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRE-FOOTER / CALL TO ACTION ==================== -->
+  <section class="bg-rose-50 border-t border-rose-100 py-16 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div class="flex justify-center mb-6">
+        <img src="gizem-ozer.jpg" alt="Dkt. Gizem Özer"
+          class="w-14 h-14 mx-auto border-2 border-white shadow-sm rounded-full object-cover object-top"
+          onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2U4NmE4MiI+PHBhdGggZD0iTTEyIDJDMi41IDIgMiAxMi41IDIgMTJzNC41IDEwIDEwIDEwIDEwLTQuNSAxMC0xMFMyMS41IDIgMTIgMnptMCAxOGMtNC40IDAtOC0zLjYtOC04czMuNi04IDgtOCA4IDMuNiA4IDgtMy42IDgtOCA4em0wLTEzYy0xLjcgMC0zIDEuMy0zIDNzMS4zIDMgMyAzIDMtMS4zIDMtMy0xLjMtMy0zLTN6bTAgNWMtMi4zIDAtNyAxLjItNyAzLjVWMThoMTR2LTEuNWMwLTIuMy00LjctMy41LTctMy41eiIvPjwvc3ZnPg=='">
+      </div>
+
+      <p class="text-rose-500 font-bold text-xs uppercase tracking-widest mb-2">DANIMA & RANDEVU HATTI</p>
+      <a href="tel:+905462302416"
+        class="font-display text-4xl sm:text-5xl font-extrabold text-anthracite-700 hover:text-rose-500 transition-colors inline-block mb-8 tracking-tight">
+        +90 (546) 230 24 16
+      </a>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://wa.me/905462302416?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank"
+          rel="noopener noreferrer"
+          class="btn-spring bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold py-3.5 px-8 rounded-full shadow-lg flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Hızlı WhatsApp Danışma
+        </a>
+        <button onclick="openQuizModal()"
+          class="btn-spring bg-rose-500 hover:bg-rose-600 text-white font-bold py-3.5 px-8 rounded-full shadow-lg flex items-center gap-2">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Ön Değerlendirme Başlat
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-anthracite-800 text-white relative">
+    <!-- 4 Sütunlu Footer Menüsü -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+
+        <!-- 1. Sütun: Hızlı Erişim -->
+        <div>
+          <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest flex items-center gap-2"><i
+              class="fa-solid fa-link text-rose-500"></i> Hızlı Erişim</h4>
+          <ul class="space-y-3">
+            <li><a href="#"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Ana
+                Sayfa</a></li>
+            <li><a href="#uzmanlar"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Uzmanımız</a>
+            </li>
+            <li><a href="#tedaviler"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Hizmetlerimiz</a>
+            </li>
+            <li><a href="#makaleler"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Makaleler</a>
+            </li>
+            <li><a href="#sss"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Sıkça
+                Sorulan Sorular</a></li>
+            <li><button onclick="openQuizModal()"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Online Ön
+                Değerlendirme</button></li>
+            <li><a href="#iletisim"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">İletişim</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 2. Sütun: Uzmanlık & Terapi Alanları -->
+        <div>
+          <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest flex items-center gap-2"><i
+              class="fa-solid fa-stethoscope text-rose-500"></i> Terapi Alanları</h4>
+          <ul class="space-y-3">
+            <li><button onclick="thOpenRandevu('Artikülasyon & Fonolojik Bozukluk')"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm text-left">Artikülasyon
+                Bozuklukları</button></li>
+            <li><button onclick="thOpenRandevu('Kekemelik & Akıcılık Terapisi')"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm text-left">Kekemelik
+                & Akıcılık Terapisi</button></li>
+            <li><button onclick="thOpenRandevu('Gecikmiş Konuşma')"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm text-left">Gecikmiş
+                Dil ve Konuşma</button></li>
+            <li><button onclick="thOpenRandevu('Ses Bozuklukları Terapisi')"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm text-left">Ses
+                Bozuklukları Terapisi</button></li>
+            <li><button onclick="thOpenRandevu('Afazi (Yetişkin Dil Bozuklukları)')"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm text-left">Yetişkin
+                Dil Bozuklukları (Afazi)</button></li>
+            <li><button onclick="thOpenRandevu('Motor Konuşma Bozuklukları (Apraksi / Dizartri)')"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm text-left">Motor
+                Konuşma Bozuklukları</button></li>
+            <li><button onclick="thOpenRandevu('Otizm Spektrumunda Dil ve Konuşma Terapisi')"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm text-left">Otizmde
+                Dil Terapisi</button></li>
+          </ul>
+        </div>
+
+        <!-- 3. Sütun: Çalışma Yaklaşımımız -->
+        <div>
+          <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest flex items-center gap-2"><i
+              class="fa-solid fa-seedling text-rose-500"></i> Yaklaşımımız</h4>
+          <ul class="space-y-3">
+            <li><a href="javascript:void(0)"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Çocuk
+                Odaklı Terapiler</a></li>
+            <li><a href="javascript:void(0)"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Yetişkin
+                Terapileri</a></li>
+            <li><a href="javascript:void(0)"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Ebeveyn
+                Rehberliği</a></li>
+            <li><a href="javascript:void(0)"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Online
+                Terapi Seansları</a></li>
+            <li><a href="javascript:void(0)"
+                class="text-white/70 hover:text-white hover:translate-x-1 transition-all inline-block text-sm">Klinik
+                Değerlendirme Testleri</a></li>
+          </ul>
+        </div>
+
+        <!-- 4. Sütun: İletişim & Sosyal Medya -->
+        <div>
+          <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest flex items-center gap-2"><i
+              class="fa-solid fa-map-location-dot text-rose-500"></i> Kliniğimiz</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div
+                class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-rose-500"><i
+                  class="fa-solid fa-location-dot text-xs"></i></div>
+              <a href="https://maps.app.goo.gl/KVw1WU5qL6iPdWb59" target="_blank" rel="noopener noreferrer"
+                class="text-sm text-white/70 pt-1 hover:text-white transition-colors">Şirinyalı Mahallesi İsmet Gökşen Caddesi 92/3<br />Bilir Apartmanı
+                Muratpaşa/Antalya</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <div
+                class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-rose-500"><i
+                  class="fa-brands fa-whatsapp text-sm"></i></div>
+              <a href="https://wa.me/905462302416" target="_blank"
+                class="text-sm text-white/70 pt-1 hover:text-white transition-colors">+90 546 230 24 16</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <div
+                class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-rose-500"><i
+                  class="fa-solid fa-envelope text-xs"></i></div>
+              <a href="mailto:info@gizemozerklinik.com"
+                class="text-sm text-white/70 pt-1 hover:text-white transition-colors">info@gizemozerklinik.com</a>
+            </li>
+          </ul>
+          <div class="flex gap-3 mt-6">
+            <a href="https://www.instagram.com/dilkonusmaterapisi_antalya/" target="_blank" rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-rose-500 hover:-translate-y-1 transition-all text-white/80 hover:text-white"
+              aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/905462302416" target="_blank" rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] hover:-translate-y-1 transition-all text-white/80 hover:text-white"
+              aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FF0000] hover:-translate-y-1 transition-all text-white/80 hover:text-white"
+              aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Güven Rozetleri (Trust Badges Strip) -->
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div
+          class="flex flex-wrap items-center justify-center md:justify-between gap-6 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+
+          <!-- ETBİS -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 border border-white/20 rounded flex items-center justify-center text-xl">
+              <i class="fa-solid fa-qrcode text-white"></i>
+            </div>
+            <div class="text-left">
+              <p class="text-[10px] font-bold tracking-widest uppercase text-white/70">ETBİS'e Kayıtlıdır</p>
+              <p class="text-xs text-white/50">Elektronik Ticaret Bilgi Sistemi</p>
+            </div>
+          </div>
+
+          <!-- DKTD -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-xl">
+              <i class="fa-solid fa-users text-white"></i>
+            </div>
+            <div class="text-left">
+              <p class="text-[10px] font-bold tracking-widest uppercase text-white/70">DKTD Üyesi</p>
+              <p class="text-xs text-white/50">Dil ve Konuşma Terapistleri Derneği</p>
+            </div>
+          </div>
+
+          <!-- T.C. Sağlık Bakanlığı -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-xl">
+              <i class="fa-solid fa-star-and-crescent text-white text-lg"></i>
+            </div>
+            <div class="text-left">
+              <p class="text-[10px] font-bold tracking-widest uppercase text-white/70">T.C. Sağlık Bakanlığı</p>
+              <p class="text-xs text-white/50">Standartlarına Uygunluk</p>
+            </div>
+          </div>
+
+          <!-- SSL / Güvenlik -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 border border-white/20 rounded flex items-center justify-center text-xl">
+              <i class="fa-solid fa-shield-halved text-white"></i>
+            </div>
+            <div class="text-left">
+              <p class="text-[10px] font-bold tracking-widest uppercase text-white/70">Güvenli Bağlantı</p>
+              <p class="text-xs text-white/50">256-Bit SSL & KVKK Uyumlu</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Alt Bilgi (Sub-Footer Bar) -->
+    <div class="bg-anthracite-900/50">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        <p class="text-white/50 text-xs">
+          <strong class="text-white/80">Uzm. Dkt. Gizem Özer</strong> &mdash; Dil ve Konuşma Terapisi Kliniği &copy;
+          2026. Tüm hakları saklıdır.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+          <a href="javascript:void(0)" class="text-white/50 hover:text-rose-400 text-xs transition-colors">KVKK
+            Aydınlatma Metni</a>
+          <a href="javascript:void(0)" class="text-white/50 hover:text-rose-400 text-xs transition-colors">Çerez
+            Politikası</a>
+          <a href="javascript:void(0)" class="text-white/50 hover:text-rose-400 text-xs transition-colors">Yasal
+            Bilgilendirme</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // ---- Navbar scroll ----
+    var navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 60) {
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
+    });
+
+    // ---- Hamburger ----
+    var hamburgerBtn = document.getElementById('hamburger-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    hamburgerBtn.addEventListener('click', function () {
+      hamburgerBtn.classList.toggle('open');
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        hamburgerBtn.classList.remove('open');
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // ---- Scroll reveal ----
+    var revealEls = document.querySelectorAll('.reveal');
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+
+    // ---- Randevu Modal ----
+    var rmSelectedDay = '';   // ISO date string e.g. '2026-09-20'
+    var rmSelectedTime = '';
+    var rmCalYear, rmCalMonth; // currently displayed month
+
+    var TR_MONTHS = ['Ocak', 'ubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
+    var TR_DAYS = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'];
+
+    var allBookedSlots = [];
+    var isFetchingSlots = false;
+    var slotsFetched = false;
+
+    async function fetchBookedSlots() {
+      if (slotsFetched || isFetchingSlots) return;
+      isFetchingSlots = true;
+      updateTimeSlots();
+      try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbxX0DevFZ5ShxXe-GAetvrIB7kQL7R2mwYts5JuA86XnWoICMOCP-FtkGYWLRjNjUgS/exec");
+        const json = await response.json();
+        if (json.doluSaatler) {
+          allBookedSlots = json.doluSaatler;
+          slotsFetched = true;
+        }
+      } catch (e) {
+        console.error("Error fetching booked slots:", e);
+      }
+      isFetchingSlots = false;
+      updateTimeSlots();
+    }
+
+    window.addEventListener('DOMContentLoaded', function () {
+      setTimeout(fetchBookedSlots, 500); // Sayfa açıldıktan 500ms sonra sessizce prefetch yap
+    });
+
+    function updateTimeSlots() {
+      if (!rmSelectedDay) return;
+
+      if (isFetchingSlots) {
+        document.querySelectorAll('.time-btn').forEach(function (btn) {
+          btn.disabled = true;
+          btn.style.pointerEvents = 'none';
+          btn.style.opacity = '0.5';
+          btn.style.backgroundColor = '#f3f4f6';
+          btn.style.borderColor = '#e5e7eb';
+          btn.style.cursor = 'wait';
+          btn.style.textDecoration = 'none';
+          btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs mr-1"></i>Yükleniyor';
+        });
+        return;
+      }
+
+      var bookedForDay = allBookedSlots.filter(s => s.tarih === rmSelectedDay).map(s => s.saat);
+      document.querySelectorAll('.time-btn').forEach(function (btn) {
+        var time = btn.getAttribute('data-time');
+        if (bookedForDay.includes(time)) {
+          btn.disabled = true;
+          btn.style.pointerEvents = 'none';
+          btn.style.opacity = '0.4';
+          btn.style.backgroundColor = '#f3f4f6';
+          btn.style.borderColor = '#e5e7eb';
+          btn.style.cursor = 'not-allowed';
+          btn.style.textDecoration = 'line-through';
+          btn.innerHTML = 'Dolu';
+        } else {
+          btn.disabled = false;
+          btn.style.pointerEvents = '';
+          btn.style.opacity = '';
+          btn.style.backgroundColor = '';
+          btn.style.background = '';
+          btn.style.color = '';
+          btn.style.borderColor = '';
+          btn.style.cursor = '';
+          btn.style.textDecoration = '';
+          btn.innerHTML = time;
+        }
+      });
+    }
+
+    function rmBuildCalendar() {
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      var label = TR_MONTHS[rmCalMonth] + ' ' + rmCalYear;
+      document.getElementById('rm-cal-label').textContent = label;
+      var grid = document.getElementById('rm-cal-grid');
+      grid.innerHTML = '';
+      // First day of month (0=Sun..6=Sat) → convert to Mon-based index
+      var firstDate = new Date(rmCalYear, rmCalMonth, 1);
+      var startDow = firstDate.getDay(); // 0=Sun
+      var monBasedStart = (startDow === 0) ? 6 : startDow - 1; // 0=Mon
+      var daysInMonth = new Date(rmCalYear, rmCalMonth + 1, 0).getDate();
+      var autoSelectMode = !rmSelectedDay;
+
+      // blank cells
+      for (var i = 0; i < monBasedStart; i++) {
+        var blank = document.createElement('div');
+        grid.appendChild(blank);
+      }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var dateObj = new Date(rmCalYear, rmCalMonth, d);
+        var isoStr = rmCalYear + '-' + String(rmCalMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+        var dow = dateObj.getDay(); // 0=Sun
+        var isPast = dateObj < today;
+        var isMonday = (dow === 1);
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.setAttribute('data-date', isoStr);
+        btn.textContent = d;
+        btn.className = 'cal-day-btn text-sm font-semibold rounded-xl py-1.5 transition-all ';
+        if (isPast || isMonday) {
+          btn.disabled = true;
+          btn.className += 'text-rose-200 cursor-not-allowed';
+        } else {
+          btn.className += 'border-2 border-rose-100 text-anthracite-600 hover:border-rose-400 hover:bg-rose-50';
+          if (dow === 6) btn.style.color = '#E86A82'; // Saturday in rose
+
+          if (autoSelectMode) {
+            rmSelectedDay = isoStr;
+            autoSelectMode = false;
+          }
+
+          btn.addEventListener('click', function () {
+            document.querySelectorAll('.cal-day-btn').forEach(function (b) {
+              b.style.borderColor = ''; b.style.background = ''; b.style.color = ''; b.style.boxShadow = '';
+              if (!b.disabled) { b.style.color = b.getAttribute('data-sat') === '1' ? '#E86A82' : ''; }
+            });
+            this.style.borderColor = '#E86A82';
+            this.style.background = '#E86A82';
+            this.style.color = '#fff';
+            this.style.boxShadow = '0 4px 12px rgba(232,106,130,0.35)';
+            rmSelectedDay = this.getAttribute('data-date');
+            updateTimeSlots();
+          });
+          if (dow === 6) btn.setAttribute('data-sat', '1');
+        }
+        // highlight if already selected
+        if (isoStr === rmSelectedDay) {
+          btn.style.borderColor = '#E86A82';
+          btn.style.background = '#E86A82';
+          btn.style.color = '#fff';
+          btn.style.boxShadow = '0 4px 12px rgba(232,106,130,0.35)';
+        }
+        grid.appendChild(btn);
+      }
+
+      if (!autoSelectMode && rmSelectedDay) {
+        updateTimeSlots();
+      }
+    }
+
+    function rmCalPrev() {
+      rmCalMonth--;
+      if (rmCalMonth < 0) { rmCalMonth = 11; rmCalYear--; }
+      rmBuildCalendar();
+    }
+
+    function rmCalNext() {
+      rmCalMonth++;
+      if (rmCalMonth > 11) { rmCalMonth = 0; rmCalYear++; }
+      rmBuildCalendar();
+    }
+
+    function rmFormatDate(isoStr) {
+      if (!isoStr) return '';
+      var parts = isoStr.split('-');
+      var y = parseInt(parts[0]), m = parseInt(parts[1]) - 1, d = parseInt(parts[2]);
+      var dateObj = new Date(y, m, d);
+      var dow = dateObj.getDay();
+      var dayName = TR_DAYS[(dow === 0) ? 6 : dow - 1];
+      return dayName + ', ' + String(d).padStart(2, '0') + ' ' + TR_MONTHS[m] + ' ' + y;
+    }
+
+    function resetRandevuForm() {
+      rmSelectedDay = '';
+      rmSelectedTime = '';
+      var now = new Date();
+      rmCalYear = now.getFullYear();
+      rmCalMonth = now.getMonth();
+      document.getElementById('rm-step-1').classList.remove('hidden');
+      document.getElementById('rm-step-2').classList.add('hidden');
+      document.getElementById('rm-step-3').classList.add('hidden');
+      document.getElementById('rm-err-1').classList.add('hidden');
+      document.querySelectorAll('.time-btn').forEach(function (b) {
+        b.style.borderColor = ''; b.style.background = ''; b.style.color = ''; b.style.boxShadow = '';
+      });
+      ['rp-1', 'rp-2', 'rp-3'].forEach(function (id) { document.getElementById(id).classList.remove('bg-rose-500'); document.getElementById(id).classList.add('bg-rose-100'); });
+      document.getElementById('rp-1').classList.add('bg-rose-500');
+      document.getElementById('rp-1').classList.remove('bg-rose-100');
+      document.getElementById('rm-step-label').textContent = 'Adım 1 / 3 — Tarih & Saat Seçimi';
+      ['rm-name', 'rm-phone', 'rm-note'].forEach(function (id) { document.getElementById(id).value = ''; });
+      document.getElementById('rm-area').selectedIndex = 0;
+      document.getElementById('rm-kvkk').checked = false;
+      rmBuildCalendar();
+    }
+
+    function openRandevuModal() {
+      fetchBookedSlots();
+      resetRandevuForm();
+      document.getElementById('randevu-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeRandevuModal() {
+      document.getElementById('randevu-modal').classList.remove('open');
+      document.body.style.overflow = '';
+      resetRandevuForm();
+    }
+
+    function closeSuccessModal() {
+      document.getElementById('success-modal').classList.remove('open');
+      document.getElementById('randevu-modal').classList.remove('open');
+      document.body.style.overflow = '';
+      resetRandevuForm();
+    }
+
+    // Time tile click
+    document.querySelectorAll('.time-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.time-btn').forEach(function (b) {
+          b.style.borderColor = '';
+          b.style.background = '';
+          b.style.color = '';
+          b.style.boxShadow = '';
+        });
+        btn.style.borderColor = '#E86A82';
+        btn.style.background = '#E86A82';
+        btn.style.color = '#fff';
+        btn.style.boxShadow = '0 4px 12px rgba(232,106,130,0.35)';
+        rmSelectedTime = btn.getAttribute('data-time');
+      });
+    });
+
+    function rmNext(step) {
+      if (step === 1) {
+        if (!rmSelectedDay || !rmSelectedTime) {
+          document.getElementById('rm-err-1').classList.remove('hidden');
+          return;
+        }
+        document.getElementById('rm-err-1').classList.add('hidden');
+        document.getElementById('rm-step-1').classList.add('hidden');
+        document.getElementById('rm-step-2').classList.remove('hidden');
+        document.getElementById('rp-2').classList.add('bg-rose-500');
+        document.getElementById('rp-2').classList.remove('bg-rose-100');
+        document.getElementById('rm-step-label').textContent = 'Adım 2 / 3 — Kişisel Bilgiler';
+      } else if (step === 2) {
+        var name = document.getElementById('rm-name').value.trim();
+        var phone = document.getElementById('rm-phone').value.trim();
+        var errN = document.getElementById('rm-err-name');
+        var errP = document.getElementById('rm-err-phone');
+        var ok = true;
+        if (!name) { errN.classList.remove('hidden'); ok = false; } else { errN.classList.add('hidden'); }
+        if (!phone || phone.length < 10) { errP.classList.remove('hidden'); ok = false; } else { errP.classList.add('hidden'); }
+        if (!ok) return;
+        // fill summary
+        var formattedDate = rmFormatDate(rmSelectedDay);
+        document.getElementById('rm-sum-dt').textContent = formattedDate + ' — ' + rmSelectedTime;
+        document.getElementById('rm-sum-dt-full').textContent = '';
+        document.getElementById('rm-sum-name').textContent = name;
+        document.getElementById('rm-sum-phone').textContent = phone;
+        var area = document.getElementById('rm-area').value || 'Belirtilmedi';
+        document.getElementById('rm-sum-area').textContent = area;
+        document.getElementById('rm-step-2').classList.add('hidden');
+        document.getElementById('rm-step-3').classList.remove('hidden');
+        document.getElementById('rp-3').classList.add('bg-rose-500');
+        document.getElementById('rp-3').classList.remove('bg-rose-100');
+        document.getElementById('rm-step-label').textContent = 'Adım 3 / 3 — Onay';
+      }
+    }
+
+    function rmBack(step) {
+      if (step === 2) {
+        document.getElementById('rm-step-2').classList.add('hidden');
+        document.getElementById('rm-step-1').classList.remove('hidden');
+        document.getElementById('rp-2').classList.remove('bg-rose-500');
+        document.getElementById('rp-2').classList.add('bg-rose-100');
+        document.getElementById('rm-step-label').textContent = 'Adım 1 / 3 — Gün & Saat Seçimi';
+      } else if (step === 3) {
+        document.getElementById('rm-step-3').classList.add('hidden');
+        document.getElementById('rm-step-2').classList.remove('hidden');
+        document.getElementById('rp-3').classList.remove('bg-rose-500');
+        document.getElementById('rp-3').classList.add('bg-rose-100');
+        document.getElementById('rm-step-label').textContent = 'Adım 2 / 3 — Kişisel Bilgiler';
+      }
+    }
+
+    async function rmSubmit() {
+      var kvkk = document.getElementById('rm-kvkk').checked;
+      if (!kvkk) { document.getElementById('rm-err-kvkk').classList.remove('hidden'); return; }
+      document.getElementById('rm-err-kvkk').classList.add('hidden');
+
+      var submitBtn = event.currentTarget || document.querySelector('button[onclick="rmSubmit()"]');
+      var originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs mr-1"></i> Kaydediliyor...';
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
+      var name = document.getElementById('rm-name').value.trim();
+      var phone = document.getElementById('rm-phone').value.trim();
+      var area = document.getElementById('rm-area').value || 'Belirtilmedi';
+      var note = document.getElementById('rm-note').value.trim();
+
+      var data = {
+        tarih: rmSelectedDay,
+        saat: rmSelectedTime,
+        adSoyad: name,
+        telefon: phone,
+        sikayetAlani: area,
+        kisaNot: note
+      };
+
+      try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbxX0DevFZ5ShxXe-GAetvrIB7kQL7R2mwYts5JuA86XnWoICMOCP-FtkGYWLRjNjUgS/exec", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+          throw new Error('Ağ yanıtı başarısız: ' + response.statusText);
+        }
+      } catch (e) {
+        console.error("Randevu kaydı sırasında hata:", e);
+        alert("Bağlantı hatası oluştu, lütfen daha sonra tekrar deneyin veya bizimle telefonla iletişime geçin.");
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+        return;
+      }
+
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+
+      closeRandevuModal();
+      document.getElementById('success-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close randevu modal on overlay click
+    var randevuModal = document.getElementById('randevu-modal');
+    if (randevuModal) {
+      randevuModal.addEventListener('click', function (e) {
+        if (e.target === randevuModal) {
+          closeRandevuModal();
+        }
+      });
+      var rmContent = randevuModal.querySelector('div');
+      if (rmContent) {
+        rmContent.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+      }
+    }
+
+    var successModal = document.getElementById('success-modal');
+    if (successModal) {
+      successModal.addEventListener('click', function (e) {
+        if (e.target === successModal) {
+          closeSuccessModal();
+        }
+      });
+      var smContent = successModal.querySelector('div');
+      if (smContent) {
+        smContent.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+      }
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeRandevuModal(); closeSuccessModal(); }
+    });
+
+    // ---- FAQ Accordion ----
+    document.querySelectorAll('.faq-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = this.closest('.faq-item');
+        var answer = item.querySelector('.faq-answer');
+        var icon = this.querySelector('.fa-plus') || this.querySelector('.fa-minus');
+        var isOpen = !answer.classList.contains('hidden');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(function (i) {
+          i.classList.remove('border-l-4', 'border-l-rose-500');
+          i.querySelector('.faq-answer').classList.add('hidden');
+          var ic = i.querySelector('.fa-minus') || i.querySelector('.fa-plus');
+          if (ic) { ic.classList.remove('fa-minus'); ic.classList.add('fa-plus'); ic.style.color = '#E86A82'; }
+          i.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+          i.querySelector('.faq-icon').classList.remove('bg-rose-500');
+          i.querySelector('.faq-icon').classList.add('bg-rose-50');
+        });
+        if (!isOpen) {
+          answer.classList.remove('hidden');
+          if (icon) { icon.style.transform = 'rotate(180deg)'; icon.style.color = '#fff'; }
+          btn.setAttribute('aria-expanded', 'true');
+          btn.querySelector('.faq-icon').classList.add('bg-rose-500');
+          btn.querySelector('.faq-icon').classList.remove('bg-rose-50');
+        }
+      });
+    });
+
+    // ---- Active nav on scroll ----
+    var sections = document.querySelectorAll('section[id]');
+    var navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', function () {
+      var current = '';
+      sections.forEach(function (section) {
+        if (window.scrollY >= section.offsetTop - 100) current = section.id;
+      });
+      navLinks.forEach(function (link) {
+        link.style.color = (link.getAttribute('href') === '#' + current) ? '#E86A82' : '';
+      });
+    });
+  </script>
+
+  <script>
+    function toggleAboutText() {
+      const moreText = document.getElementById('about-more-text');
+      const btnText = document.querySelector('#about-read-more-btn span');
+      const btnIcon = document.getElementById('about-read-more-icon');
+
+      if (moreText.classList.contains('hidden')) {
+        moreText.classList.remove('hidden');
+        setTimeout(() => {
+          moreText.classList.remove('opacity-0');
+        }, 10);
+        btnText.textContent = 'Daha Az Göster';
+        btnIcon.classList.add('rotate-180');
+      } else {
+        moreText.classList.add('opacity-0');
+        setTimeout(() => {
+          moreText.classList.add('hidden');
+        }, 300);
+        btnText.textContent = 'Devamını Oku';
+        btnIcon.classList.remove('rotate-180');
+      }
+    }
+  </script>
+
+  <!-- ==================== THERAPY INTERACTIVE SYSTEM ==================== -->
+  <script>
+    var THERAPY_DATA = [
+      {
+        id: 'gecikmi-konuma',
+        name: 'Gecikmiş Konuşma',
+        icon: 'fa-solid fa-seedling',
+        iconBg: '#FEF3C7',
+        iconColor: '#F59E0B',
+        readTime: '4 dk',
+        slogan: 'Gecikmiş Konuşma: Erken Müdahale ile Güçlü Bir Başlangıç',
+        rmOption: 'Gecikmiş Konuşma',
+        sections: [
+          {
+            heading: 'Gecikmiş Konuşma Nedir?',
+            body: 'Gecikmiş konuşma; bir çocuğun yaşıtlarına kıyasla dil, konuşma veya iletişim becerilerini beklenen zaman diliminde kazanamaması durumudur. "Konuşma gecikmesi" terimi hem dil gelişimini (kelimeleri anlamak, cümle kurmak) hem de konuşma seslerini kapsar. Beyin gelişiminin en yoğun yaşandığı 0–6 yaş döneminde erken tanı ve müdahale, uzun vadeli akademik ve sosyal gelişim açısından kritik öneme sahiptir.'
+          },
+          {
+            heading: 'Nedenleri ve Belirtileri Nelerdir?',
+            body: 'Gecikmiş konuşmanın altında işitme kaybı, nörolojik farklılıklar, çevresel faktörler, Otizm Spektrum Bozukluğu veya ikidilli yetişme ortamı gibi çeşitli etkenler yatabilir. Temel belirtiler:',
+            bullets: [
+              '12. ayda jest ve tek heceli söylem yokluğu',
+              '18. ayda en az 10 farklı kelime kullanamamak',
+              '24. ayda iki kelimeli özgün cümle kuramamak',
+              '36. ayda yabancıların anlayamadığı konuşma',
+              'Yönergeleri anlamada yaşa göre belirgin güçlük'
+            ]
+          },
+          {
+            heading: 'Kliniğimizde Terapi Süreci Nasıl İlerler?',
+            body: 'İlk seansta standart gelişim testleri (TEDİL, MacArthur İletişim Envanteri) ve gözlem protokolleri uygulanarak bireyin güçlü ve geliştirilmesi gereken yönleri belirlenir. Ardından aile eğitimini de kapsayan, oyun tabanlı ve DIR®/Floortime çerçevesiyle yapılandırılmış bireysel terapi planı oluşturulur. Her 6–8 seansta bir ilerleme değerlendirmesi yapılır.'
+          }
+        ]
+      },
+      {
+        id: 'artikülasyon',
+        name: 'Artikülasyon & Fonolojik Bozukluk',
+        icon: 'fa-solid fa-comment-medical',
+        iconBg: '#E0F2FE',
+        iconColor: '#0EA5E9',
+        readTime: '5 dk',
+        slogan: 'Artikülasyon & Fonoloji: Her Sesi Doğru, Her Cümleyi Net',
+        rmOption: 'Artikülasyon & Fonolojik Bozukluk',
+        sections: [
+          {
+            heading: 'Artikülasyon ve Fonolojik Bozukluk Nedir?',
+            body: 'Artikülasyon bozukluğu; konuşma organlarının (dil, dudak, damak, çene) belirli sesleri doğru üretememesidir. Fonolojik bozukluk ise seslerin zihinsel temsili ve ses sistemi kurallarındaki tutarsız hatalar olarak tanımlanır; R, K, S, , Ç gibi sesler sıklıkla etkilenir.'
+          },
+          {
+            heading: 'Nedenleri ve Belirtileri Nelerdir?',
+            body: 'Motorik koordinasyon güçlükleri, işitme kaybı, yapısal anomaliler veya nörolojik farklılıklar etken olabilir. Başlıca belirtiler:',
+            bullets: [
+              'Belirli sesleri hiç üretememe ya da tutarsız üretme',
+              'Sesleri birbirinin yerine koyma (örn. "süt" yerine "tüt")',
+              'Konuşmanın yabancılar tarafından zor anlaşılması',
+              'Okuma ve heceleme güçlükleri',
+              'Sosyal ortamlarda konuşmaktan çekinme'
+            ]
+          },
+          {
+            heading: 'Kliniğimizde Terapi Süreci Nasıl İlerler?',
+            body: 'Türkçe ses envanteri ve oromotor değerlendirme ile hedef sesler belirlenir. Hedef ses hiyerarşisi yaklaşımı ve minimal çift alıştırmaları ile sistematik terapi uygulanır. Seanslar ses üretiminden serbest konuşma düzeyine kademeli olarak ilerler; ev programı ve ebeveyn koçluğu sürece entegre edilir.'
+          }
+        ]
+      },
+      {
+        id: 'kekemelik',
+        name: 'Kekemelik & Akıcılık Terapisi',
+        icon: 'fa-solid fa-wave-square',
+        iconBg: '#D1FAE5',
+        iconColor: '#10B981',
+        readTime: '5 dk',
+        slogan: 'Kekemelik & Akıcılık: Konuşma Özgürlüğünü Geri Kazanın',
+        rmOption: 'Kekemelik & Akıcılık Terapisi',
+        sections: [
+          {
+            heading: 'Kekemelik ve Akıcılık Bozukluğu Nedir?',
+            body: 'Kekemelik; konuşmanın normal akışını bozan ses, hece veya kelime tekrarları, uzatmalar ve bloklar şeklinde kendini gösteren nörogelişimsel bir bozukluktur. Çocukların yaklaşık %5\'inde görülmekte; erken müdahaleyle büyük çoğunluğu tam düzelme sağlamaktadır.'
+          },
+          {
+            heading: 'Nedenleri ve Belirtileri Nelerdir?',
+            body: 'Nörolojik, genetik ve çevresel faktörlerin bir arada rol oynadığı bilinmektedir. Temel belirtiler:',
+            bullets: [
+              'Ses, hece veya kelime tekrarları (örn. "b-b-baba")',
+              'Uzatmalar (örn. "sssaat")',
+              'Sözcük başında konuşma blokları',
+              'Yüz gerginliği, göz kırpma gibi ikincil davranışlar',
+              'Telefonda veya yabancılarla konuşmaktan kaçınma',
+              'Konuşma kaygısı ve sosyal geri çekilme'
+            ]
+          },
+          {
+            heading: 'Kliniğimizde Terapi Süreci Nasıl İlerler?',
+            body: 'Kliniğimizde kekemelik terapisi; akıcılık şekillendirme teknikleri, kekemeliği modifikasyon yaklaşımı ve Bilişsel Davranışçı Terapi ilkeleri bir arada kullanılarak bireye özel tasarlanır. Çocuklarda ebeveyn destekli Lidcombe Programı uygulanır. Yetişkinlerde konuşma kaygısını hedefleyen duyarsızlaştırma seansları düzenlenir.'
+          }
+        ]
+      },
+      {
+        id: 'ses',
+        name: 'Ses Bozuklukları Terapisi',
+        icon: 'fa-solid fa-microphone',
+        iconBg: '#FDF4FF',
+        iconColor: '#8B5CF6',
+        readTime: '4 dk',
+        slogan: 'Ses Terapisi: Sesinizin Gerçek Gücünü Keşfedin',
+        rmOption: 'Ses Bozuklukları Terapisi',
+        sections: [
+          {
+            heading: 'Ses Bozukluğu Nedir?',
+            body: 'Ses bozukluğu; sesin kalitesi, perdesi, şiddeti veya esnekliğinde beklenen normların dışına çıkan, kişinin günlük iletişimini olumsuz etkileyen durumları kapsar. Vokal nodül, polip, kist, laringit gibi organik nedenler ya da yanlış ses kullanım alışkanlıkları tabloya yol açabilir.'
+          },
+          {
+            heading: 'Nedenleri ve Belirtileri Nelerdir?',
+            body: 'Uzun süreli yüksek sesle konuşma, yanlış solunum teknikleri, reflü, hormon değişimleri veya nörolojik hastalıklar etken olabilir. Belirtiler:',
+            bullets: [
+              'Kronik ses kısıklığı veya boğuk ses tonu',
+              'Konuşurken sesin çabuk yorulması',
+              'Ses kırılmaları ve perde değişiklikleri',
+              'Konuşma sırasında gırtlakta ağrı veya baskı hissi',
+              'Sesin tamamen kaybolması (afoni)'
+            ]
+          },
+          {
+            heading: 'Kliniğimizde Terapi Süreci Nasıl İlerler?',
+            body: 'Ses analizinden elde edilen akustik veriler ile vokal hijyen eğitimi, rezonans terapi teknikleri ve LSVT® (Lee Silverman Ses Tedavisi) protokolü bir arada uygulanır. KBB uzmanı ile koordineli çalışılarak gerektiğinde larengoskopi bulgularına göre terapi planı güncellenir.'
+          }
+        ]
+      },
+      {
+        id: 'afazi',
+        name: 'Afazi (Yetişkin Dil Bozuklukları)',
+        icon: 'fa-solid fa-brain',
+        iconBg: '#EDE9FE',
+        iconColor: '#8B5CF6',
+        readTime: '6 dk',
+        slogan: 'Afazi: Bilimsel ve Bireye Özel Rehabilitasyon Süreci',
+        rmOption: 'Afazi (Yetişkin Dil Bozuklukları)',
+        sections: [
+          {
+            heading: 'Afazi Nedir?',
+            body: 'Afazi; inme (stroke), travmatik beyin hasarı veya nörodejeneratif hastalıklar sonucunda konuşma üretimi, anlama, okuma ve yazma becerilerinde ortaya çıkan edinsel dil bozukluğudur. Zekanın kendisi değil, yalnızca dili işleyen mekanizmalar etkilenir. Erken ve yoğun terapi, nöroplastisite penceresinden maksimum yararlanmayı sağlar.'
+          },
+          {
+            heading: 'Nedenleri ve Belirtileri Nelerdir?',
+            body: 'İnme en yaygın nedendir; travmatik beyin hasarı ve beyin tümörleri de afaziye yol açabilir. Belirtiler:',
+            bullets: [
+              'Kelime bulamama (anomia) — en yaygın belirti',
+              'Cümleleri anlama güçlüğü',
+              'Telgraf tarzı, kısa ve zorlu konuşma',
+              'Okuma ve yazma bozuklukları (aleksi, agrafi)',
+              'Telefon ve grup konuşmalarında ileri güçlük'
+            ]
+          },
+          {
+            heading: 'Kliniğimizde Terapi Süreci Nasıl İlerler?',
+            body: 'Western Afazi Bataryası ve Boston Tanı Afazi Testi ile kapsamlı değerlendirme yapılır. Ardından; anomi terapisi, konuşma üretim terapisi, CILT (kısıtlı indüksiyonlu dil terapisi) ve artırıcı-alternatif iletişim (AAC) araçları bireyin profiline göre entegre edilir. Aile eğitimi ve partner destekli iletişim stratejileri de sürecin ayrılmaz parçasıdır.'
+          }
+        ]
+      },
+      {
+        id: 'motor',
+        name: 'Motor Konuşma Bozuklukları (Apraksi / Dizartri)',
+        icon: 'fa-solid fa-bolt',
+        iconBg: '#E0E7FF',
+        iconColor: '#3B82F6',
+        readTime: '5 dk',
+        slogan: 'Motor Konuşma Bozuklukları: PROMPT® ile Güçlü Yeniden Yapılanma',
+        rmOption: 'Motor Konuşma Bozuklukları (Apraksi / Dizartri)',
+        sections: [
+          {
+            heading: 'Motor Konuşma Bozuklukları Nedir?',
+            body: 'Motor konuşma bozuklukları; konuşmayı üreten nöromotor sistemi etkileyen hastalıklardan kaynaklanan konuşma güçlüklerini kapsar. Apraksi (konuşma apraksisi); kasların güçsüz olmadığı hâlde sesler için gerekli motor hareketlerin planlanamamasıdır. Dizartri ise kas güçsüzlüğü veya koordinasyon bozukluğundan kaynaklanan zorlu konuşmadır.'
+          },
+          {
+            heading: 'Nedenleri ve Belirtileri Nelerdir?',
+            body: 'Nörolojik hasar (inme, TBI, MS, Parkinson, ALS, serebral palsi) en yaygın nedendir. Belirtiler:',
+            bullets: [
+              'Aprakside tutarsız ses hataları; aynı kelimeyi her seferinde farklı söyleme',
+              'Uzun kelime veya cümlelerde belirgin artış gösteren güçlük',
+              'Sesin perdesi, ritmi ve hızının düzensiz olması',
+              'Konuşmaya başlamada gecikme veya blok (apraksi)',
+              'Yavaş, yorucu, bulanık konuşma (dizartri)'
+            ]
+          },
+          {
+            heading: 'Kliniğimizde Terapi Süreci Nasıl İlerler?',
+            body: 'Nöroloji ve fizyoterapi ekibiyle koordineli çok disiplinli yaklaşım benimsenir. Aprakside yoğun motor öğrenme prensipleri ve PROMPT® tekniği uygulanır. Dizartride ise LSVT LOUD® ve düşük teknolojili AAC araçları tedavi planına entegre edilebilir.'
+          }
+        ]
+      },
+      {
+        id: 'otizm',
+        name: 'Otizm Spektrumunda Dil ve Konuşma Terapisi',
+        icon: 'fa-solid fa-people-arrows',
+        iconBg: '#FEF9C3',
+        iconColor: '#F59E0B',
+        readTime: '6 dk',
+        slogan: 'OSB\'de Dil & İletişim: Her Çocuk İçin Benzersiz Bir Yol Haritası',
+        rmOption: 'Otizm Spektrumunda Dil ve Konuşma Terapisi',
+        sections: [
+          {
+            heading: 'Otizm Spektrum Bozukluğunda Dil ve İletişim Güçlükleri Nedir?',
+            body: 'Otizm Spektrum Bozukluğu (OSB), sosyal iletişim ve etkileşimde güçlükler ile sınırlı, tekrarlayıcı davranış örüntüleriyle karakterize nörogelişimsel bir farklılıktır. OSB olan bireylerin dil ve iletişim profilleri büyük çeşitlilik gösterir.'
+          },
+          {
+            heading: 'Belirtiler ve Değerlendirme',
+            body: 'OSB\'de dil ve iletişime ilişkin temel belirtiler:',
+            bullets: [
+              'Ortak dikkat ve sosyal gülümseme eksikliği (erken belirti)',
+              'Ekolali (kelimeleri veya cümleleri anlamsızca tekrarlama)',
+              'Sözel olmayan iletişimi anlamada güçlük',
+              'Sohbet başlatma ve sürdürmede belirgin sorun',
+              'Mecazi dil ve ironiyi anlamada zorluk',
+              'Artırıcı-Alternatif İletişim (AAC) ihtiyacı'
+            ]
+          },
+          {
+            heading: 'Kliniğimizde Terapi Süreci Nasıl İlerler?',
+            body: 'IVO-ODS ve GOBDÖ-2 standart değerlendirme araçlarıyla kapsamlı profil belirlendikten sonra DIR®/Floortime, ETEÇOM2 ve PECS gibi kanıta dayalı modeller çocuğun motivasyonu ve aile yapısına göre entegre edilir. Aile eğitim seansları ile günlük yaşam iletişimi desteklenir.'
+          }
+        ]
+      },
+      {
+        id: 'yutma',
+        name: 'Yutma Bozuklukları',
+        icon: 'fa-solid fa-utensils',
+        iconBg: '#FFE4E6',
+        iconColor: '#E86A82',
+        readTime: '4 dk',
+        slogan: 'Yutma Bozuklukları (Disfaji): Güvenli Beslenme, Sağlıklı Yaşam',
+        rmOption: 'Yutma Bozuklukları',
+        sections: [
+          {
+            heading: 'Yutma Bozukluğu (Disfaji) Nedir?',
+            body: 'Disfaji; sıvı veya katı gıdaların ağızdan mideye güvenli biçimde taşınmasındaki güçlükleri ifade eden tıbbi bir terimdir. Herhangi bir evrede sorun aspirayon (solunum yoluna gıda kaçması), malnutrisyon ve pulmoner komplikasyon riskine yol açabilir.'
+          },
+          {
+            heading: 'Nedenleri ve Belirtileri Nelerdir?',
+            body: 'İnme, Parkinson, ALS, demans, kafa-boyun tümörü cerrahisi ve yaşa bağlı değişiklikler başlıca nedenlerdir. Belirtiler:',
+            bullets: [
+              'Yutarken öksürme veya boğulma hissi',
+              'Yemekten sonra seste boğukluk ya da ıslaklık',
+              'Yemek yemeye karşı korku veya isteksizlik',
+              'Uzayan öğün süreleri ve yorgunluk',
+              'Tekrarlayan akciğer enfeksiyonları (aspirasyon pnomonisi)'
+            ]
+          },
+          {
+            heading: 'Kliniğimizde Terapi Süreci Nasıl İlerler?',
+            body: 'Klinik yutma değerlendirmesi ile güçlü ve riskli evrelerin tespitinin ardından bireysel rehabilitasyon planı oluşturulur. Oromotor kuvvetlendirme egzersizleri, postüral kompansasyon stratejileri ve gıda doku modifikasyonu (IDDSI standartları) uygulanır.'
+          }
+        ]
+      },
+      {
+        id: 'fonolojik',
+        name: 'Okuma Yazmaya Hazırlık ve Fonolojik Farkındalık',
+        icon: 'fa-solid fa-book-open',
+        iconBg: '#ECFDF5',
+        iconColor: '#10B981',
+        readTime: '4 dk',
+        slogan: 'Fonolojik Farkındalık: Okuma-Yazmada Sağlam Bir Temel',
+        rmOption: 'Okuma Yazmaya Hazırlık ve Fonolojik Farkındalık',
+        sections: [
+          {
+            heading: 'Fonolojik Farkındalık ve Okuma Yazmaya Hazırlık Nedir?',
+            body: 'Fonolojik farkındalık; dilin ses yapısına bilinçli olarak odaklanma ve bu yapılarla zihinsel işlem yapabilme becerisidir. Okuma-yazma öğreniminin en güçlü yordayıcılarından biri olan bu beceri desteklenmezse disleksi, heceleme güçlüğü ve akademik başarısızlık riskini artırır.'
+          },
+          {
+            heading: 'Risk Belirtileri Nelerdir?',
+            body: 'Erken müdahale için dikkat edilmesi gereken işaretler:',
+            bullets: [
+              'Uyaklı kelimeleri tanımada veya üretmede güçlük',
+              'Hece sayma veya birleştirme başarısızlığı',
+              'Harf-ses ilişkisini kurmada gecikmeli öğrenme',
+              'Okumayı öğrendikten sonra da yavaş, hatalı okuma',
+              'Heceleme hatalarının devam etmesi',
+              'Dil temelli akademik güçlük'
+            ]
+          },
+          {
+            heading: 'Kliniğimizde Terapi Süreci Nasıl İlerler?',
+            body: 'Türkçe Okul Çağı Dil Gelişimi Testi ve özel fonolojik farkındalık ölçekleriyle bireyin düzeyi belirlenir. Yapılandırılmış oyun etkinlikleri, ritmik ve görsel destekli fonemin farkındalık çalışmaları ile desteklenen bireysel terapi uygulanır. Öğretmen iş birliği rehberi de aile ile paylaşılır.'
+          }
+        ]
+      }
+    ];
+
+    // ---- Render grid cards ----
+    function thRenderGrid() {
+      var grid = document.getElementById('th-grid-view');
+      if (!grid) return;
+      grid.innerHTML = '';
+      THERAPY_DATA.forEach(function (t) {
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'th-card w-full text-left bg-white rounded-2xl border-2 border-rose-50 shadow-sm p-5 flex items-center gap-4 group';
+        card.setAttribute('data-id', t.id);
+        card.setAttribute('aria-label', t.name + ' detaylarını gör');
+        card.innerHTML =
+          '<div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style="background:' + t.iconBg + '">' +
+          '<i class="' + t.icon + ' text-2xl" style="color:' + t.iconColor + '"></i>' +
+          '</div>' +
+          '<div class="flex-1 min-w-0">' +
+          '<p class="font-bold text-anthracite-700 text-sm leading-snug group-hover:text-rose-500 transition-colors">' + t.name + '</p>' +
+          '<p class="text-xs text-anthracite-400 mt-1 mb-2 flex items-center gap-1"><i class="fa-regular fa-clock"></i> ' + t.readTime + ' okuma</p>' +
+          '<div class="inline-flex items-center text-xs font-semibold text-rose-500 transition-colors group-hover:bg-rose-50 px-3 py-1.5 rounded-full -ml-3">' +
+          'Detaylı Bilgi &amp; Randevu Al <i class="fa-solid fa-arrow-right ml-1.5 transition-transform duration-300 group-hover:translate-x-1"></i>' +
+          '</div>' +
+          '</div>';
+        card.addEventListener('click', function () { thShowDetail(t.id); });
+        grid.appendChild(card);
+      });
+    }
+
+    // ---- Build detail HTML ----
+    function thBuildDetail(t) {
+      var sectionsHTML = '';
+      t.sections.forEach(function (s) {
+        sectionsHTML += '<div class="mb-7"><p class="th-detail-h">' + s.heading + '</p><p class="text-anthracite-500 text-sm leading-relaxed">' + s.body + '</p>';
+        if (s.bullets && s.bullets.length) {
+          sectionsHTML += '<ul class="mt-3 space-y-2">';
+          s.bullets.forEach(function (b) {
+            sectionsHTML += '<li class="flex items-start gap-2.5 text-sm text-anthracite-500"><span class="mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-rose-400"></span><span>' + b + '</span></li>';
+          });
+          sectionsHTML += '</ul>';
+        }
+        sectionsHTML += '</div>';
+      });
+      return (
+        '<div class="bg-white rounded-3xl border border-rose-50 shadow-lg overflow-hidden">' +
+        '<div class="px-8 pt-10 pb-8 border-b border-rose-50" style="background:linear-gradient(135deg,#FFF0F4 0%,#fff 100%)">' +
+        '<div class="flex flex-wrap items-start gap-4 mb-4">' +
+        '<div class="w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center" style="background:' + t.iconBg + '">' +
+        '<i class="' + t.icon + ' text-2xl" style="color:' + t.iconColor + '"></i>' +
+        '</div>' +
+        '<div class="flex-1">' +
+        '<h3 class="font-display text-xl sm:text-2xl font-bold text-anthracite-700 leading-tight">' + t.slogan + '</h3>' +
+        '<span class="inline-flex items-center gap-1.5 mt-2 bg-white text-rose-500 border border-rose-100 text-xs font-semibold px-3 py-1 rounded-full shadow-sm">' +
+        '<i class="fa-regular fa-clock text-xs"></i> Okuma süresi: ' + t.readTime +
+        '</span>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="px-8 py-8">' +
+        sectionsHTML +
+        '<div class="mt-8 pt-6 border-t border-rose-50">' +
+        '<p class="text-sm text-anthracite-400 mb-4">Bu alanda uzman desteği almak ister misiniz?</p>' +
+        '<button type="button" onclick="thOpenRandevu(\'' + t.rmOption.replace(/'/g, "\\'") + '\')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-rose-500 hover:bg-rose-600 text-white font-bold px-8 py-4 rounded-2xl transition-all shadow-lg hover:shadow-xl hover:scale-105 text-sm">' +
+        '<i class="fa-regular fa-calendar-check"></i>' +
+        'Bu Alanda Değerlendirme &amp; Randevu Al' +
+        '</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>'
+      );
+    }
+
+    // ---- Show detail view ----
+    function thShowDetail(id) {
+      var t = null;
+      for (var i = 0; i < THERAPY_DATA.length; i++) { if (THERAPY_DATA[i].id === id) { t = THERAPY_DATA[i]; break; } }
+      if (!t) return;
+      var grid = document.getElementById('th-grid-view');
+      var detail = document.getElementById('th-detail-view');
+      var content = document.getElementById('th-detail-content');
+      grid.classList.add('th-view-exit');
+      setTimeout(function () {
+        grid.classList.add('hidden');
+        grid.classList.remove('th-view-exit');
+        content.innerHTML = thBuildDetail(t);
+        detail.classList.remove('hidden');
+        detail.classList.add('th-view-enter');
+        document.getElementById('tedaviler').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(function () { detail.classList.remove('th-view-enter'); }, 400);
+      }, 280);
+    }
+
+    // ---- Show grid view ----
+    function thShowGrid() {
+      var grid = document.getElementById('th-grid-view');
+      var detail = document.getElementById('th-detail-view');
+      detail.classList.add('th-view-exit');
+      setTimeout(function () {
+        detail.classList.add('hidden');
+        detail.classList.remove('th-view-exit');
+        grid.classList.remove('hidden');
+        grid.classList.add('th-view-enter');
+        document.getElementById('tedaviler').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(function () { grid.classList.remove('th-view-enter'); }, 400);
+      }, 280);
+    }
+
+    // ---- Open randevu modal and pre-select service ----
+    function thOpenRandevu(areaName) {
+      openRandevuModal();
+      setTimeout(function () {
+        var sel = document.getElementById('rm-area');
+        if (!sel) return;
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].text === areaName) { sel.selectedIndex = i; break; }
+        }
+      }, 350);
+    }
+
+  </script>
+
+  <!-- ==================== QUIZ MODAL ==================== -->
+  <div id="quiz-modal"
+    class="fixed inset-0 z-[60] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+    <div class="absolute inset-0 bg-anthracite-900/60 backdrop-blur-sm" onclick="closeQuizModal()"></div>
+    <div
+      class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl relative z-10 mx-4 max-h-[90vh] flex flex-col transform scale-95 transition-transform duration-300"
+      id="quiz-modal-content">
+
+      <!-- Top Bar -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-rose-50">
+        <h3 class="font-bold text-anthracite-700 text-lg">Ön Değerlendirme</h3>
+        <button onclick="closeQuizModal()"
+          class="w-8 h-8 flex items-center justify-center rounded-full bg-rose-50 text-rose-500 hover:bg-rose-100 transition-colors">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="bg-rose-50 h-2 w-full">
+        <div id="quiz-progress-bar" class="bg-rose-500 h-2 transition-all duration-300" style="width: 15%"></div>
+      </div>
+
+      <div class="px-6 py-2 text-right text-xs font-bold text-rose-400">
+        <span id="quiz-progress-text">%15 Tamamlandı</span>
+      </div>
+
+      <!-- Content Area -->
+      <div class="p-6 md:p-8 overflow-y-auto flex-grow" id="quiz-steps-container">
+
+        <!-- STEP 1 -->
+        <div class="quiz-step" id="quiz-step-1">
+          <h4 class="font-display text-2xl font-bold text-anthracite-700 mb-6">1. Başvuru Kimin İçin ve Yaş Grubu?</h4>
+          <p class="text-sm text-anthracite-500 mb-4">Değerlendirme yapılacak bireyin yaş grubu nedir?</p>
+          <div class="space-y-3">
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_age" value="0-2" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">0 - 2 Yaş (Erken Çocukluk / Bebeklik Dönemi)</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_age" value="3-5" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">3 - 5 Yaş (Okul Öncesi Dönem)</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_age" value="6-12" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">6 - 12 Yaş (Okul Çağı)</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_age" value="13-18" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">13 - 18 Yaş (Ergenlik Dönemi)</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_age" value="18+" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">18 Yaş ve Üzeri (Yetişkin)</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="quiz-step hidden" id="quiz-step-2">
+          <h4 class="font-display text-2xl font-bold text-anthracite-700 mb-6">2. Anlama ve Alıcı Dil Becerileri</h4>
+          <p class="text-sm text-anthracite-500 mb-4">İletişimde anlama ve komut alma durumu nasıl?</p>
+          <div class="space-y-3">
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_comprehension" value="anliyor_konusamiyor" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Söylenenleri ve yönergeleri gayet iyi anlıyor, ancak
+                  konuşarak ifade edemiyor.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_comprehension" value="basit_komut" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Basit komutları anlıyor fakat karmaşık/iki aşamalı
+                  yönergelerde zorlanıyor.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_comprehension" value="tepki_yok" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">İsmine veya seslenilmelere her zaman tepki vermiyor,
+                  yönergeleri anlamakta güçlük çekiyor.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_comprehension" value="yetiskin_gerileme" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Yetişkin birey: Anlama ve kavrama becerilerinde
+                  inme/travma sonrası gerileme var.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_comprehension" value="sorun_yok" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Anlama ve algılamada belirgin bir sorun
+                  gözlemlemiyoruz.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="quiz-step hidden" id="quiz-step-3">
+          <h4 class="font-display text-2xl font-bold text-anthracite-700 mb-6">3. İfade Edici Dil ve Konuşma Belirtileri
+            (Ana Şikayet)</h4>
+          <p class="text-sm text-anthracite-500 mb-4">Konuşma üretiminde en çok hangi durum dikkatinizi çekiyor?</p>
+          <div class="space-y-3">
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_expression" value="gecikmis" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Yaşıtlarına göre çok az kelime kullanıyor veya hiç
+                  konuşmuyor (Gecikmiş Dil).</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_expression" value="artikulasyon" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Konuşuyor ama bazı harfleri/sesleri çıkaramıyor ya da
+                  karıştırıyor (Örn: R, K, S, Ş yerine başka ses).</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_expression" value="kekemelik" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Kelime/hece tekrarları, ses uzatmaları ya da takılmalar
+                  var (Kekemelik/Akıcılık).</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_expression" value="anlasilmaz" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Konuşması fazlasıyla hızlı, peltek veya çevredekiler
+                  tarafından anlaşılması zor.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_expression" value="ses" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Sesinde kısıklık, çatallanma, boğukluk veya çabuk yorulma
+                  oluyor (Ses Bozukluğu).</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_expression" value="afazi" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">İnme / kaza sonrası kelimeleri hatırlayamama ve konuşma
+                  kaybı (Afazi).</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="quiz-step hidden" id="quiz-step-4">
+          <h4 class="font-display text-2xl font-bold text-anthracite-700 mb-6">4. Sosyal Etkileşim ve İletişim
+            Alışkanlıkları</h4>
+          <p class="text-sm text-anthracite-500 mb-4">Sosyal ortamdaki etkileşim ve iletişim kurma isteği nasıl?</p>
+          <div class="space-y-3">
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_social" value="iyi" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Göz teması güçlü, isteklerini işaretle veya beden diliyle
+                  gayet iyi anlatmaya çalışıyor.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_social" value="kisitli" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Göz teması kısıtlı, akranlarıyla ortak oyun kurmakta veya
+                  oyunu sürdürmekte zorlanıyor.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_social" value="cekiniyor" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Konuşurken heyecanlanıp kaçınma gösteriyor, tanımadığı
+                  ortamlarda konuşmaktan çekiniyor.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_social" value="sorun_yok_sosyal" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Sosyal etkileşimde herhangi bir problem
+                  gözlemlenmiyor.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="quiz-step hidden" id="quiz-step-5">
+          <h4 class="font-display text-2xl font-bold text-anthracite-700 mb-6">5. Beslenme, Yutma ve Motor Beceriler
+          </h4>
+          <p class="text-sm text-anthracite-500 mb-4">Oral-motor (ağız kasları), çiğneme veya yutma süreçlerinde bir
+            güçlük var mı?</p>
+          <div class="space-y-3">
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_feeding" value="secici" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Aşırı yemek seçiciliği, katı gıdaları çiğneme/yutma
+                  zorluğu veya öğürme refleksi var.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_feeding" value="salya" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Ağızdan salya akışı devam ediyor veya çiğneme kasları
+                  zayıf görünüyor.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_feeding" value="yetiskin_bogulma" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Yetişkin birey: Sıvı veya katı tüketirken boğaza kaçma /
+                  öksürük nöbeti yaşanıyor.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_feeding" value="sorun_yok_beslenme" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Herhangi bir yutma veya beslenme güçlüğü
+                  bulunmuyor.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 6 -->
+        <div class="quiz-step hidden" id="quiz-step-6">
+          <h4 class="font-display text-2xl font-bold text-anthracite-700 mb-6">6. Ekran Maruziyeti ve Medikal Geçmiş
+          </h4>
+          <p class="text-sm text-anthracite-500 mb-4">Tıbbi geçmiş ve günlük ekran (telefon/tablet/TV) süresi nedir?</p>
+          <div class="space-y-3">
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_medical" value="ekran_fazla_ilk" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Günde 2 saatten fazla ekran süresi var + İlk defa bir
+                  değerlendirme alacağız.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_medical" value="ekran_az_kbb" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Ekran süresi kontrollü/az + Daha önce KBB (işitme testi)
+                  veya çocuk nörolojisi gördü.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_medical" value="terapi_gecmisi" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Daha önce başka bir merkezde konuşma terapisi veya özel
+                  eğitim geçmişi var.</span>
+              </div>
+            </label>
+            <label
+              class="quiz-option block cursor-pointer bg-white border-2 border-rose-100 rounded-xl p-4 hover:border-rose-300 transition-all">
+              <input type="radio" name="q_medical" value="sorun_yok_medikal" class="hidden">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full border-2 border-rose-300 flex items-center justify-center quiz-radio-indicator">
+                </div>
+                <span class="font-medium text-anthracite-700">Ekran kullanımı yok/minimal + Bilinen herhangi bir tıbbi
+                  teşhis bulunmuyor.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 7 -->
+        <div class="quiz-step hidden" id="quiz-step-7">
+          <h4 class="font-display text-2xl font-bold text-anthracite-700 mb-6">7. Danışan İletişim Bilgileri</h4>
+          <p class="text-sm text-anthracite-500 mb-4">Sonuçlarınızı değerlendirebilmemiz için iletişim bilgilerinizi
+            giriniz.</p>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-semibold text-anthracite-700 mb-1">Ebeveyn / Danışan Adı Soyadı *</label>
+              <input type="text" id="q_name"
+                class="w-full bg-white border-2 border-rose-100 rounded-xl px-4 py-3 outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-200 transition-all"
+                placeholder="Örn: Ayşe Yılmaz">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-anthracite-700 mb-1">Telefon Numarası *</label>
+              <input type="tel" id="q_phone"
+                class="w-full bg-white border-2 border-rose-100 rounded-xl px-4 py-3 outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-200 transition-all"
+                placeholder="05XX XXX XX XX">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-anthracite-700 mb-1">Varsa Eklemek İstediğiniz Özel Not /
+                Şikayetin Başlangıç Zamanı</label>
+              <textarea id="q_note" rows="3"
+                class="w-full bg-white border-2 border-rose-100 rounded-xl px-4 py-3 outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-200 transition-all"
+                placeholder="Ek notlarınızı buraya yazabilirsiniz..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 8: Final / Sonuç -->
+        <div class="quiz-step hidden text-center" id="quiz-step-8">
+          <div
+            class="w-16 h-16 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+            <i class="fa-solid fa-check-circle"></i>
+          </div>
+          <h4 class="font-display text-2xl font-bold text-anthracite-700 mb-2">Ön Değerlendirme Analiziniz Hazırlandı
+          </h4>
+          <p class="text-anthracite-500 mb-6 text-sm">Verdiğiniz bilgiler uzman klinik bakış açısıyla incelendi.</p>
+          <div class="bg-rose-50 border border-rose-100 rounded-xl p-5 mb-6">
+            <h5 id="quiz-result-title" class="text-lg font-bold text-rose-600 mb-2">Kapsamlı Dil ve Konuşma
+              Değerlendirmesi</h5>
+            <p class="text-sm text-anthracite-600">İlk seansımızda standart klinik değerlendirme testleri yapılarak bu
+              belirtilerin kök nedenleri tespit edilecek ve kişiye özel seans planı oluşturulacaktır.</p>
+          </div>
+          <div class="flex flex-col gap-3">
+            <button onclick="quizToRandevu()"
+              class="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-md">
+              Bu Ön Değerlendirme İle Randevu Planla
+            </button>
+            <button onclick="quizToWhatsapp()"
+              class="w-full bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg"></i> Sonuç Raporunu WhatsApp'tan Uzmanımıza Gönder
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="px-6 py-4 border-t border-rose-50 flex items-center justify-between bg-gray-50 rounded-b-3xl"
+        id="quiz-footer">
+        <button id="quiz-prev-btn" onclick="quizPrevStep()"
+          class="px-5 py-2.5 rounded-xl font-bold text-anthracite-500 bg-white border border-gray-200 hover:bg-gray-100 transition-colors hidden">
+          <i class="fa-solid fa-arrow-left mr-1"></i> Geri
+        </button>
+        <div class="flex-grow"></div>
+        <button id="quiz-next-btn" onclick="quizNextStep()"
+          class="px-6 py-2.5 rounded-xl font-bold text-white bg-rose-500 hover:bg-rose-600 transition-colors opacity-50 cursor-not-allowed pointer-events-none">
+          İleri <i class="fa-solid fa-arrow-right ml-1"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // ---- Quiz Logic ----
+    let quizStep = 1;
+    const totalQuizSteps = 7;
+    let quizSelections = { age: '', comprehension: '', expression: '', social: '', feeding: '', medical: '', name: '', phone: '', note: '' };
+
+    const quizDict = {
+      // Age
+      '0-2': '0 - 2 Yaş', '3-5': '3 - 5 Yaş', '6-12': '6 - 12 Yaş', '13-18': '13 - 18 Yaş', '18+': '18 Yaş ve Üzeri',
+      // Comprehension
+      'anliyor_konusamiyor': 'Söylenenleri anlıyor, ancak konuşarak ifade edemiyor.',
+      'basit_komut': 'Basit komutları anlıyor, karmaşık yönergelerde zorlanıyor.',
+      'tepki_yok': 'İsmine/seslenilmelere tepki vermiyor, anlamakta güçlük çekiyor.',
+      'yetiskin_gerileme': 'Yetişkin birey: Anlama ve kavrama becerilerinde inme/travma sonrası gerileme var.',
+      'sorun_yok': 'Anlama ve algılamada belirgin bir sorun yok.',
+      // Expression
+      'gecikmis': 'Yaşıtlarına göre çok az kelime kullanıyor veya hiç konuşmuyor (Gecikmiş Dil).',
+      'artikulasyon': 'Konuşuyor ama bazı harfleri/sesleri çıkaramıyor ya da karıştırıyor.',
+      'kekemelik': 'Kelime/hece tekrarları, ses uzatmaları ya da takılmalar var.',
+      'anlasilmaz': 'Konuşması fazlasıyla hızlı, peltek veya anlaşılması zor.',
+      'ses': 'Sesinde kısıklık, çatallanma, boğukluk veya çabuk yorulma oluyor.',
+      'afazi': 'İnme / kaza sonrası kelimeleri hatırlayamama ve konuşma kaybı.',
+      // Social
+      'iyi': 'Göz teması güçlü, isteklerini anlatmaya çalışıyor.',
+      'kisitli': 'Göz teması kısıtlı, akranlarıyla oyunda zorlanıyor.',
+      'cekiniyor': 'Konuşurken heyecanlanıp kaçınma gösteriyor, çekiniyor.',
+      'sorun_yok_sosyal': 'Sosyal etkileşimde problem yok.',
+      // Feeding
+      'secici': 'Aşırı yemek seçiciliği, çiğneme/yutma zorluğu, öğürme.',
+      'salya': 'Salya akışı devam ediyor, çiğneme kasları zayıf.',
+      'yetiskin_bogulma': 'Yetişkin: Tüketirken boğaza kaçma/öksürük.',
+      'sorun_yok_beslenme': 'Herhangi bir yutma/beslenme güçlüğü yok.',
+      // Medical
+      'ekran_fazla_ilk': '2 saatten fazla ekran süresi + İlk defa değerlendirme.',
+      'ekran_az_kbb': 'Ekran kontrollü + KBB veya nöroloji geçmişi var.',
+      'terapi_gecmisi': 'Daha önce konuşma terapisi / özel eğitim geçmişi var.',
+      'sorun_yok_medikal': 'Ekran kullanımı minimal + tıbbi teşhis yok.'
+    };
+
+    function openQuizModal() {
+      quizStep = 1;
+      quizSelections = { age: '', comprehension: '', expression: '', social: '', feeding: '', medical: '', name: '', phone: '', note: '' };
+
+      // Reset radios
+      document.querySelectorAll('#quiz-steps-container input[type="radio"]').forEach(el => el.checked = false);
+      document.getElementById('q_name').value = '';
+      document.getElementById('q_phone').value = '';
+      document.getElementById('q_note').value = '';
+
+      // Reset styles
+      document.querySelectorAll('.quiz-option').forEach(opt => {
+        opt.classList.remove('border-rose-500', 'bg-rose-50');
+        opt.classList.add('border-rose-100', 'bg-white');
+        opt.querySelector('.quiz-radio-indicator').innerHTML = '';
+      });
+
+      updateQuizView();
+
+      const modal = document.getElementById('quiz-modal');
+      modal.classList.remove('hidden');
+      void modal.offsetWidth; // force reflow
+      modal.classList.remove('opacity-0');
+      document.getElementById('quiz-modal-content').classList.remove('scale-95');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeQuizModal() {
+      const modal = document.getElementById('quiz-modal');
+      modal.classList.add('opacity-0');
+      document.getElementById('quiz-modal-content').classList.add('scale-95');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    document.querySelectorAll('.quiz-option').forEach(opt => {
+      opt.addEventListener('click', function (e) {
+        if (e.target.tagName !== 'INPUT') {
+          const radio = this.querySelector('input[type="radio"]');
+          if (radio) radio.checked = true;
+        }
+
+        const radioEl = this.querySelector('input[type="radio"]');
+        if (!radioEl) return;
+        const name = radioEl.name;
+
+        // Clear siblings
+        document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+          const parent = r.closest('.quiz-option');
+          parent.classList.remove('border-rose-500', 'bg-rose-50');
+          parent.classList.add('border-rose-100', 'bg-white');
+          parent.querySelector('.quiz-radio-indicator').innerHTML = '';
+        });
+
+        // Set active
+        this.classList.add('border-rose-500', 'bg-rose-50');
+        this.classList.remove('border-rose-100', 'bg-white');
+        this.querySelector('.quiz-radio-indicator').innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-rose-500"></div>';
+
+        quizSelections[name.replace('q_', '')] = radioEl.value;
+        checkQuizNextBtn();
+      });
+    });
+
+    document.getElementById('q_name').addEventListener('input', checkQuizNextBtn);
+    document.getElementById('q_phone').addEventListener('input', checkQuizNextBtn);
+
+    function checkQuizNextBtn() {
+      const nextBtn = document.getElementById('quiz-next-btn');
+      let isValid = false;
+
+      if (quizStep === 1 && quizSelections.age) isValid = true;
+      if (quizStep === 2 && quizSelections.comprehension) isValid = true;
+      if (quizStep === 3 && quizSelections.expression) isValid = true;
+      if (quizStep === 4 && quizSelections.social) isValid = true;
+      if (quizStep === 5 && quizSelections.feeding) isValid = true;
+      if (quizStep === 6 && quizSelections.medical) isValid = true;
+      if (quizStep === 7) {
+        const n = document.getElementById('q_name').value.trim();
+        const p = document.getElementById('q_phone').value.trim();
+        if (n.length > 2 && p.length > 9) isValid = true;
+      }
+
+      if (isValid) {
+        nextBtn.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+      } else {
+        nextBtn.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+      }
+    }
+
+    function updateQuizView() {
+      document.querySelectorAll('.quiz-step').forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('active');
+      });
+      const currentStepEl = document.getElementById(`quiz-step-${quizStep}`);
+      if (currentStepEl) {
+        currentStepEl.classList.remove('hidden');
+        currentStepEl.classList.add('active'); // trigger CSS fade animation
+      }
+
+      if (quizStep <= totalQuizSteps) {
+        const percentages = { 1: 15, 2: 30, 3: 45, 4: 60, 5: 75, 6: 90, 7: 100 };
+        const pct = percentages[quizStep];
+        document.getElementById('quiz-progress-bar').style.width = pct + '%';
+        document.getElementById('quiz-progress-text').textContent = `%${pct} Tamamlandı`;
+        document.getElementById('quiz-footer').classList.remove('hidden');
+
+        if (quizStep === 1) {
+          document.getElementById('quiz-prev-btn').classList.add('hidden');
+        } else {
+          document.getElementById('quiz-prev-btn').classList.remove('hidden');
+        }
+
+        if (quizStep === totalQuizSteps) {
+          document.getElementById('quiz-next-btn').innerHTML = 'Analizi Tamamla <i class="fa-solid fa-check ml-1"></i>';
+        } else {
+          document.getElementById('quiz-next-btn').innerHTML = 'İleri <i class="fa-solid fa-arrow-right ml-1"></i>';
+        }
+        checkQuizNextBtn();
+      } else {
+        // Final Step (Step 8)
+        document.getElementById('quiz-footer').classList.add('hidden');
+        document.getElementById('quiz-progress-bar').style.width = '100%';
+        document.getElementById('quiz-progress-text').textContent = 'Analiz Tamamlandı';
+
+        quizSelections.name = document.getElementById('q_name').value.trim();
+        quizSelections.phone = document.getElementById('q_phone').value.trim();
+        quizSelections.note = document.getElementById('q_note').value.trim();
+
+        generateQuizResult();
+      }
+    }
+
+    function quizNextStep() {
+      if (quizStep <= totalQuizSteps) {
+        quizStep++;
+        updateQuizView();
+      }
+    }
+
+    function quizPrevStep() {
+      if (quizStep > 1) {
+        quizStep--;
+        updateQuizView();
+      }
+    }
+
+    function generateQuizResult() {
+      let resTitle = "Öncelikli Alan: Kapsamlı Dil ve Konuşma Değerlendirmesi";
+
+      if (quizSelections.expression === 'artikulasyon' || quizSelections.expression === 'anlasilmaz') {
+        resTitle = "Öncelikli Alan: Artikülasyon ve Sesletim Terapisi";
+      } else if (quizSelections.expression === 'gecikmis') {
+        resTitle = "Öncelikli Alan: Kapsamlı Dil Gelişimi & Ebeveyn Rehberlik Seansı";
+      } else if (quizSelections.expression === 'kekemelik') {
+        resTitle = "Öncelikli Alan: Akıcılık ve Kekemelik Değerlendirmesi";
+      } else if (quizSelections.expression === 'ses') {
+        resTitle = "Öncelikli Alan: Klinik Ses Değerlendirmesi";
+      } else if (quizSelections.expression === 'afazi' || quizSelections.comprehension === 'yetiskin_gerileme') {
+        resTitle = "Öncelikli Alan: Yetişkin Nörolojik Dil Bozuklukları (Afazi)";
+      } else if (quizSelections.feeding === 'secici' || quizSelections.feeding === 'salya' || quizSelections.feeding === 'yetiskin_bogulma') {
+        resTitle = "Öncelikli Alan: Yutma ve Motor Konuşma Becerileri";
+      }
+
+      document.getElementById('quiz-result-title').textContent = resTitle;
+    }
+
+    function quizToRandevu() {
+      closeQuizModal();
+      setTimeout(() => {
+        openRandevuModal();
+        const rmName = document.getElementById('rm-name');
+        const rmPhone = document.getElementById('rm-phone');
+        if (rmName) rmName.value = quizSelections.name;
+        if (rmPhone) rmPhone.value = quizSelections.phone;
+      }, 400);
+    }
+
+    function quizToWhatsapp() {
+      const phone = "905462302416";
+      let msg = `Merhaba, web sitenizdeki Ön Değerlendirme Sihirbazını tamamladım.%0A%0A`;
+      msg += `*Ad Soyad:* ${quizSelections.name}%0A`;
+      msg += `*Yaş Grubu:* ${quizDict[quizSelections.age] || quizSelections.age}%0A`;
+      msg += `*Anlama:* ${quizDict[quizSelections.comprehension] || quizSelections.comprehension}%0A`;
+      msg += `*İfade / Şikayet:* ${quizDict[quizSelections.expression] || quizSelections.expression}%0A`;
+      msg += `*Sosyal:* ${quizDict[quizSelections.social] || quizSelections.social}%0A`;
+      msg += `*Beslenme/Yutma:* ${quizDict[quizSelections.feeding] || quizSelections.feeding}%0A`;
+      msg += `*Medikal/Ekran:* ${quizDict[quizSelections.medical] || quizSelections.medical}%0A`;
+      if (quizSelections.note) msg += `*Ek Not:* ${quizSelections.note}%0A`;
+      msg += `%0A*${document.getElementById('quiz-result-title').textContent}*%0A%0A`;
+      msg += `Randevu ve süreç hakkında bilgi almak istiyorum.`;
+
+      window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+    }
+
+    // ---- Init ----
+    if (document.readyState === 'loading') {
+
+      document.addEventListener('DOMContentLoaded', thRenderGrid);
+    } else {
+      thRenderGrid();
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mervece Dünyam - Profilim</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --bg: #0F0E1A;
+      --bg2: #16152B;
+      --accent: #E94560;
+      --mutfak: #F15A24;
+      --vlog: #7C3AED;
+      --elisi: #10B981;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: #EEF0FF;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+    .glass {
+      background: rgba(22, 21, 43, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .tab-btn.active {
+      background: rgba(233, 69, 96, 0.15);
+      border: 1px solid rgba(233, 69, 96, 0.3);
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body class="bg-[#0F0E1A] min-h-screen pb-12">
+
+  <!-- NAV -->
+  <nav class="sticky top-0 left-0 right-0 z-50 bg-[#0F0E1A]/95 border-b border-gray-900 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="./index.html" class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#E94560] to-[#C62A47] flex items-center justify-center font-display font-black text-lg text-white shadow-[0_0_20px_rgba(233,69,96,0.3)]">M</div>
+          <span class="font-display text-xl font-bold bg-gradient-to-r from-[#E94560] to-[#FF6B8A] bg-clip-text text-transparent">Mervece</span>
+        </a>
+        <div class="flex items-center gap-4" id="profile-nav-links">
+          <a href="./index.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">🏠 Dünyam</a>
+          <button onclick="handleLogout()" class="text-sm font-semibold text-red-400 hover:text-red-300 transition-colors">Çıkış Yap</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PROFİL BAŞLIK -->
+  <header class="py-12 bg-gradient-to-b from-[#16152B] to-[#0F0E1A] border-b border-gray-900">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <div class="w-20 h-20 bg-gradient-to-tr from-[#E94560] to-purple-600 rounded-full flex items-center justify-center text-3xl font-black text-white shadow-lg mx-auto mb-4" id="avatar-char">
+        U
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-white mb-1" id="profile-name">Yükleniyor...</h1>
+      <p class="text-sm text-gray-400" id="profile-email">Yükleniyor...</p>
+    </div>
+  </header>
+
+  <!-- PANEL İÇERİK -->
+  <main class="max-w-5xl mx-auto px-4 py-10">
+    
+    <!-- Sekmeler -->
+    <div class="flex gap-4 mb-8 justify-center">
+      <button onclick="switchTab('favorites')" id="tab-favorites" class="tab-btn px-6 py-2.5 rounded-xl font-bold text-sm text-gray-400 border border-transparent transition-all active">
+        ❤️ Favorilerim
+      </button>
+      <button onclick="switchTab('comments')" id="tab-comments" class="tab-btn px-6 py-2.5 rounded-xl font-bold text-sm text-gray-400 border border-transparent transition-all">
+        💬 Yorumlarım / Gönderilerim
+      </button>
+    </div>
+
+    <!-- Yükleniyor Göstergesi -->
+    <div id="loading" class="text-center py-12">
+      <div class="inline-block w-8 h-8 border-4 border-t-[#E94560] border-gray-800 rounded-full animate-spin"></div>
+      <p class="text-sm text-gray-400 mt-3">Veriler yükleniyor...</p>
+    </div>
+
+    <!-- SEKMELERİN İÇERİĞİ -->
+    
+    <!-- 1. FAVORİLERİM -->
+    <section id="section-favorites" class="space-y-6">
+      <div id="favorites-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Kartlar dinamik olarak eklenecek -->
+      </div>
+      <div id="favorites-empty" class="hidden text-center py-16 border-2 border-dashed border-gray-800 rounded-2xl text-gray-400">
+        <div class="text-3xl mb-3">🍳</div>
+        <p class="font-semibold">Henüz favori tarifiniz bulunmuyor.</p>
+        <a href="./mutfak/index.html" class="inline-block mt-4 text-xs font-bold text-[#E94560] hover:underline">Şimdi Tarif Oluştur →</a>
+      </div>
+    </section>
+
+    <!-- 2. YORUMLARIM / GÖNDERİLERİM -->
+    <section id="section-comments" class="space-y-6 hidden">
+      <div id="comments-list" class="space-y-4">
+        <!-- Yorumlar dinamik olarak eklenecek -->
+      </div>
+      <div id="comments-empty" class="hidden text-center py-16 border-2 border-dashed border-gray-800 rounded-2xl text-gray-400">
+        <div class="text-3xl mb-3">💬</div>
+        <p class="font-semibold">Henüz bir topluluk paylaşımı yapmadınız.</p>
+        <a href="./mutfak/index.html" class="inline-block mt-4 text-xs font-bold text-[#E94560] hover:underline">Mutfak Topluluğuna Git →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TARİF DETAY MODALI -->
+  <div id="recipe-modal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="glass max-w-2xl w-full rounded-2xl p-6 md:p-8 max-h-[85vh] overflow-y-auto transform scale-95 transition-transform duration-300">
+      <div class="flex justify-between items-start mb-6">
+        <h3 id="modal-title" class="font-display text-2xl font-bold text-white">Yemek Tarifi</h3>
+        <button onclick="closeModal()" class="text-gray-400 hover:text-white text-xl">✕</button>
+      </div>
+      <div id="modal-meta" class="flex flex-wrap gap-2 mb-6">
+        <!-- Emojili badge'ler -->
+      </div>
+      <div id="modal-body" class="text-gray-300 text-sm leading-relaxed whitespace-pre-wrap">
+        <!-- Tarif metni -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Bildirim Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 px-6 py-3.5 rounded-2xl text-sm font-semibold text-white shadow-2xl z-50 pointer-events-none opacity-0 translate-y-2 transition-all duration-300">
+    Toast Message
+  </div>
+
+  <script>
+    // Dinamik API host tespiti (Yerel ağda/Wi-Fi üzerinden mobil testler için)
+    const getApiBaseUrl = () => {
+      const hostname = window.location.hostname;
+      if (!hostname || hostname === 'localhost' || hostname === '127.0.0.1') {
+        return 'http://localhost:8000';
+      }
+      return `http://${hostname}:8000`;
+    };
+
+    const API_BASE = getApiBaseUrl();
+    let currentTab = 'favorites';
+    let favoritesList = [];
+
+    // Sayfa Yüklendiğinde
+    window.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('token');
+      const userStr = localStorage.getItem('user');
+      
+      if (!token || !userStr) {
+        window.location.href = './auth.html';
+        return;
+      }
+
+      const user = JSON.parse(userStr);
+      document.getElementById('profile-name').textContent = user.username;
+      document.getElementById('profile-email').textContent = user.email;
+      document.getElementById('avatar-char').textContent = (user.username.charAt(0) || '?').toUpperCase();
+
+      if (user.role === 'admin') {
+        const navLinks = document.getElementById('profile-nav-links');
+        if (navLinks) {
+          const adminBtn = document.createElement('a');
+          adminBtn.href = './admin.html';
+          adminBtn.className = "text-sm font-medium text-red-400 hover:text-red-300 transition-colors mr-2";
+          adminBtn.textContent = "👑 Yönetici Paneli";
+          navLinks.insertBefore(adminBtn, navLinks.firstChild);
+        }
+      }
+
+      loadData();
+    });
+
+    // Toast Göster
+    function showToast(msg, type = 'success') {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      
+      if (type === 'success') {
+        toast.style.background = 'rgba(16, 185, 129, 0.95)';
+        toast.style.border = '1px solid rgba(16, 185, 129, 0.5)';
+      } else {
+        toast.style.background = 'rgba(239, 68, 68, 0.95)';
+        toast.style.border = '1px solid rgba(239, 68, 68, 0.5)';
+      }
+      
+      toast.classList.remove('opacity-0', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 3000);
+    }
+
+    // Çıkış Yap
+    function handleLogout() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      window.location.href = './index.html';
+    }
+
+    // Sekme Değiştirme
+    function switchTab(tab) {
+      currentTab = tab;
+      
+      const tabFavorites = document.getElementById('tab-favorites');
+      const tabComments = document.getElementById('tab-comments');
+      const sectionFavorites = document.getElementById('section-favorites');
+      const sectionComments = document.getElementById('section-comments');
+
+      if (tab === 'favorites') {
+        tabFavorites.classList.add('active');
+        tabComments.classList.remove('active');
+        sectionFavorites.classList.remove('hidden');
+        sectionComments.classList.add('hidden');
+      } else {
+        tabFavorites.classList.remove('active');
+        tabComments.classList.add('active');
+        sectionFavorites.classList.add('hidden');
+        sectionComments.classList.remove('hidden');
+      }
+      loadData();
+    }
+
+    // Verileri Yükle
+    async function loadData() {
+      const token = localStorage.getItem('token');
+      const loading = document.getElementById('loading');
+      loading.classList.remove('hidden');
+
+      if (currentTab === 'favorites') {
+        const grid = document.getElementById('favorites-grid');
+        const empty = document.getElementById('favorites-empty');
+        grid.innerHTML = '';
+        
+        try {
+          const res = await fetch(`${API_BASE}/api/favorites`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+          if (res.status === 401) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = './auth.html';
+            return;
+          }
+          if (!res.ok) throw new Error('Favoriler yüklenemedi.');
+          const data = await res.json();
+          favoritesList = data.favorites || [];
+
+          loading.classList.add('hidden');
+
+          if (favoritesList.length === 0) {
+            empty.classList.remove('hidden');
+          } else {
+            empty.classList.add('hidden');
+            favoritesList.forEach(fav => {
+              const card = document.createElement('div');
+              card.className = 'glass rounded-2xl p-6 flex flex-col justify-between hover:border-[#E94560]/40 transition-colors';
+              card.innerHTML = `
+                <div>
+                  <div class="flex justify-between items-start mb-3">
+                    <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-orange-950/40 text-[#F15A24] border border-[#F15A24]/20">${fav.cuisine || 'Özel'}</span>
+                    <span class="text-xs text-gray-500">${fav.recipe_type === 'pratik' ? '⚡ Pratik' : fav.recipe_type === 'geleneksel' ? '🥘 Geleneksel' : fav.recipe_type === 'yaratici' ? '💡 Yaratıcı' : '🔍 Doğrudan'}</span>
+                  </div>
+                  <h3 class="font-display text-lg font-bold text-white mb-2">${fav.title}</h3>
+                  <p class="text-xs text-gray-400 line-clamp-3 mb-4">${fav.recipe_text.replace(/#/g, '')}</p>
+                </div>
+                <div class="flex gap-2">
+                  <button onclick="viewRecipe(${fav.id})" class="flex-1 py-2 text-xs font-bold text-center bg-[#121124] hover:bg-gray-800 rounded-xl transition-colors">Tarifi Gör</button>
+                  <button onclick="removeFavorite(${fav.id}, event)" class="py-2 px-3 text-xs font-bold text-red-400 hover:bg-red-950/20 rounded-xl border border-red-950/30 transition-colors">Sil</button>
+                </div>
+              `;
+              grid.appendChild(card);
+            });
+          }
+        } catch (err) {
+          loading.classList.add('hidden');
+          showToast(err.message, 'error');
+        }
+      } else {
+        const list = document.getElementById('comments-list');
+        const empty = document.getElementById('comments-empty');
+        list.innerHTML = '';
+
+        try {
+          const res = await fetch(`${API_BASE}/api/profile/posts`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+          if (res.status === 401) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = './auth.html';
+            return;
+          }
+          if (!res.ok) throw new Error('Gönderileriniz yüklenemedi.');
+          const data = await res.json();
+          const posts = data.posts || [];
+
+          loading.classList.add('hidden');
+
+          if (posts.length === 0) {
+            empty.classList.remove('hidden');
+          } else {
+            empty.classList.add('hidden');
+            posts.forEach(post => {
+              const item = document.createElement('article');
+              item.className = 'glass rounded-xl p-5 flex gap-4 items-start';
+              
+              const sectionEmoji = post.section === 'mutfak' ? '🍳' : post.section === 'vlog' ? '🎥' : '🧶';
+              const sectionName = post.section.charAt(0).toUpperCase() + post.section.slice(1);
+              
+              item.innerHTML = `
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-3 mb-2 flex-wrap">
+                    <span class="text-xs font-bold text-[#E94560]">${sectionEmoji} ${sectionName}</span>
+                    <span class="text-xs text-gray-500">${new Date(post.created_at).toLocaleDateString('tr-TR')}</span>
+                  </div>
+                  <p class="text-sm text-gray-300 mb-3">${post.content}</p>
+                  ${post.image_url ? `<img src="${post.image_url}" class="max-h-48 rounded-lg mb-3 object-cover max-w-full" onerror="this.remove()">` : ''}
+                </div>
+                <button onclick="deleteComment(${post.id})" class="text-xs font-semibold text-red-400 hover:text-red-300 p-2 hover:bg-red-950/20 rounded-lg transition-colors">Yorumu Sil</button>
+              `;
+              list.appendChild(item);
+            });
+          }
+        } catch (err) {
+          loading.classList.add('hidden');
+          showToast(err.message, 'error');
+        }
+      }
+    }
+
+    // Tarifi Modalda İncele
+    function viewRecipe(id) {
+      const fav = favoritesList.find(f => f.id === id);
+      if (!fav) return;
+
+      document.getElementById('modal-title').textContent = fav.title;
+      
+      const meta = document.getElementById('modal-meta');
+      meta.innerHTML = `
+        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-orange-950/40 text-[#F15A24] border border-[#F15A24]/20">🍳 ${fav.cuisine || 'Mutfak'}</span>
+        ${fav.prep_time ? `<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-gray-900 text-gray-300">⏱️ Hazırlık: ${fav.prep_time}</span>` : ''}
+        ${fav.difficulty ? `<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-gray-900 text-gray-300">📈 Zorluk: ${fav.difficulty}</span>` : ''}
+      `;
+
+      document.getElementById('modal-body').textContent = fav.recipe_text;
+      
+      const modal = document.getElementById('recipe-modal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.querySelector('.glass').classList.remove('scale-95');
+    }
+
+    // Modalı Kapat
+    function closeModal() {
+      const modal = document.getElementById('recipe-modal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.querySelector('.glass').classList.add('scale-95');
+    }
+
+    // Favoriden Kaldır
+    async function removeFavorite(id, e) {
+      e.stopPropagation();
+      if (!confirm('Bu tarifi favorilerinizden kaldırmak istediğinize emin misiniz?')) return;
+      const token = localStorage.getItem('token');
+      try {
+        const res = await fetch(`${API_BASE}/api/favorites/${id}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (!res.ok) throw new Error('Tarif favoriden silinemedi.');
+        showToast('Tarif favorilerinizden silindi.', 'success');
+        loadData();
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    }
+
+    // Yorum Sil
+    async function deleteComment(id) {
+      if (!confirm('Yorumunuzu silmek istediğinize emin misiniz?')) return;
+      const token = localStorage.getItem('token');
+      try {
+        const res = await fetch(`${API_BASE}/api/profile/posts/${id}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (!res.ok) throw new Error('Yorum silinemedi.');
+        showToast('Yorumunuz başarıyla silindi.', 'success');
+        loadData();
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    }
+  </script>
+</body>
+</html>

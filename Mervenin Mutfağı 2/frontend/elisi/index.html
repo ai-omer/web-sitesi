@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mervece Elisi - Merve nin el sanatlari, orgu, taki tasarim ve diy projeleri yakinда!" />
+  <title>Mervece Elisi - Yakinda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0A1628; color: #E8F5E9; margin: 0; min-height: 100vh; overflow-x: hidden; }
+    .font-display { font-family: 'Cormorant Garamond', serif; }
+    .gradient-green { background: linear-gradient(135deg, #10B981, #34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .btn-green { background: linear-gradient(135deg, #10B981, #047857); transition: all 0.3s ease; }
+    .btn-green:hover { background: linear-gradient(135deg, #34D399, #10B981); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(16,185,129,0.4); }
+    .green-glow { box-shadow: 0 0 25px rgba(16,185,129,0.3); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #10B981; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: flex; }
+    .glass { background: rgba(15,25,40,0.85); border: 1px solid rgba(16,185,129,0.2); backdrop-filter: blur(12px); }
+    .particle { position: absolute; border-radius: 50%; background: rgba(16,185,129,0.1); }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-14px) rotate(3deg); } }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    .animate-float { animation: float 5s ease-in-out infinite; }
+    .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+    a { text-decoration: none; transition: all 0.3s ease; }
+    .stitch-border { border: 2px dashed rgba(16,185,129,0.3); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,22,40,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(16,185,129,0.15);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;">
+      <a href="../index.html" style="display:flex;align-items:center;gap:12px;">
+        <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#10B981,#047857);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.2rem;box-shadow:0 0 20px rgba(16,185,129,0.35);">M</div>
+        <div>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#10B981,#34D399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Mervece</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.5);margin-left:6px;">Elişi</span>
+        </div>
+      </a>
+      <div style="display:flex;align-items:center;gap:24px;">
+        <a href="../index.html" class="nav-link" style="color:#9CA3AF;font-size:0.875rem;font-weight:500;">🏠 Dünyam</a>
+        <a href="../mutfak/index.html" class="nav-link" style="color:#9CA3AF;font-size:0.875rem;font-weight:500;">🍳 Mutfak</a>
+        <a href="../vlog/index.html" class="nav-link" style="color:#9CA3AF;font-size:0.875rem;font-weight:500;">🎥 Vlog</a>
+        <a href="./index.html" class="nav-link" style="color:#34D399;font-size:0.875rem;font-weight:500;">🧶 Elişi</a>
+      </div>
+      <span style="font-size:0.75rem;font-weight:600;padding:6px 14px;border-radius:20px;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#34D399;">🧶 Elişi</span>
+    </div>
+  </nav>
+
+  <!-- ANA HERO -->
+  <main style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 24px 40px;">
+
+    <!-- Dekor partiküller -->
+    <div class="particle" style="width:400px;height:400px;top:-120px;left:-100px;animation:float 10s ease-in-out infinite;"></div>
+    <div class="particle" style="width:250px;height:250px;bottom:60px;right:-80px;animation:float 7s ease-in-out infinite;animation-delay:3s;"></div>
+    <div class="particle" style="width:100px;height:100px;top:30%;left:10%;animation:float 5s ease-in-out infinite;animation-delay:1s;background:rgba(52,211,153,0.08);"></div>
+
+    <!-- Dekoratif dikiş köşe -->
+    <div style="position:absolute;top:100px;right:40px;opacity:0.15;font-size:4rem;transform:rotate(15deg);">🧵</div>
+    <div style="position:absolute;bottom:150px;left:60px;opacity:0.12;font-size:3rem;transform:rotate(-20deg);">🪡</div>
+
+    <!-- Merkez içerik -->
+    <div style="position:relative;z-index:10;text-align:center;max-width:640px;animation:fadeInUp 0.8s ease-out forwards;">
+
+      <!-- İkon -->
+      <div style="width:112px;height:112px;border-radius:24px;background:linear-gradient(135deg,#10B981,#047857);display:flex;align-items:center;justify-content:center;font-size:3.5rem;margin:0 auto 2rem;box-shadow:0 0 30px rgba(16,185,129,0.4);" class="animate-float">🧶</div>
+
+      <!-- Badge -->
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:99px;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#34D399;font-size:0.875rem;font-weight:500;margin-bottom:1.5rem;">
+        <span style="width:8px;height:8px;border-radius:50%;background:#10B981;animation:float 2s ease-in-out infinite;"></span>
+        Yakında burada olacak
+      </div>
+
+      <!-- Başlık -->
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(3.5rem,9vw,5.5rem);line-height:1.1;margin-bottom:1rem;font-style:italic;">
+        Mervece<br/>
+        <span style="background:linear-gradient(135deg,#10B981,#34D399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:normal;">Elişi</span>
+      </h1>
+
+      <p style="color:#6EE7B7;opacity:0.8;font-size:1.1rem;line-height:1.7;margin-bottom:2.5rem;">
+        Örgüden takıya, dikiş sanatından DIY projelere — Merve'nin el emeği göz nuru yaratımları burada hayat bulacak.
+      </p>
+
+      <!-- Dikiş kenarlıklı kart -->
+      <div class="glass stitch-border" style="border-radius:20px;padding:28px;margin-bottom:2.5rem;text-align:left;">
+        <p style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.2rem;text-align:center;margin-bottom:1.25rem;">🪡 Neler Olacak?</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(16,185,129,0.08);">
+            <span style="font-size:1.5rem;">🧤</span>
+            <div><div style="font-size:0.875rem;font-weight:600;">Örgü & Tığ İşi</div><div style="font-size:0.75rem;color:#6EE7B7;opacity:0.7;">Kalıplar, videolar</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(16,185,129,0.08);">
+            <span style="font-size:1.5rem;">💍</span>
+            <div><div style="font-size:0.875rem;font-weight:600;">Takı Tasarımı</div><div style="font-size:0.75rem;color:#6EE7B7;opacity:0.7;">El yapımı koleksiyonlar</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(16,185,129,0.08);">
+            <span style="font-size:1.5rem;">🧵</span>
+            <div><div style="font-size:0.875rem;font-weight:600;">Dikiş & Nakış</div><div style="font-size:0.75rem;color:#6EE7B7;opacity:0.7;">Şablonlar, ipuçları</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:rgba(16,185,129,0.08);">
+            <span style="font-size:1.5rem;">🌿</span>
+            <div><div style="font-size:0.875rem;font-weight:600;">DIY Doğal Projeler</div><div style="font-size:0.75rem;color:#6EE7B7;opacity:0.7;">Bitki, aksesuar</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Butonlar -->
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+        <a href="../index.html" class="btn-green" style="color:white;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1rem;padding:14px 32px;border-radius:16px;display:inline-flex;align-items:center;gap:8px;">🏠 Dünyam'a Dön</a>
+        <a href="../mutfak/index.html" style="color:#34D399;font-weight:600;padding:14px 32px;border-radius:16px;display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(16,185,129,0.3);" onmouseover="this.style.background='rgba(16,185,129,0.08)'" onmouseout="this.style.background=''">🍳 Mutfağa Git</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="padding:32px 24px;text-align:center;border-top:1px solid rgba(16,185,129,0.15);">
+    <a href="../index.html" style="display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;">
+      <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#10B981,#047857);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;">M</div>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#10B981,#34D399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Mervece</span>
+    </a>
+    <p style="color:#374151;font-size:0.875rem;">© 2025 Mervece. Tüm hakları saklıdır. 🌿</p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       ELİŞİ TOPLULUK PANELİ
+  ═══════════════════════════════════════════ -->
+  <div id="community-panel" style="border-top:1px solid rgba(16,185,129,0.15);"></div>
+
+  <script src="../community.js"></script>
+  <script>
+    initCommunityPanel({
+      section:     'elisi',
+      containerId: 'community-panel',
+      accentColor: '#10B981',
+      accentRgb:   '16,185,129',
+      bgColor:     '#0A1628',
+      cardBg:      '#0F1925',
+      borderColor: 'rgba(16,185,129,0.22)',
+      emoji:       '🧶',
+      label:       'Elişi',
+      apiBase:     'http://localhost:8000',
+    });
+  </script>
+
+</body>
+</html>
+

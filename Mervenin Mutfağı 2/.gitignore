@@ -1,0 +1,42 @@
+# ── Python ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.cache/
+
+# ── Sanal Ortam ───────────────────────────────
+venv/
+env/
+.venv/
+.env/
+
+# ── Ortam Değişkenleri (ASLA commit etme!) ───
+backend/.env
+.env
+
+# ── Veritabanı ────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ── IDE / Editor ──────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Log Dosyaları ─────────────────────────────
+*.log
+logs/
+
+# ── Node (eğer ileride eklenir) ───────────────
+node_modules/
+npm-debug.log*

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mervece Mutfak – Merve Şef'in tarif asistanı. Malzemelerinize göre anında 3 farklı tarif veya doğrudan yemek tarifi bulun." />
+  <meta name="keywords" content="Mervece, Merve Şef, tarif, dünya mutfakları" />
+  <title>Mervece Mutfak – Tarif Asistanı</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#F15A24',
+              'orange-dark': '#C9421A',
+              'orange-light': '#FF7A4D',
+              dark: '#1A1A1A',
+              'dark-2': '#222222',
+              'dark-3': '#2D2D2D',
+              gray: '#3A3A3A',
+            },
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+            'spin-slow': 'spin 3s linear infinite',
+            'float': 'float 3s ease-in-out infinite',
+            'pulse-orange': 'pulseOrange 2s ease-in-out infinite',
+            'slide-in': 'slideIn 0.4s ease-out forwards',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            },
+            pulseOrange: {
+              '0%, 100%': { boxShadow: '0 0 0 0 rgba(241,90,36,0.4)' },
+              '50%': { boxShadow: '0 0 0 15px rgba(241,90,36,0)' },
+            },
+            slideIn: {
+              '0%': { opacity: '0', transform: 'translateX(-20px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #1A1A1A; color: #F5F5F5; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .gradient-text { background: linear-gradient(135deg, #F15A24, #FF9A6C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .btn-primary { background: linear-gradient(135deg, #F15A24, #C9421A); transition: all 0.3s ease; }
+    .btn-primary:hover { background: linear-gradient(135deg, #FF7A4D, #F15A24); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(241,90,36,0.4); }
+    .orange-glow { box-shadow: 0 0 20px rgba(241, 90, 36, 0.25); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #F15A24; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .cuisine-card { cursor: pointer; transition: all 0.25s ease; border: 2px solid #333; }
+    .cuisine-card:hover { border-color: rgba(241,90,36,0.5); transform: translateY(-3px); }
+    .cuisine-card.selected { border-color: #F15A24; background: rgba(241,90,36,0.1); box-shadow: 0 0 20px rgba(241,90,36,0.2); }
+    .tag-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(241,90,36,0.15); border: 1px solid rgba(241,90,36,0.3); color: #F15A24; border-radius: 20px; padding: 4px 12px; font-size: 13px; font-weight: 500; transition: all 0.2s; }
+    .tag-chip:hover { background: rgba(241,90,36,0.25); }
+    .tag-chip .remove-btn { cursor: pointer; color: #F15A24; opacity: 0.7; font-size: 14px; line-height: 1; }
+    .tag-chip .remove-btn:hover { opacity: 1; }
+    .loading-overlay { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 24px; }
+    .loading-overlay-bg { background: rgba(26,26,26,0.97); backdrop-filter: blur(8px); }
+    .recipe-card-result { animation: fadeInUp 0.6s ease-out forwards; }
+    .step-number { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; background: linear-gradient(135deg, #F15A24, #C9421A); color: white; }
+    .ad-placeholder { border: 2px dashed #333; background: #222; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #6B7280; font-size: 12px; }
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: flex; }
+    input:focus, textarea:focus { outline: none; border-color: #F15A24; box-shadow: 0 0 0 3px rgba(241,90,36,0.15); }
+    .fade-in { animation: fadeInUp 0.5s ease-out forwards; }
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, #F15A24, transparent); }
+    .progress-bar { height: 4px; background: linear-gradient(90deg, #F15A24, #FF9A6C); border-radius: 2px; animation: progress 3s ease-in-out infinite; }
+    @keyframes progress {
+      0% { width: 0%; }
+      50% { width: 70%; }
+      100% { width: 100%; }
+    }
+    .suggestion-tag { cursor: pointer; transition: all 0.2s; }
+    .suggestion-tag:hover { background: rgba(241,90,36,0.25); transform: scale(1.05); }
+
+    /* Yüzen Sebze/Meyve Emojileri */
+    @keyframes float-slow-1 {
+      0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+      50% { transform: translateY(-20px) rotate(8deg) scale(1.05); }
+    }
+    @keyframes float-slow-2 {
+      0%, 100% { transform: translateY(0px) rotate(0deg) scale(1.02); }
+      50% { transform: translateY(-30px) rotate(-12deg) scale(0.97); }
+    }
+    @keyframes float-slow-3 {
+      0%, 100% { transform: translateY(0px) rotate(0deg) scale(0.95); }
+      50% { transform: translateY(-15px) rotate(15deg) scale(1.03); }
+    }
+    .floating-ingredient {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.15;
+      z-index: 5;
+      filter: blur(0.5px);
+      transition: all 0.5s ease;
+    }
+    .floating-ingredient:hover {
+      opacity: 0.6;
+      filter: blur(0);
+    }
+  </style>
+</head>
+
+<body class="bg-brand-dark text-white overflow-x-hidden">
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(26,26,26,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(241,90,36,0.15);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo: Mervece Dünyam'a dön -->
+        <a href="../index.html" class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center text-lg font-bold btn-primary orange-glow">M</div>
+          <div>
+            <span class="font-display text-lg font-bold gradient-text">Mervece</span>
+            <span class="font-display text-lg font-bold text-white ml-1" style="font-size:0.75rem; opacity:0.7;">Mutfak</span>
+          </div>
+        </a>
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="../index.html" class="nav-link text-gray-400 hover:text-white font-medium text-sm transition-colors">🏠 Dünyam</a>
+          <a href="./index.html" class="nav-link text-brand-orange font-semibold text-sm flex items-center gap-1">
+            🍳 Mutfak
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#F15A24] animate-pulse shadow-[0_0_8px_#F15A24]"></span>
+          </a>
+          <a href="../vlog/index.html" class="nav-link text-gray-400 hover:text-white font-medium text-sm transition-colors">🎥 Vlog</a>
+          <a href="../elisi/index.html" class="nav-link text-gray-400 hover:text-white font-medium text-sm transition-colors">🧶 Elişi</a>
+        </div>
+        <div class="flex items-center gap-3" id="auth-header-container">
+          <!-- Auth durumuna göre doldurulacaktır -->
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="chef-mobile-menu" class="mobile-menu md:hidden flex-col pb-4 gap-2 border-t border-gray-800 mt-2 pt-4">
+        <a href="../index.html" class="block px-4 py-2 text-gray-300 font-medium rounded-lg hover:bg-brand-dark-3 transition-colors">🏠 Mervece Dünyam</a>
+        <a href="./index.html" class="block px-4 py-2 text-white font-medium rounded-lg bg-brand-dark-3">🍳 Mutfak</a>
+        <a href="../vlog/index.html" class="block px-4 py-2 text-gray-300 font-medium rounded-lg hover:bg-brand-dark-3 transition-colors">🎥 Vlog</a>
+        <a href="../elisi/index.html" class="block px-4 py-2 text-gray-300 font-medium rounded-lg hover:bg-brand-dark-3 transition-colors">🧶 Elişi</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════
+       YÜKLEME ANİMASYONU OVERLAY
+  ═══════════════════════════════════════════ -->
+  <div id="loading-overlay" class="loading-overlay loading-overlay-bg hidden">
+    <div class="text-center max-w-sm px-6">
+      <!-- Dönen Logo -->
+      <div class="w-24 h-24 btn-primary rounded-3xl flex items-center justify-center text-5xl mx-auto mb-8 animate-float orange-glow">🍳</div>
+
+      <!-- Animasyonlu Tematik Yazılar -->
+      <div id="loading-text" class="font-display text-2xl font-bold text-white mb-3 min-h-[64px] flex items-center justify-center text-center"></div>
+
+      <!-- İlerleme Çubuğu -->
+      <div class="w-64 mx-auto bg-brand-dark-3 rounded-full overflow-hidden mb-4">
+        <div class="progress-bar"></div>
+      </div>
+
+      <p class="text-gray-400 text-sm">Merve Şef tarifinizi özenle hazırlıyor...</p>
+
+      <!-- Dönen Noktalar -->
+      <div class="flex justify-center gap-2 mt-6">
+        <div class="w-2 h-2 rounded-full bg-brand-orange animate-bounce" style="animation-delay: 0s;"></div>
+        <div class="w-2 h-2 rounded-full bg-brand-orange animate-bounce" style="animation-delay: 0.2s;"></div>
+        <div class="w-2 h-2 rounded-full bg-brand-orange animate-bounce" style="animation-delay: 0.4s;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ANA İÇERİK
+  ═══════════════════════════════════════════ -->
+  <main class="pt-20 min-h-screen relative overflow-hidden">
+    <!-- Arka Planda Yüzen Malzemeler -->
+    <div class="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
+      <div class="floating-ingredient text-4xl sm:text-5xl" style="top: 8%; left: 5%; animation: float-slow-1 7s ease-in-out infinite;">🍅</div>
+      <div class="floating-ingredient text-4xl sm:text-5xl" style="top: 15%; right: 6%; animation: float-slow-2 9s ease-in-out infinite; animation-delay: 1s;">🍋</div>
+      <div class="floating-ingredient text-4xl sm:text-5xl" style="top: 30%; left: 8%; animation: float-slow-3 8s ease-in-out infinite; animation-delay: 2s;">🥦</div>
+      <div class="floating-ingredient text-4xl sm:text-5xl" style="top: 45%; right: 7%; animation: float-slow-1 10s ease-in-out infinite; animation-delay: 0.5s;">🥕</div>
+      <div class="floating-ingredient text-4xl sm:text-5xl" style="top: 60%; left: 4%; animation: float-slow-2 8s ease-in-out infinite; animation-delay: 1.5s;">🥑</div>
+      <div class="floating-ingredient text-4xl sm:text-5xl" style="top: 72%; right: 8%; animation: float-slow-3 11s ease-in-out infinite; animation-delay: 3s;">🍄</div>
+      <div class="floating-ingredient text-4xl sm:text-5xl" style="top: 85%; left: 7%; animation: float-slow-1 9s ease-in-out infinite; animation-delay: 2.5s;">🌶️</div>
+      <div class="floating-ingredient text-4xl sm:text-5xl" style="top: 92%; right: 5%; animation: float-slow-2 7s ease-in-out infinite; animation-delay: 4s;">🥚</div>
+    </div>
+
+    <!-- Sayfa Başlığı -->
+    <div class="text-center py-12 px-4" style="background: linear-gradient(135deg, #1A1A1A 0%, #2D1A0E 50%, #1A1A1A 100%);">
+      <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4">
+        Merve Şef'in<br/><span class="gradient-text">Tarif Asistanı</span>
+      </h1>
+      <p class="text-gray-400 text-lg max-w-xl mx-auto">
+        Dolabınızdaki malzemeleri yazın, dünya mutfağını seçin — anında 3 özel tarif seçeneğiniz hazır!
+      </p>
+    </div>
+
+    <!-- İçerik Grid -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col gap-8">
+
+        <!-- ─── ANA FORM & SONUÇ ─── -->
+        <div class="flex-1 min-w-0">
+
+          <!-- FORM KARTI -->
+            <!-- FORM MOD SEÇİCİ (TABLAR) -->
+            <div class="flex border-b border-gray-800 mb-6 gap-2" id="form-mode-tabs">
+              <button id="form-mode-ingredients" onclick="switchFormMode('ingredients')" class="flex-1 py-3 text-center font-bold text-sm border-b-2 border-brand-orange text-brand-orange transition-all whitespace-nowrap overflow-hidden text-ellipsis">
+                🥗 Malzemelere Göre
+              </button>
+              <button id="form-mode-direct" onclick="switchFormMode('direct')" class="flex-1 py-3 text-center font-bold text-sm border-b-2 border-transparent text-gray-400 hover:text-white transition-all whitespace-nowrap overflow-hidden text-ellipsis">
+                🔍 Yemek Adıyla Ara
+              </button>
+            </div>
+
+            <!-- MALZEMELERİM UYUMLU ALANLAR -->
+            <div id="ingredients-mode-fields">
+              <!-- DÜNYA MUTFAKLARI SEÇİMİ -->
+              <div class="mb-8">
+                <div class="flex items-center justify-between mb-4">
+                  <h2 class="text-lg font-bold text-white">1. Dünya Mutfağını Seç</h2>
+                </div>
+
+                <div class="grid gap-3" style="grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));" id="cuisine-selector">
+                  <div class="cuisine-card rounded-2xl p-4 text-center" data-cuisine="Türk Mutfağı" onclick="selectCuisine(this)" tabindex="0" role="button" aria-pressed="false">
+                    <div class="text-2xl mb-2">🥙</div>
+                    <div class="font-semibold text-white text-sm">Türk Mutfağı</div>
+                  </div>
+                  <div class="cuisine-card rounded-2xl p-4 text-center" data-cuisine="İtalyan Mutfağı" onclick="selectCuisine(this)" tabindex="0" role="button" aria-pressed="false">
+                    <div class="text-2xl mb-2">🍕</div>
+                    <div class="font-semibold text-white text-sm">İtalyan Mutfağı</div>
+                  </div>
+                  <div class="cuisine-card rounded-2xl p-4 text-center" data-cuisine="Meksika Mutfağı" onclick="selectCuisine(this)" tabindex="0" role="button" aria-pressed="false">
+                    <div class="text-2xl mb-2">🌮</div>
+                    <div class="font-semibold text-white text-sm">Meksika Mutfağı</div>
+                  </div>
+                  <div class="cuisine-card rounded-2xl p-4 text-center" data-cuisine="Uzak Doğu Mutfağı" onclick="selectCuisine(this)" tabindex="0" role="button" aria-pressed="false">
+                    <div class="text-2xl mb-2">🍣</div>
+                    <div class="font-semibold text-white text-sm">Uzak Doğu</div>
+                  </div>
+                  <div class="cuisine-card rounded-2xl p-4 text-center" data-cuisine="Fransız Mutfağı" onclick="selectCuisine(this)" tabindex="0" role="button" aria-pressed="false">
+                    <div class="text-2xl mb-2">🥐</div>
+                    <div class="font-semibold text-white text-sm">Fransız Mutfağı</div>
+                  </div>
+                  <div class="cuisine-card rounded-2xl p-4 text-center" data-cuisine="Amerikan Mutfağı" onclick="selectCuisine(this)" tabindex="0" role="button" aria-pressed="false">
+                    <div class="text-2xl mb-2">🍔</div>
+                    <div class="font-semibold text-white text-sm">Amerikan Mutfağı</div>
+                  </div>
+                  <div class="cuisine-card rounded-2xl p-4 text-center" data-cuisine="Akdeniz Mutfağı" onclick="selectCuisine(this)" tabindex="0" role="button" aria-pressed="false">
+                    <div class="text-2xl mb-2">🫒</div>
+                    <div class="font-semibold text-white text-sm">Akdeniz Mutfağı</div>
+                  </div>
+                  <div class="cuisine-card rounded-2xl p-4 text-center" data-cuisine="Vejetaryen" onclick="selectCuisine(this)" tabindex="0" role="button" aria-pressed="false">
+                    <div class="text-2xl mb-2">🥗</div>
+                    <div class="font-semibold text-white text-sm">Vejetaryen</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MALZEME GİRİŞİ -->
+              <div class="mb-8">
+                <h2 class="text-lg font-bold text-white mb-4">2. Malzemeleri Gir</h2>
+
+                <!-- Etiket Girişi -->
+                <div class="rounded-2xl p-4 mb-3" style="background: #1A1A1A; border: 1px solid #3A3A3A;" onclick="document.getElementById('ingredient-input').focus()">
+                  <!-- Tag'lar -->
+                  <div id="tags-container" class="flex flex-wrap gap-2 mb-2 min-h-[28px]"></div>
+
+                  <!-- Input Alanı -->
+                  <input
+                    id="ingredient-input"
+                    type="text"
+                    placeholder="Malzeme yazın ve Enter'a basın (örn: domates, un, tavuk...)"
+                    class="w-full bg-transparent text-white placeholder-gray-600 text-sm focus:outline-none"
+                    autocomplete="off"
+                    aria-label="Malzeme giriş alanı"
+                  />
+                </div>
+
+                <p class="text-gray-600 text-xs mb-4">💡 Virgül veya Enter ile birden fazla malzeme ekleyebilirsiniz</p>
+
+                <!-- Hızlı Öneriler -->
+                <div>
+                  <p class="text-gray-500 text-xs font-medium mb-2 uppercase tracking-wider">Hızlı Ekle:</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="addIngredient('domates')">Domates 🍅</span>
+                    <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="addIngredient('yumurta')">Yumurta 🥚</span>
+                    <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="addIngredient('peynir')">Peynir 🧀</span>
+                    <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="addIngredient('tavuk')">Tavuk 🍗</span>
+                    <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="addIngredient('patates')">Patates 🥔</span>
+                    <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="addIngredient('soğan')">Soğan 🧅</span>
+                    <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="addIngredient('sarımsak')">Sarımsak 🧄</span>
+                    <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="addIngredient('kıyma')">Kıyma 🥩</span>
+                    <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="addIngredient('pirinç')">Pirinç 🍚</span>
+                    <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="addIngredient('makarna')">Makarna 🍝</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DOĞRUDAN YEMEK TARİFİ ALANI -->
+            <div id="direct-mode-fields" class="hidden mb-8">
+              <h2 class="text-lg font-bold text-white mb-4">Hangi Yemeğin Tarifini İstiyorsunuz?</h2>
+              
+              <!-- Yemek Adı Girişi -->
+              <div class="rounded-2xl p-4 mb-3" style="background: #1A1A1A; border: 1px solid #3A3A3A;">
+                <input
+                  id="direct-recipe-input"
+                  type="text"
+                  placeholder="Yemek adı yazın (örn: Kuru Fasulye, Mantı, Lazanya, Sufle...)"
+                  class="w-full bg-transparent text-white placeholder-gray-600 text-sm focus:outline-none"
+                  autocomplete="off"
+                  aria-label="Yemek adı giriş alanı"
+                />
+              </div>
+              <p class="text-gray-600 text-xs mb-4">💡 İstediğiniz yemeğin adını yazın, Merve Şef size en mükemmel tarifi detaylarıyla çıkarsın.</p>
+              
+              <!-- Popüler Arama Önerileri -->
+              <div>
+                <p class="text-gray-500 text-xs font-medium mb-2 uppercase tracking-wider">Popüler Tarifler:</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="setDirectRecipeQuery('Kuru Fasulye')">Kuru Fasulye 🍲</span>
+                  <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="setDirectRecipeQuery('Yaprak Sarması')">Yaprak Sarması 🫔</span>
+                  <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="setDirectRecipeQuery('Karnıyarık')">Karnıyarık 🍆</span>
+                  <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="setDirectRecipeQuery('Mantı')">Mantı 🥟</span>
+                  <span class="suggestion-tag px-3 py-1.5 rounded-full text-xs font-medium text-gray-300" style="background: rgba(255,255,255,0.05); border: 1px solid #333;" onclick="setDirectRecipeQuery('Mercimek Çorbası')">Mercimek Çorbası 🥣</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- HATA MESAJI -->
+            <div id="form-error" class="hidden mb-4 p-4 rounded-xl text-sm font-medium" style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #FCA5A5;"></div>
+
+            <!-- OLUŞTUR BUTONU -->
+            <button
+              id="generate-btn"
+              onclick="handleGenerateSubmit()"
+              class="btn-primary text-white font-bold px-8 py-4 rounded-2xl text-lg w-full flex items-center justify-center gap-3 orange-glow"
+              aria-label="Tarif oluştur"
+            >
+              <span id="generate-icon">🚀</span>
+              <span id="generate-text">Tarif Oluştur</span>
+            </button>
+          </div>
+
+
+
+          <!-- TARİF SONUCU -->
+          <div id="recipe-result" class="hidden">
+
+            <!-- API Key Uyarısı -->
+            <div id="api-key-warning" class="hidden rounded-3xl p-8 mb-6 text-center" style="background: rgba(234,179,8,0.1); border: 1px solid rgba(234,179,8,0.3);">
+              <div class="text-5xl mb-4">🔑</div>
+              <h3 class="font-display text-2xl font-bold text-yellow-300 mb-3">API Anahtarı Gerekli</h3>
+              <p class="text-yellow-200/80 mb-6 max-w-md mx-auto text-sm leading-relaxed">
+                Merve Şef'i etkinleştirmek için backend klasöründeki <code class="bg-black/30 px-1.5 py-0.5 rounded text-yellow-300">.env</code> dosyasına Google Gemini API anahtarınızı eklemeniz gerekiyor.
+              </p>
+              <div class="rounded-xl p-4 text-left text-sm font-mono max-w-sm mx-auto mb-6" style="background: rgba(0,0,0,0.4); border: 1px solid rgba(234,179,8,0.2);">
+                <div class="text-gray-400"># backend/.env dosyası:</div>
+                <div class="text-yellow-300 mt-1">GEMINI_API_KEY=<span class="text-green-400">your_key_here</span></div>
+              </div>
+              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" class="btn-primary text-white font-bold px-6 py-3 rounded-xl inline-flex items-center gap-2 text-sm">
+                🔗 Ücretsiz API Anahtarı Al
+              </a>
+            </div>
+
+            <!-- ÜÇLÜ SEKMELER (TAB'LAR) -->
+            <div class="flex border-b border-gray-800 mb-6 gap-2" id="recipe-tabs-container">
+              <button id="tab-pratik" onclick="switchRecipeTab('pratik')" class="flex-1 py-4 text-center font-bold text-sm sm:text-base border-b-2 border-brand-orange text-brand-orange transition-all">
+                ⚡ Pratik (<span id="tab-pratik-time">-</span>)
+              </button>
+              <button id="tab-geleneksel" onclick="switchRecipeTab('geleneksel')" class="flex-1 py-4 text-center font-bold text-sm sm:text-base border-b-2 border-transparent text-gray-400 hover:text-white transition-all">
+                🏛️ Geleneksel (<span id="tab-geleneksel-time">-</span>)
+              </button>
+              <button id="tab-yaratici" onclick="switchRecipeTab('yaratici')" class="flex-1 py-4 text-center font-bold text-sm sm:text-base border-b-2 border-transparent text-gray-400 hover:text-white transition-all">
+                💡 Yaratıcı (<span id="tab-yaratici-time">-</span>)
+              </button>
+            </div>
+
+            <!-- Başarılı Tarif Sonucu -->
+            <div id="recipe-success-card" class="hidden recipe-card-result rounded-3xl overflow-hidden" style="border: 1px solid rgba(241,90,36,0.3);">
+
+              <!-- Tarif Header -->
+              <div class="p-8" style="background: linear-gradient(135deg, #2D1A0E, #3D2410);">
+                <div class="flex items-start justify-between gap-4">
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-3 flex-wrap">
+                      <span id="result-cuisine-badge" class="text-xs font-bold px-3 py-1 rounded-full" style="background: rgba(241,90,36,0.3); color: #F15A24;"></span>
+                      <span id="result-type-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-white/10 text-gray-300 capitalize"></span>
+                      <span id="result-difficulty-badge" class="text-xs font-medium px-3 py-1 rounded-full bg-white/5 text-gray-400"></span>
+                    </div>
+                    <h2 id="result-title" class="font-display text-3xl sm:text-4xl font-black text-white mb-3"></h2>
+                    <p id="result-description" class="text-gray-300 text-sm leading-relaxed"></p>
+                  </div>
+                  <!-- Favori, Kopyala & Yazdır Butonları -->
+                  <div class="flex flex-col gap-2">
+                    <button onclick="saveFavorite()" id="favorite-btn" class="w-10 h-10 rounded-xl flex items-center justify-center transition-all text-gray-400 hover:text-red-400" style="background: rgba(255,255,255,0.08);" title="Favorilere Ekle" aria-label="Favorilere ekle">❤️</button>
+                    <button onclick="copyRecipeToClipboard()" class="w-10 h-10 rounded-xl flex items-center justify-center transition-all text-gray-400 hover:text-brand-orange" style="background: rgba(255,255,255,0.08);" title="Tarifi Kopyala" aria-label="Tarifi kopyala">📋</button>
+                    <button onclick="printRecipe()" class="w-10 h-10 rounded-xl flex items-center justify-center transition-all text-gray-400 hover:text-white" style="background: rgba(255,255,255,0.08);" title="Yazdır" aria-label="Yazdır">🖨️</button>
+                  </div>
+                </div>
+
+                <!-- Meta Bilgiler -->
+                <div class="flex flex-wrap gap-4 mt-6">
+                  <div class="flex items-center gap-2.5 text-sm bg-white/5 px-3.5 py-1.5 rounded-xl border border-white/5">
+                    <span class="text-brand-orange font-semibold">👥 Porsiyon:</span>
+                    <button onclick="adjustServings(-1)" class="w-5 h-5 rounded-full bg-brand-dark border border-gray-700 hover:border-brand-orange text-white font-bold flex items-center justify-center text-xs transition-all">-</button>
+                    <span class="text-gray-300 font-bold px-1" id="result-servings">—</span>
+                    <button onclick="adjustServings(1)" class="w-5 h-5 rounded-full bg-brand-dark border border-gray-700 hover:border-brand-orange text-white font-bold flex items-center justify-center text-xs transition-all">+</button>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <span class="text-brand-orange">⏱️</span>
+                    <span class="text-gray-300" id="result-prep-time">—</span>
+                    <span class="text-gray-600">hazırlık</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <span class="text-brand-orange">🔥</span>
+                    <span class="text-gray-300" id="result-cook-time">—</span>
+                    <span class="text-gray-600">pişirme</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm">
+                    <span class="text-brand-orange">⏰</span>
+                    <span class="text-gray-300 font-semibold" id="result-total-time">—</span>
+                    <span class="text-gray-600">toplam</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tarif İçerik Alanı -->
+              <div class="p-6 sm:p-8" style="background: #222;">
+
+                <div class="grid lg:grid-cols-3 gap-8">
+
+                  <!-- Malzemeler -->
+                  <div>
+                    <h3 class="font-display text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span>🍳</span> Detaylı Malzemeler
+                    </h3>
+                    <div class="rounded-2xl p-5" style="background: #1A1A1A; border: 1px solid #333;">
+                      <div class="mb-4">
+                        <p class="text-xs text-brand-orange font-semibold uppercase tracking-wider mb-2">Malzeme Listesi</p>
+                        <ul id="result-malzemeler-detay" class="space-y-2 text-sm text-gray-300"></ul>
+                      </div>
+                      
+                      <!-- Geriye dönük uyumluluk / Temel kullanılan malzemeler -->
+                      <div id="basic-ingredients-section" class="hidden">
+                        <div class="section-divider mb-3"></div>
+                        <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-2">Temel Malzemeler</p>
+                        <ul id="result-ingredients-used" class="space-y-1.5 text-sm text-gray-400"></ul>
+                      </div>
+
+                      <div id="additional-ingredients-section" class="hidden">
+                        <div class="section-divider mb-3"></div>
+                        <p class="text-xs text-brand-orange font-semibold uppercase tracking-wider mb-2">Önerilen Ekstralar</p>
+                        <ul id="result-additional-ingredients" class="space-y-1.5 text-sm text-gray-300"></ul>
+                      </div>
+                    </div>
+
+                    <!-- Besin Değerleri -->
+                    <div id="nutrition-card" class="hidden mt-4 rounded-2xl p-5" style="background: #1A1A1A; border: 1px solid #333;">
+                      <h4 class="font-semibold text-white text-sm mb-3 flex items-center gap-2">
+                        <span class="text-brand-orange">📊</span> Besin Değerleri <span class="text-gray-600 text-xs">(tahmini)</span>
+                      </h4>
+                      <div class="space-y-2" id="nutrition-grid"></div>
+                    </div>
+                  </div>
+
+                  <!-- Hazırlanış Adımları -->
+                  <div class="lg:col-span-2">
+                    <h3 class="font-display text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <span>🍳</span> Hazırlanış Adımları
+                    </h3>
+                    
+                    <!-- Yeni detaylı adımlar -->
+                    <ol id="result-hazirlanis-adimlari" class="space-y-4 mb-6"></ol>
+                    
+                    <!-- Geriye dönük uyumluluk / Eski adımlar -->
+                    <ol id="result-steps" class="hidden space-y-4 mb-6"></ol>
+
+                    <!-- Püf Noktaları -->
+                    <div id="puf-noktalari-section" class="hidden mt-6 rounded-2xl p-5" style="background: rgba(241,90,36,0.08); border: 1px solid rgba(241,90,36,0.2);">
+                      <h4 class="font-semibold text-white text-sm mb-3 flex items-center gap-2">
+                        <span>💡</span> Merve Şef'ten Püf Noktaları
+                      </h4>
+                      <ul id="result-puf-noktalari" class="space-y-2.5"></ul>
+                    </div>
+                    
+                    <!-- Geriye dönük uyumluluk / Eski İpuçları -->
+                    <div id="tips-section" class="hidden mt-6 rounded-2xl p-5" style="background: rgba(241,90,36,0.08); border: 1px solid rgba(241,90,36,0.2);">
+                      <h4 class="font-semibold text-white text-sm mb-3 flex items-center gap-2">
+                        <span>💡</span> Merve Şef'ten İpuçları
+                      </h4>
+                      <ul id="result-tips" class="space-y-2"></ul>
+                    </div>
+
+                    <!-- Sunum Önerisi -->
+                    <div id="sunum-section" class="hidden mt-6 rounded-2xl p-5" style="background: rgba(241,90,36,0.05); border: 1px solid rgba(241,90,36,0.15); box-shadow: inset 0 0 15px rgba(241,90,36,0.05);">
+                      <h4 class="font-semibold text-white text-sm mb-3 flex items-center gap-2">
+                        <span>🍽️</span> Influencer Sunum Önerisi
+                      </h4>
+                      <p id="result-sunum-onerisi" class="text-sm text-gray-300 leading-relaxed italic"></p>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <!-- Favori Kaydetme Onay -->
+                <div id="favorite-success-msg" class="hidden mt-4 p-4 rounded-xl text-center text-sm font-medium" style="background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #86EFAC;">
+                  ❤️ Tarif favorilerinize eklendi!
+                </div>
+
+                <!-- Yeni Tarif Butonu -->
+                <div class="flex flex-wrap gap-4 mt-8 justify-center">
+                  <button onclick="resetForm()" class="btn-primary text-white font-bold px-8 py-3 rounded-xl flex items-center gap-2">
+                    🔄 Yeni Tarif Oluştur
+                  </button>
+                  <a href="index.html#recipes" class="font-semibold px-8 py-3 rounded-xl flex items-center gap-2 border border-gray-600 hover:border-brand-orange hover:text-white transition-all duration-300 text-gray-300">
+                    📖 Tariflere Bak
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Genel Hata Kartı -->
+            <div id="recipe-error-card" class="hidden rounded-3xl p-8 text-center" style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3);">
+              <div class="text-5xl mb-4">😔</div>
+              <h3 class="font-display text-2xl font-bold text-red-300 mb-3">Bir Sorun Oluştu</h3>
+              <p id="recipe-error-message" class="text-red-200/80 mb-6 max-w-md mx-auto text-sm"></p>
+              <button onclick="resetForm()" class="btn-primary text-white font-bold px-6 py-3 rounded-xl inline-flex items-center gap-2 text-sm">
+                🔄 Yeni Tarif Ara
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="py-12 px-4 sm:px-6 lg:px-8 mt-8 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl btn-primary flex items-center justify-center text-lg font-bold">M</div>
+          <div>
+            <span class="font-display text-lg font-bold gradient-text">Mervece</span>
+            <span class="font-display text-lg font-bold text-white ml-1">Mutfak</span>
+          </div>
+        </a>
+      </div>
+      <p class="text-gray-600 text-sm">© 2025 Mervece. Tüm hakları saklıdır. ❤️</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+
+  <!-- ═══════════════════════════════════════════
+       MUTFAK TOPLULUK PANELİ
+  ═══════════════════════════════════════════ -->
+  <div id="community-panel" style="border-top:1px solid rgba(241,90,36,0.15);"></div>
+
+  <script src="../community.js"></script>
+  <script>
+    // Auth ve Mobil Menu Yonetimi
+    function updateAuthHeader() {
+      const container = document.getElementById('auth-header-container');
+      const mobileMenu = document.getElementById('chef-mobile-menu');
+      const token = localStorage.getItem('token');
+      const userStr = localStorage.getItem('user');
+
+      const cleanMobileMenu = () => {
+        mobileMenu.innerHTML = `
+          <a href="../index.html" class="block px-4 py-2 text-gray-300 font-medium rounded-lg hover:bg-brand-dark-3 transition-colors">🏠 Mervece Dünyam</a>
+          <a href="./index.html" class="block px-4 py-2 text-white font-medium rounded-lg bg-brand-dark-3">🍳 Mutfak</a>
+          <a href="../vlog/index.html" class="block px-4 py-2 text-gray-300 font-medium rounded-lg hover:bg-brand-dark-3 transition-colors">🎥 Vlog</a>
+          <a href="../elisi/index.html" class="block px-4 py-2 text-gray-300 font-medium rounded-lg hover:bg-brand-dark-3 transition-colors">🧶 Elişi</a>
+        `;
+      };
+      cleanMobileMenu();
+
+      if (token && userStr) {
+        const user = JSON.parse(userStr);
+        let adminBtn = '';
+        if (user.role === 'admin') {
+          adminBtn = `<a href="../admin.html" style="color:#9CA3AF;font-size:0.825rem;font-weight:500;margin-right:8px;border:1px solid rgba(241,90,36,0.2);padding:6px 12px;border-radius:10px;background:rgba(241,90,36,0.05);transition:all 0.3s;" onmouseover="this.style.color='white';this.style.background='rgba(241,90,36,0.1)'" onmouseout="this.style.color='#9CA3AF';this.style.background='rgba(241,90,36,0.05)'">👑 Yönetici Paneli</a>`;
+          
+          const adminLink = document.createElement('a');
+          adminLink.href = '../admin.html';
+          adminLink.className = "block px-4 py-2 text-red-400 font-semibold rounded-lg hover:bg-brand-dark-3 transition-colors";
+          adminLink.textContent = "👑 Yönetici Paneli";
+          mobileMenu.appendChild(adminLink);
+        }
+
+        container.innerHTML = `
+          ${adminBtn}
+          <a href="../profile.html" style="color:white;font-size:0.875rem;font-weight:600;margin-right:12px;display:inline-flex;align-items:center;gap:6px;">👤 ${user.username}</a>
+          <span class="hidden md:flex text-xs font-medium px-3 py-1.5 rounded-full" style="background: rgba(241,90,36,0.15); border: 1px solid rgba(241,90,36,0.3); color: #F15A24;">🍳 Mutfak</span>
+          <button id="chef-mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-brand-dark-3" aria-label="Menü">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        `;
+
+        const profLink = document.createElement('a');
+        profLink.href = '../profile.html';
+        profLink.className = "block px-4 py-2 text-gray-300 font-medium rounded-lg hover:bg-brand-dark-3 transition-colors";
+        profLink.textContent = `👤 Profilim (${user.username})`;
+        mobileMenu.appendChild(profLink);
+
+        const logoutLink = document.createElement('a');
+        logoutLink.href = '#';
+        logoutLink.onclick = (e) => { e.preventDefault(); localStorage.removeItem('token'); localStorage.removeItem('user'); window.location.reload(); };
+        logoutLink.className = "block px-4 py-2 text-red-400 font-semibold rounded-lg hover:bg-brand-dark-3 transition-colors";
+        logoutLink.textContent = "🚪 Çıkış Yap";
+        mobileMenu.appendChild(logoutLink);
+
+      } else {
+        container.innerHTML = `
+          <a href="../auth.html" style="color:#9CA3AF;font-size:0.875rem;font-weight:600;margin-right:12px;transition:color 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#9CA3AF'">Giriş Yap</a>
+          <span class="hidden md:flex text-xs font-medium px-3 py-1.5 rounded-full" style="background: rgba(241,90,36,0.15); border: 1px solid rgba(241,90,36,0.3); color: #F15A24;">🍳 Mutfak</span>
+          <button id="chef-mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-brand-dark-3" aria-label="Menü">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        `;
+
+        const loginLink = document.createElement('a');
+        loginLink.href = '../auth.html';
+        loginLink.className = "block px-4 py-2 text-emerald-400 font-semibold rounded-lg hover:bg-brand-dark-3 transition-colors";
+        loginLink.textContent = "🔑 Giriş Yap / Kayıt Ol";
+        mobileMenu.appendChild(loginLink);
+      }
+
+      const mobileBtn = document.getElementById('chef-mobile-menu-btn');
+      if (mobileBtn) {
+        mobileBtn.onclick = () => {
+          document.getElementById('chef-mobile-menu').classList.toggle('open');
+        };
+      }
+      
+      const isMobile = window.innerWidth <= 768;
+      if (mobileBtn) mobileBtn.style.display = isMobile ? 'flex' : 'none';
+    }
+
+    updateAuthHeader();
+    window.addEventListener('resize', updateAuthHeader);
+
+    initCommunityPanel({
+      section:     'mutfak',
+      containerId: 'community-panel',
+      accentColor: '#F15A24',
+      accentRgb:   '241,90,36',
+      bgColor:     '#1A1A1A',
+      cardBg:      '#222222',
+      borderColor: 'rgba(241,90,36,0.22)',
+      emoji:       '🍳',
+      label:       'Mutfak',
+      apiBase:     'http://localhost:8000',
+    });
+  </script>
+</body>
+</html>

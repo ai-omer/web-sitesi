@@ -1,0 +1,7 @@
+- [ ] Update frontend/index.html to Pinterest Light Mode style, update titles/links
+- [ ] Update frontend/mutfak/index.html to Light Mode, change cuisine names & emojis, add "Defterime Ekle" styling
+- [ ] Update frontend/mutfak/app.js to support the "Merve Şef'in Sırrı" box rendering order, update DOM selectors if necessary
+- [ ] Update frontend/app.js to fix getApiBaseUrl and match DOM selectors
+- [ ] Update frontend/vlog/index.html to Light Mode with lila/pudra pink style
+- [ ] Update frontend/elisi/index.html to Light Mode with sage green / light milk coffee style
+- [ ] Verify styling and functionality across all pages

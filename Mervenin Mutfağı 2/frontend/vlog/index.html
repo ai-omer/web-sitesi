@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mervece Vlog - Merve nin gunluk yasam, seyahat ve yaraticilik videolari yakinда!" />
+  <title>Mervece Vlog - Yakinda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0D1117; color: #E6EDF3; margin: 0; min-height: 100vh; overflow-x: hidden; }
+    .font-display { font-family: 'Outfit', sans-serif; }
+    .gradient-purple { background: linear-gradient(135deg, #7C3AED, #C084FC); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .btn-purple { background: linear-gradient(135deg, #7C3AED, #5B21B6); }
+    .btn-purple:hover { background: linear-gradient(135deg, #A855F7, #7C3AED); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(124,58,237,0.4); }
+    .purple-glow { box-shadow: 0 0 25px rgba(124,58,237,0.35); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #7C3AED; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: flex; }
+    .glass { background: rgba(22,27,34,0.9); border: 1px solid rgba(124,58,237,0.2); backdrop-filter: blur(12px); }
+    .particle { position: absolute; border-radius: 50%; background: rgba(124,58,237,0.12); }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    .animate-float { animation: float 4s ease-in-out infinite; }
+    .animate-fade-in { animation: fadeInUp 0.7s ease-out forwards; }
+    a { text-decoration: none; transition: all 0.3s ease; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(13,17,23,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(124,58,237,0.15);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;">
+      <a href="../index.html" style="display:flex;align-items:center;gap:12px;">
+        <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7C3AED,#5B21B6);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:900;font-size:1.1rem;box-shadow:0 0 20px rgba(124,58,237,0.35);">M</div>
+        <div>
+          <span style="font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;background:linear-gradient(135deg,#7C3AED,#C084FC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Mervece</span>
+          <span style="font-family:'Outfit',sans-serif;font-size:0.7rem;font-weight:600;color:rgba(255,255,255,0.5);margin-left:6px;">Vlog</span>
+        </div>
+      </a>
+      <div style="display:flex;align-items:center;gap:24px;" class="desktop-nav">
+        <a href="../index.html" class="nav-link" style="color:#9CA3AF;font-size:0.875rem;font-weight:500;">🏠 Dünyam</a>
+        <a href="../mutfak/index.html" class="nav-link" style="color:#9CA3AF;font-size:0.875rem;font-weight:500;">🍳 Mutfak</a>
+        <a href="./index.html" class="nav-link" style="color:#A855F7;font-size:0.875rem;font-weight:500;">🎥 Vlog</a>
+        <a href="../elisi/index.html" class="nav-link" style="color:#9CA3AF;font-size:0.875rem;font-weight:500;">🧶 Elişi</a>
+      </div>
+      <span style="font-size:0.75rem;font-weight:600;padding:6px 14px;border-radius:20px;background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);color:#A855F7;" class="desktop-badge">🎥 Vlog</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <main style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 24px 40px;">
+
+    <!-- Dekor partiküller -->
+    <div class="particle" style="width:350px;height:350px;top:-100px;right:-100px;animation:float 8s ease-in-out infinite;"></div>
+    <div class="particle" style="width:200px;height:200px;bottom:80px;left:-60px;animation:float 6s ease-in-out infinite;animation-delay:2s;"></div>
+    <div class="particle" style="width:120px;height:120px;top:35%;right:12%;animation:float 5s ease-in-out infinite;animation-delay:4s;background:rgba(168,85,247,0.1);"></div>
+
+    <!-- Merkez içerik -->
+    <div style="position:relative;z-index:10;text-align:center;max-width:640px;animation:fadeInUp 0.8s ease-out forwards;">
+      <!-- İkon -->
+      <div style="width:112px;height:112px;border-radius:24px;background:linear-gradient(135deg,#7C3AED,#5B21B6);display:flex;align-items:center;justify-content:center;font-size:3.5rem;margin:0 auto 2rem;box-shadow:0 0 30px rgba(124,58,237,0.4);" class="animate-float">🎬</div>
+
+      <!-- Badge -->
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:99px;background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);color:#A855F7;font-size:0.875rem;font-weight:500;margin-bottom:1.5rem;">
+        <span style="width:8px;height:8px;border-radius:50%;background:#7C3AED;animation:float 2s ease-in-out infinite;"></span>
+        Çok yakında geliyor
+      </div>
+
+      <!-- Başlık -->
+      <h1 style="font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(3rem,8vw,5rem);line-height:1.1;margin-bottom:1rem;">
+        Mervece<br/>
+        <span style="background:linear-gradient(135deg,#7C3AED,#C084FC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Vlog</span>
+      </h1>
+
+      <p style="color:#8B949E;font-size:1.1rem;line-height:1.7;margin-bottom:2.5rem;">
+        Merve'nin gözünden hayat — seyahat notları, günlük anlar, mutfak sırları ve ilham dolu içerikler burada olacak.
+      </p>
+
+      <!-- Progress kartı -->
+      <div class="glass" style="border-radius:20px;padding:24px;margin-bottom:2.5rem;text-align:left;">
+        <p style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;text-align:center;margin-bottom:1.25rem;">🛠️ Yapım Aşamasında</p>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#8B949E;margin-bottom:6px;"><span>İçerik Planlama</span><span>100%</span></div>
+            <div style="height:6px;border-radius:99px;background:rgba(124,58,237,0.15);"><div style="width:100%;height:6px;border-radius:99px;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#8B949E;margin-bottom:6px;"><span>Çekim</span><span>60%</span></div>
+            <div style="height:6px;border-radius:99px;background:rgba(124,58,237,0.15);"><div style="width:60%;height:6px;border-radius:99px;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:#8B949E;margin-bottom:6px;"><span>Kurgu &amp; Düzenleme</span><span>25%</span></div>
+            <div style="height:6px;border-radius:99px;background:rgba(124,58,237,0.15);"><div style="width:25%;height:6px;border-radius:99px;background:linear-gradient(90deg,#7C3AED,#C084FC);"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Butonlar -->
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+        <a href="../index.html" class="btn-purple" style="color:white;font-family:'Outfit',sans-serif;font-weight:700;padding:14px 32px;border-radius:16px;display:inline-flex;align-items:center;gap:8px;">🏠 Dünyam'a Dön</a>
+        <a href="../mutfak/index.html" style="color:#A855F7;font-weight:600;padding:14px 32px;border-radius:16px;display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(124,58,237,0.3);" onmouseover="this.style.background='rgba(124,58,237,0.1)'" onmouseout="this.style.background=''">🍳 Mutfağa Git</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="padding:32px 24px;text-align:center;border-top:1px solid rgba(124,58,237,0.15);">
+    <a href="../index.html" style="display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;">
+      <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#7C3AED,#5B21B6);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:900;">M</div>
+      <span style="font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;background:linear-gradient(135deg,#7C3AED,#C084FC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Mervece</span>
+    </a>
+    <p style="color:#4B5563;font-size:0.875rem;">© 2025 Mervece. Tüm hakları saklıdır. 💜</p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       VLOG TOPLULUK PANELİ
+  ═══════════════════════════════════════════ -->
+  <div id="community-panel" style="border-top:1px solid rgba(124,58,237,0.15);"></div>
+
+  <script src="../community.js"></script>
+  <script>
+    initCommunityPanel({
+      section:     'vlog',
+      containerId: 'community-panel',
+      accentColor: '#7C3AED',
+      accentRgb:   '124,58,237',
+      bgColor:     '#0D1117',
+      cardBg:      '#161B22',
+      borderColor: 'rgba(124,58,237,0.22)',
+      emoji:       '🎬',
+      label:       'Vlog',
+      apiBase:     'http://localhost:8000',
+    });
+  </script>
+
+</body>
+</html>
+
